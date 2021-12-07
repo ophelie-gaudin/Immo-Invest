@@ -17,7 +17,8 @@ end
   Project.create(
     title: Faker::Lorem.sentence(word_count: 3),
     localization: Faker::Address.city(options: { with_state: true }),
-    comment: Faker::Lorem.paragraph
+    comment: Faker::Lorem.paragraph,
+    user_id: User.all.sample.id
   )
 end
 
@@ -26,6 +27,7 @@ end
     ad_price: Faker::Number.number(digits:6),
     property_category: Faker::String.random(length: 4),
     localization: Faker::Address.city(options: { with_state: true }),
-    ad_url: Faker::Internet.url 
+    ad_url: Faker::Internet.url,
+    project_id: Project.all.sample.id
   )
 end

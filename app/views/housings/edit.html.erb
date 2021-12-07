@@ -1,0 +1,99 @@
+<%= form_with(model: @housing, url: housing_path, method: "put", local: true) do |f| %>
+
+ <%= label_tag(:localization, "Localisation du bien :") %>
+ <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+
+<br />
+
+<%= label_tag(:ad_price, "Prix de l'annonce :") %>
+ <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
+
+<br />
+
+  <%= label_tag(:property_category, "Type de bien :") %>
+  <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4' ], class: 'form-control', value: @housing.property_category %> 
+  
+<br />
+
+ <%= label_tag(:comment, "Vos notes :") %>
+ <%= f.text_area :comment, class: 'form-control', value: @housing.comment %>
+
+<br />
+
+ <%= label_tag(:area, "Surface habitable :") %>
+ <%= f.number_field :area, class: 'form-control', value: @housing.area %>
+
+<br />
+
+ <%= label_tag(:ad_url, "Lien vers l'annonce :") %>
+ <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
+
+<br />
+
+ <%= label_tag(:offer_price, "Prix de votre offre :") %>
+ <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
+
+<br />
+
+ <%= label_tag(:repairs_price, "Prix des travaux :") %>
+ <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
+
+<br />
+
+ <%= label_tag(:annual_rent, "Loyer annuel complet :") %>
+ <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
+
+<br />
+
+
+ <%= label_tag(:notary_fees, "Frais de notaire :") %>
+ <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
+
+<br />
+
+ <%= label_tag(:agency_fees, "Frais d'agence :") %>
+ <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
+
+<br />
+
+ <%= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
+ <%= label_tag(:pno_insurance, "Assurance PNO ") %>
+
+<br />
+
+ <%= label_tag(:property_tax, "Taxe foncière :") %>
+ <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+
+<br />
+
+ <%= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
+ <%= label_tag(:rental_management, "Gestion locative") %>
+
+<br />
+
+ <%= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
+ <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés") %>
+
+<br />
+
+ <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
+ <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+
+<br />
+
+ <%= label_tag(:maintenance_percentage, "Pourcentage de vacance locative :") %>
+ <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
+
+<br />
+
+
+
+
+
+
+
+ <%= f.submit "Balance ton gossip!"%>
+
+ </div>
+
+ <%end%>
