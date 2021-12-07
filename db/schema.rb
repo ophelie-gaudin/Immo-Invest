@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2021_12_07_104402) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.integer "id_user"
     t.string "title"
     t.string "localization"
     t.string "comment"
