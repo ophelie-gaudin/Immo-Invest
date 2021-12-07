@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "statics#contact"
   resources :housings
   resource 'users',only:[:show,:edit], :path => "my-profile"
   resources 'projects', only:[:index], :path => "dashboard"
