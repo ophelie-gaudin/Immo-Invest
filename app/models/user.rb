@@ -5,6 +5,6 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
   has_many :projects
   has_many :housings, through: :project
-  validate :email, presence: true
-  validate :password, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
 end
