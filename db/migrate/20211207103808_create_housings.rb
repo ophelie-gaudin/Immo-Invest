@@ -19,6 +19,8 @@ class CreateHousings < ActiveRecord::Migration[5.2]
       t.integer :building_co_tax
       t.integer :maintenance_percentage
 
+      t.belongs_to :project, index: true
+
       t.timestamps
     end
   end

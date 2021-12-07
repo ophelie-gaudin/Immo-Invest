@@ -5,6 +5,9 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :title 
       t.string :localization
       t.string :comment
+
+      t.belongs_to :user, index: true
+
       t.timestamps
     end
   end
