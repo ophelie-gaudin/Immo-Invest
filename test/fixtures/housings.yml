@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ad_price: 
+  property_category: 
+  localization: 
+  area: 
+  ad_url: 
+  comment: 
+  offer_price: 
+  repairs_price: 
+  annual_rent: 
+  notary_fees: 
+  agency_fees: 
+  pno_insurance: 
+  property_tax: 
+  rental_management: 
+  rental_unpayment_insurance: 
+  building_co_tax: 
+  maintenance_percentage: 
+
+two:
+  ad_price: 
+  property_category: 
+  localization: 
+  area: 
+  ad_url: 
+  comment: 
+  offer_price: 
+  repairs_price: 
+  annual_rent: 
+  notary_fees: 
+  agency_fees: 
+  pno_insurance: 
+  property_tax: 
+  rental_management: 
+  rental_unpayment_insurance: 
+  building_co_tax: 
+  maintenance_percentage: 
