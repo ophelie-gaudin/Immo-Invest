@@ -77,7 +77,7 @@ class HousingsController < ApplicationController
             puts '##################################################################'
             puts price
 
-            profitability = ((housing.annual_rent*(1-housing.rental_vacancy)) - housing.repairs_price - fees) * 100 / (price + (price*housing.notary_fees) + (price*housing.agency_fees)) * 100
+            profitability = ((housing.annual_rent*(1-housing.rental_vacancy)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
         end
     
         @housing.update(
