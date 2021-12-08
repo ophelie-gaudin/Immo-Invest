@@ -76,6 +76,11 @@
 
 <br />
 
+ <%= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
+ <%= label_tag(:new_property, "Neuf") %>
+
+<br />
+
  <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
  <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
 
@@ -85,6 +90,10 @@
  <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
 
 <br />
+ <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
+ <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
+
+<br />
 
 
 
@@ -92,7 +101,7 @@
 
 
 
- <%= f.submit "Balance ton gossip!"%>
+ <%= f.submit "Finir la saisie d'informations"%>
 
  </div>
 
