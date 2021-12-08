@@ -11,6 +11,7 @@
           <i class="bi bi-person"></i>
         </a>
       </li>
+       <% if current_user.present? == true%>
       <li class="nav-item dropdown dropdown-hover d-none d-lg-block">
         <a class="nav-link nav-icon" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
@@ -21,7 +22,9 @@
               href="<%= user_path %>">Dashboard</a></li>
           <li><a class="dropdown-item "
               href="../account-settings.html">Settings</a></li>
+          
           <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>"data-confirm="Are you sure?" data-method="delete">Deconnection</a></li>
+          <%end%>
         </ul>
       </li>
       <li class="nav-item d-lg-none">
@@ -35,26 +38,29 @@
     <!-- primary -->
     <div class="collapse navbar-collapse" id="navbar" data-bs-parent="#mainNav">
       <ul class="navbar-nav">
+        <% if current_user.present? == true %>
         <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Landings
+           Ce qu'on veut 
           </a>
     
         </li>
         <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Pages
+            Ce qu'on veut x2 
           </a>
         </li>
+        
         <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle" href="<%= user_path %>" id="navbarDropdown-3" role="button" data-bs-toggle="dropdown"
             aria-expanded="false" data-bs-auto-close="outside">
-            Account
+            Dashboard
           </a>
-
+         <%end%>
         </li>
+        <% if current_user.present? == false %>
         <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle" href="<%= new_user_session_path %>" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown"
             aria-expanded="false" data-bs-auto-close="outside">
@@ -67,7 +73,7 @@
             aria-expanded="false" data-bs-auto-close="outside">
             Inscription
           </a>
-          
+        <%end%>
         </li>
       </ul>
     </div>
