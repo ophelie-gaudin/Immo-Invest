@@ -1,29 +1,47 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<section class="bg-black overflow-hidden">
+    <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
+      <div class="row align-items-center justify-content-center my-auto">
+        <div class="col-md-10 col-lg-8 col-xl-5">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+          <div class="card">
+            <div class="card-header bg-white text-center pb-0">
+              <h5 class="fs-4">Register</h5>
+            </div>
+            <div class="card-body bg-white">
+              
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <form action="#">
+                <div class="form-floating mb-2">
+                  
+                  <input type="email" name='email'class="form-control" id="email" >
+                  <label for="floatingInput">Adresse Email</label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input type="password" name='password' class="form-control" id="password" >
+                  <label for="floatingPassword">Password</label>
+                </div>
+                 <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                   <% end %><br />
+                 <div class="form-floating mb-2">
+                  <input type="password" name='password_confirmation' class="form-control" id="password_confirmation" >
+                  <label for="floatingPassword">Confirmation Password</label>
+                </div>
+                <div class="d-grid mb-2">
+                  <%= f.submit "Sign up", class:'btn btn-lg btn-primary' %>
+                  
+                </div>
+              </form>
+            <%end%>
+            </div>
+            <div class="card-footer bg-opaque-black inverted text-center">
+              <p class="text-secondary">Already have an account? <a href="sign-in.html" class="underline">Sign In</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </section>
