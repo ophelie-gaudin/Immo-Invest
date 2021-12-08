@@ -1,4 +1,5 @@
 class HousingsController < ApplicationController
+    before_action :set_user
 
     def index
         
@@ -38,5 +39,12 @@ class HousingsController < ApplicationController
             maintenance_percentage: params[:housing][:maintenance_percentage]
             )
     end
+
+    private
+
+    def set_user
+        @user = current_user
+    end
+
 
 end

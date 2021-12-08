@@ -1,39 +1,42 @@
 
-<section class="bg-black overflow-hidden">
+  <section class="bg-black overflow-hidden">
     <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
       <div class="row align-items-center justify-content-center my-auto">
         <div class="col-md-10 col-lg-8 col-xl-5">
 
           <div class="card">
             <div class="card-header bg-white text-center pb-0">
-              <h5 class="fs-4">Register</h5>
+              <h5 class="fs-4">Inscription</h5>
             </div>
             <div class="card-body bg-white">
-              
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <form action="#">
+              <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jASccM2l1hhlbqRQAKKtVVMomIJ+zIWieCgokgr9HcA7ljTrJWUkYxOOvsXZhM7G3WfDMhEAtnkBYHtzq7m+2w==">
+
+                <div class="form-floating mb-2">
+                  <label for="user_email" ></label><br>
+                  <p>Adresse Email<p>
+                  <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email"class="form-control"  >
+                </div>
+
                 <div class="form-floating mb-2">
                   
-                  <input type="email" name='email'class="form-control" id="email" >
-                  <label for="floatingInput">Adresse Email</label>
+                  <label for="user_password"></label>
+                  <em></em>
+                  <br>
+                    <p>Password (6 characters minimum)<p>
+                  <input autocomplete="new-password" type="password" name="user[password]" id="user_password" class="form-control" >
                 </div>
+
                 <div class="form-floating mb-2">
-                  <input type="password" name='password' class="form-control" id="password" >
-                  <label for="floatingPassword">Password</label>
+                  <label for="user_password_confirmation"></label><br>
+                  <p>Confirmation Password<p>
+                  <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
                 </div>
-                 <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
-                   <% end %><br />
-                 <div class="form-floating mb-2">
-                  <input type="password" name='password_confirmation' class="form-control" id="password_confirmation" >
-                  <label for="floatingPassword">Confirmation Password</label>
-                </div>
+
                 <div class="d-grid mb-2">
-                  <%= f.submit "Sign up", class:'btn btn-lg btn-primary' %>
-                  
+                  <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
                 </div>
               </form>
-            <%end%>
+
             </div>
             <div class="card-footer bg-opaque-black inverted text-center">
               <p class="text-secondary">Already have an account? <a href="sign-in.html" class="underline">Sign In</a>
@@ -43,5 +46,6 @@
         </div>
       </div>
     </div>
-   
+    <div class="background background-overlay" ><%= image_tag 'cloud' , size: '1920x1380'%> </div>
+
   </section>
