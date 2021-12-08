@@ -1,5 +1,5 @@
 class StaticsController < ApplicationController
-  def contact
-    
-  end
-end
+    def home
+        
+    end
+end 

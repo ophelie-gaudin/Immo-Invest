@@ -1,4 +1,5 @@
 class HousingsController < ApplicationController
+    before_action :set_user
 
     def index
         
@@ -96,6 +97,7 @@ class HousingsController < ApplicationController
             rental_management: params[:housing][:rental_management],
             rental_unpayment_insurance: params[:housing][:rental_unpayment_insurance],
             building_co_tax: params[:housing][:building_co_tax],
+
             maintenance_percentage: params[:housing][:maintenance_percentage],
             rental_vacancy: params[:housing][:rental_vacancy],
             new_property: params[:housing][:new_property]
@@ -109,6 +111,13 @@ class HousingsController < ApplicationController
         redirect_to housing_path
 
     end
+
+    private
+
+    def set_user
+        @user = current_user
+    end
+
 
 end
 
