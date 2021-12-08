@@ -1,6 +1,6 @@
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-light" style='position: relative'>
   <div class="container">
-    <a href="../index.html" class="navbar-brand"><img src="../assets/images/logo/logo-dark.svg" alt="Logo"></a>
+    <a href="<%=root_path%>" class="navbar-brand"><img src="../assets/images/logo/logo-dark.svg" alt="Logo"></a>
 
     <!-- secondary -->
     <ul class="navbar-nav navbar-nav-secondary order-lg-3">
@@ -18,10 +18,10 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item active"
-              href="../account.html">Dashboard</a></li>
+              href="<%= user_path %>">Dashboard</a></li>
           <li><a class="dropdown-item "
               href="../account-settings.html">Settings</a></li>
-          <li><a class="dropdown-item text-red" href="#">Deconnection</a></li>
+          <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>"data-confirm="Are you sure?" data-method="delete">Deconnection</a></li>
         </ul>
       </li>
       <li class="nav-item d-lg-none">
@@ -49,9 +49,23 @@
           </a>
         </li>
         <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-3" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link dropdown-toggle" href="<%= user_path %>" id="navbarDropdown-3" role="button" data-bs-toggle="dropdown"
             aria-expanded="false" data-bs-auto-close="outside">
             Account
+          </a>
+
+        </li>
+        <li class="nav-item dropdown dropdown-hover">
+          <a class="nav-link dropdown-toggle" href="<%= new_user_session_path %>" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" data-bs-auto-close="outside">
+            Connection
+          </a>
+          
+        </li>
+        <li class="nav-item dropdown dropdown-hover">
+          <a class="nav-link dropdown-toggle" href="<%= new_user_registration_path %>" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" data-bs-auto-close="outside">
+            Inscription
           </a>
           
         </li>
