@@ -1,26 +1,41 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<section class="bg-black overflow-hidden">
+    <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
+      <div class="row align-items-center justify-content-center my-auto">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+          <div class="card">
+            <div class="card-header bg-white text-center pb-0">
+              <h5 class="fs-3">Connection</h5>
+            </div>
+            <div class="card-body bg-white">
+              <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="GUBWFqfTTGRtoZF39jxa7OZmKQwR7N3kI4Xyp/jGF69UVGXkhoj8kn8ZIJcfjK9yePiqxJcHaFCqE7wf5b2+4w==">
+                <div class="form-floating mb-2">
+                  <label for="user_email"></label><br>
+                   <p>Email</p>
+                  <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control">
+                </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+                <div class="form-floating mb-2">
+                  <label for="user_password"></label><br>
+                  <p>Password</p>
+                  <input autocomplete="current-password" type="password" name="user[password]" id="user_password" class="form-control">
+                </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                  <div class="form-floating mb-2">
+                    <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" > Se Souvenir de moi 
+                    
+                    <label for="user_remember_me"></label>
+                  </div>
+
+                <div class="d-grid mb-2ns">
+                  <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class='btn btn-lg btn-primary'>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
+<div class="background background-overlay" ><%= image_tag 'cloud' , size: '1920x1380'%> </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
