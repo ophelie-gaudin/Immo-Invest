@@ -6,8 +6,7 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
   has_many :projects
   has_many :housings, through: :project
-  validates :email, presence: true
-  validates :password, presence: true
+
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
