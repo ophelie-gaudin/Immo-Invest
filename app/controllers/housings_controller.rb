@@ -33,7 +33,7 @@ class HousingsController < ApplicationController
             rental_unpayment_insurance: 0,
             building_co_tax: 0,
             maintenance_percentage: 0.02,
-            rental_vacancy: 0.055
+           # rental_vacancy: 0.055
            )
 
     end
