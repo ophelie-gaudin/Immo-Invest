@@ -36,7 +36,7 @@ class HousingsController < ApplicationController
             rental_unpayment_insurance: params[:housing][:rental_unpayment_insurance],
             building_co_tax: params[:housing][:building_co_tax],
             maintenance_percentage: params[:housing][:maintenance_percentage]
-          )
+            )
     end
 
 end
