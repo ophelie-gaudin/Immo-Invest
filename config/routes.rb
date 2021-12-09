@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
   resources :housings
-  resource 'user',only:[:show], :path => "my-profile"
+  resources 'users',only:[:show], :path => "my-profile"
   resources 'projects', only:[:index], :path => "dashboard"
   resource 'projects', only:[:show]
   
