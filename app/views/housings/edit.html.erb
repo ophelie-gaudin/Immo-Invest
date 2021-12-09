@@ -94,8 +94,10 @@
  <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
 
 <br />
+  <%= label_tag(:pictures, "Ajouter vos images") %>
+  <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
 
-
+<br />
 
 
 
