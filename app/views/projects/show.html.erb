@@ -4,10 +4,38 @@
     </div> 
     
     <div>
-      <h5><%=@project.localization %> </h5>
+      <h5><%=@project.localization %></h5>
     </div>
 
     <div >
-      <p ><%=@project.comment%></p>
+      <p><%=@project.comment%></p>
     </div>
-   <%= link_to 'Le formulaire du logement', housing_path %> 
+
+
+
+<table class="table caption-top">
+  <caption>Liste des logements séléctionnés</caption>
+
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Type de bien</th>
+      <th scope="col">Prix de l'offre proposée</th>
+      <th scope="col">Rentabilité nette</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%Housing.all.each do |housing|%>
+      <tr>
+        <th scope="row">1</th>
+          <td><%=@housing.property_category%></td>
+          <td><%=@housing.offer_price%></td>
+          <td><%=@housing.offer_profitability%></td>
+          <td><a class="btn btn-light" href="<%=housing_path(housing.id)%>">Fiche du logement</a></td>
+      </tr>
+    <%end%>
+  </tbody>
+    
+</table>
+
+    <%= link_to 'Ajouter un logement', new_housing_path %>

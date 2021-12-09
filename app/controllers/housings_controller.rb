@@ -2,7 +2,7 @@ class HousingsController < ApplicationController
     before_action :set_user
 
     def index
-        
+
     end
 
     def edit
@@ -11,6 +11,9 @@ class HousingsController < ApplicationController
 
     def show
         @housing = Housing.find(params[:id])
+        @housing_title =@housing.property_category
+        @housing_price = @housing.offer_price
+        @housing_profitability = @housing.offer_profitability
 
     end
 

@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
     before_action :set_user
     
     def index
-        @project= Project.all    
+        @project= Project.all
     end
 
     def new
@@ -15,6 +15,11 @@ class ProjectsController < ApplicationController
         @project_localization = @project.localization 
         @project_comment = @project.comment
         @project_id = @project.user_id.to_i
+        @housing = Housing.find(params[:id])
+        @housing_title =@housing.property_category
+        @housing_price = @housing.offer_price
+        @housing_profitability = @housing.offer_profitability
+
 
     end
 
