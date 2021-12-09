@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource 'projects', only:[:show]
   
   scope 'admin', module: 'admin', as: 'admin' do
-    resource :pannel
+    resource 'pannel'
 
   end
 

@@ -1,9 +1,5 @@
 module Admin
-  class PannelsController < ApplicationController
-
-    def index
-      @user = current_user
-    end
+  class PannelsController < ::ApplicationControllers
 
     def new
 
@@ -14,7 +10,7 @@ module Admin
     end
 
     def show
-
+     
     end
 
   end
