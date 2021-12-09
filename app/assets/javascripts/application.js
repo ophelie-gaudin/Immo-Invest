@@ -28,6 +28,6 @@ import "./modules/isotope";
 import "./modules/offcanvas";
 import "./modules/forms";
 import "./modules/nouislider";
-import "./modules/counter";
+// import "./modules/counter";
 import "./modules/typed";
 import "./modules/smooth-scroll";
