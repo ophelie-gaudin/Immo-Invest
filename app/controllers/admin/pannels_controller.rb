@@ -1,6 +1,6 @@
 module Admin
-  class PannelsController < ::ApplicationControllers
-
+  class PannelsController < ApplicationController
+    before_action :only_admin
     def new
 
     end
@@ -11,6 +11,15 @@ module Admin
 
     def show
      
+    end
+
+    private 
+
+    def only_admin
+      if !user_signed_in?
+        redirect_to root_path
+      end
+
     end
 
   end
