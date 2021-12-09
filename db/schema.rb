@@ -54,6 +54,10 @@ ActiveRecord::Schema.define(version: 2021_12_08_141520) do
     t.boolean "rental_unpayment_insurance"
     t.integer "building_co_tax"
     t.integer "maintenance_percentage"
+    t.integer "ad_profitability"
+    t.integer "offer_profitability"
+    t.boolean "new_property"
+    t.integer "rental_vacancy"
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
