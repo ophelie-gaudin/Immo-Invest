@@ -1,1 +1,28 @@
-INDEX
+
+<div class="container">
+  <div class="d-flex justify-content-around flex-wrap">
+
+<%@project.each do |project|%>
+
+  <div class='m-4 col-md-3'>
+    <div>
+      <h3><%=project.title%></h3>
+    </div> 
+    
+    <div>
+      <h5><%=project.localization %> </h5>
+    </div>
+
+    <div >
+      <p ><%=project.comment%></p>
+    </div>
+
+    <div class="card-body d-flex flex-column align-items-center">
+      <%= link_to 'Le projet', project_path(project.id) %>   
+    </div>
+  </div>
+
+<%end%>
+</div>
+</div>
+<a href="<%=new_project_path%>" role="button">Creer un projet</a>
