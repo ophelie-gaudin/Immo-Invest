@@ -23,11 +23,28 @@ end
 end
 
 5.times do 
-  Housing.create(
+  @housing = Housing.create(
     ad_price: Faker::Number.number(digits:6),
     property_category: Faker::String.random(length: 4),
     localization: Faker::Address.city(options: { with_state: true }),
     ad_url: Faker::Internet.url,
-    project_id: Project.all.sample.id
+    project_id: Project.all.sample.id,
+
+    offer_price: 0,
+    repairs_price: 0,
+    annual_rent: 0,
+
+    pno_insurance: 0,
+    property_tax: 0,
+    rental_management: 0,
+    rental_unpayment_insurance: 0,
+    building_co_tax: 0,
+    maintenance_percentage: 0.02,
+    rental_vacancy: 0.055
+  )
+
+  Housing.last.update(
+    notary_fees: @housing.ad_price * 0.08,
+    agency_fees:  @housing.ad_price * 0.08
   )
 end
