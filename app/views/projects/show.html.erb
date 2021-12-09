@@ -25,13 +25,13 @@
     </tr>
   </thead>
   <tbody>
-  <%Housing.all.each do |housing|%>
+  <%@housings.each do |housing|%>
       <tr>
         <th scope="row">1</th>
-          <td><%=@housing.property_category%></td>
-          <td><%=@housing.offer_price%></td>
-          <td><%=@housing.localization%></td>
-          <td><%=@housing.offer_profitability%></td>
+          <td><%=housing.property_category%></td>
+          <td><%=housing.offer_price%></td>
+          <td><%=housing.localization%></td>
+          <td><%=housing.offer_profitability%></td>
           <td><a class="btn btn-light" href="<%=project_housing_path(housing.id)%>">Fiche du logement</a></td>
       </tr>
     <%end%>
