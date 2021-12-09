@@ -1,5 +1,5 @@
 class HousingsController < ApplicationController
-    before_action :set_user
+    before_action :set_user_housing
 
     def index
 
@@ -115,10 +115,14 @@ class HousingsController < ApplicationController
 
     private
 
-    def set_user
-        @user = current_user
+    def set_user_housing
+        @project_user = Project.find(params[:project_id].to_i).user_id
+       
+        if @project_user.to_i == current_user.id
+        else
+          redirect_to root_path
+        end
+        
     end
-
-
 end
 
