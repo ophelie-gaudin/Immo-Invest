@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resource 'user',only:[:show], :path => "my-profile"
   resources 'projects', only:[:index], :path => "dashboard"
   resource 'projects', only:[:show]
+  
+  scope 'admin', module: 'admin', as: 'admin' do
+    resources :pannel
+
+  end
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "statics#home"
