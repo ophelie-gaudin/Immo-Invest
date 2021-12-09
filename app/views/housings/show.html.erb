@@ -26,12 +26,12 @@ Notes : <%=@housing.comment%>
 </div>
 
 <div>
-PHOTOS
+PHOTOS : <%#= image_tag @housing.pictures %>
 </div>
 
 <div>
 CARACTERISTIQUES :
-  <%= link_to "Formulaire", edit_housing_path(@housing.id), method: :get, class:"btn btn-info",:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
+  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:"btn btn-info",:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
   <br />
 
   <h3>Somme à financer: </h3>

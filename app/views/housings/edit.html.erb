@@ -1,4 +1,4 @@
-<%= form_with(model: @housing, url: housing_path, method: "put", local: true) do |f| %>
+<%= form_with(model: @housing, url: project_housing_path, method: "put", local: true) do |f| %>
 
  <%= label_tag(:localization, "Localisation du bien :") %>
  <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
@@ -94,8 +94,10 @@
  <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
 
 <br />
+  <%= label_tag(:pictures, "Ajouter vos images") %>
+  <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
 
-
+<br />
 
 
 

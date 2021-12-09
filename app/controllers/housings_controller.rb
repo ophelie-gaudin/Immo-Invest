@@ -1,8 +1,12 @@
 class HousingsController < ApplicationController
-    before_action :set_user
+    # before_action :set_user_housing
 
     def index
-        
+
+    end
+
+    def new
+        @housing = Housing.new
     end
 
     def edit
@@ -11,31 +15,35 @@ class HousingsController < ApplicationController
 
     def show
         @housing = Housing.find(params[:id])
+        @housing_title =@housing.property_category
+        @housing_price = @housing.offer_price
+        @housing_localization = @housing.localization
+        @housing_profitability = @housing.offer_profitability
 
     end
 
     def create
-
         @housing = Housing.create(
-            ad_price: params[:housing][:ad_price],
-            property_category: params[:housing][:property_category],
-            localization: params[:housing][:localization],
-            
+            ad_price: (params[:housing][:ad_price]).to_i,
+            property_category: (params[:housing][:property_category]).to_s,
+            localization: (params[:housing][:localization]).to_s,
             area: 0,
-            offer_price:  params[:housing][:ad_price],
+            offer_price:  (params[:housing][:ad_price]).to_i,
             repairs_price: 0,
             annual_rent: 0,
-            notary_fees: params[:housing][:ad_price] * 0.08,
-            agency_fees:  params[:housing][:ad_price] * 0.08,
+            notary_fees: ((params[:housing][:ad_price]).to_i * 0.08).to_i,
+            agency_fees:  ((params[:housing][:ad_price]).to_i * 0.08).to_i,
             pno_insurance: 0,
             property_tax: 0,
             rental_management: 0,
             rental_unpayment_insurance: 0,
             building_co_tax: 0,
             maintenance_percentage: 0.02,
-            rental_vacancy: 0.055
-           )
+            rental_vacancy: 0.055,
+            project_id: params[:project_id]
 
+        )
+    
     end
 
     
@@ -106,16 +114,20 @@ class HousingsController < ApplicationController
             offer_profitability: calculate_profitability(Housing.find(params[:id]).offer_price)
         )
 
-        redirect_to housing_path
+        redirect_to project_housing_path
 
     end
 
     private
 
-    def set_user
-        @user = current_user
-    end
-
-
+    # def set_user_housing
+    #     @project_user = Project.find(params[:project_id].to_i).user_id
+       
+    #     if @project_user.to_i == current_user.id
+    #     else
+    #       redirect_to root_path
+    #     end
+        
+    # end
 end
 

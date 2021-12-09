@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
-    before_action :set_user
+    before_action :set_user_project, only: [:show]
     
     def index
-        @project= Project.all    
+        @project= Project.all
     end
 
     def new
@@ -16,6 +16,8 @@ class ProjectsController < ApplicationController
         @project_comment = @project.comment
         @project_id = @project.user_id.to_i
 
+        @housings = Housing.where(project_id: params[:id])
+        
     end
 
 
@@ -32,8 +34,14 @@ class ProjectsController < ApplicationController
 
     private
 
-    def set_user
-        @user = current_user
+    def set_user_project
+        @project_user = Project.find(params[:id].to_i).user_id
+       
+        if @project_user.to_i == current_user.id
+        else
+          redirect_to root_path
+        end
+        
     end
 
 end

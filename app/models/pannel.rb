@@ -1,0 +1,2 @@
+class Pannel < ApplicationRecord
+end

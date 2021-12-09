@@ -1,3 +1,42 @@
-SHOW
 
-<a href="<%= %>">voire t'on truc
+    <div>
+      <h3><%=@project.title%></h3>
+    </div> 
+    
+    <div>
+      <h5><%=@project.localization %></h5>
+    </div>
+
+    <div >
+      <p><%=@project.comment%></p>
+    </div>
+
+
+
+<table class="table caption-top">
+  <caption>Liste des logements séléctionnés</caption>
+
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Type de bien</th>
+      <th scope="col">Prix de l'offre proposée</th>
+      <th scope="col">Rentabilité nette</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%@housings.each do |housing|%>
+      <tr>
+        <th scope="row">1</th>
+          <td><%=housing.property_category%></td>
+          <td><%=housing.offer_price%></td>
+          <td><%=housing.localization%></td>
+          <td><%=housing.offer_profitability%></td>
+          <td><a class="btn btn-light" href="<%=project_housing_path(housing.id)%>">Fiche du logement</a></td>
+      </tr>
+    <%end%>
+  </tbody>
+    
+</table>
+
+    <%= link_to 'Ajouter un logement', new_project_housing_path(@project)%>
