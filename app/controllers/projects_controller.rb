@@ -15,14 +15,9 @@ class ProjectsController < ApplicationController
         @project_localization = @project.localization 
         @project_comment = @project.comment
         @project_id = @project.user_id.to_i
-        @housing = Housing.find(params[:id])
-        @housing_title =@housing.property_category
-        @housing_price = @housing.offer_price
-        @housing_localization = @housing.localization
-        @housing_profitability = @housing.offer_profitability
 
-
-
+        @housings = Housing.where(project_id: params[:id])
+        
     end
 
 
