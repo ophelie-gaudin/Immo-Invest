@@ -114,6 +114,7 @@ class HousingsController < ApplicationController
 
     def set_user
         @user = current_user
+        redirect_to root_path
     end
 
 
