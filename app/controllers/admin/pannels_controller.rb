@@ -16,7 +16,9 @@ module Admin
     private 
 
     def only_admin
-      if !user_signed_in?
+      
+
+      if !user_signed_in? || current_user.admin == false
         redirect_to root_path
       end
 
