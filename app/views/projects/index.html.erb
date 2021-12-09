@@ -1,28 +1,52 @@
 
-<div class="container">
-  <div class="d-flex justify-content-around flex-wrap">
-
-<%@project.each do |project|%>
-
-  <div class='m-4 col-md-3'>
-    <div>
-      <h3><%=project.title%></h3>
-    </div> 
-    
-    <div>
-      <h5><%=project.localization %> </h5>
+<section class="pt-10 px-0 pb-xl-5">
+    <div class="container">
+      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
+        <div class="col-lg-14">
+          <h2>Bienvenue sur votre Dashboard</h2>
+          <p>Ici, vous pouvez retrouver tous vos projets actuellement en cours, en crée de nouveaux et acceder a tout vos investissement. </p>
+        </div>
+      </div>
     </div>
-
-    <div >
-      <p ><%=project.comment%></p>
+  </section>
+<section class="py-5 py-xl-10">
+    <div class="container">
+      <div class="row g-3 g-xl-5 mb-5">
+        <div class="col-lg-6">
+          <h3>Mes projets: </h3>
+        </div>
+      </div>
+      
+      <div class="row g-3 g-xl-5">
+        <%@project.each do |project|%>
+        <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up">
+          <a <% link_to '', edit_project_path(project.id) %> class="card border card-arrow">
+            <div class="card-header">
+              
+              <h3 class="card-title"><%=project.title%></h3>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex align-items-center">
+                
+                <div class="ms-2">
+                  <p class="mb-0 lh-1"><%=project.localization %></p>
+                  <p class="mb-0 lh-1"><%=project.comment%></p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <%end%>
+        
+      </div>
     </div>
-
-    <div class="card-body d-flex flex-column align-items-center">
-      <%= link_to 'Le projet', project_path(project.id) %>   
+  </section>
+<section class="pt-3 px-5 pb-xl-5">
+    <div class="container">
+      <div class="row justify-content-end align-items-center gutter-3 gutter-lg-5 ">
+        <div class="col-lg-3 ">
+          <%=link_to 'Creé un nouveau projet', new_project_path , class: 'btn btn-primary rounded-pill'%>
+      </div>
     </div>
-  </div>
-
-<%end%>
-</div>
-</div>
-<a href="<%=new_project_path%>" role="button">Creer un projet</a>
+    </div>
+</section>
