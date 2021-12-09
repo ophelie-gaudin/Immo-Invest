@@ -67,8 +67,9 @@ gem 'devise'
 gem 'table_print'
 gem 'faker'
 
-
 gem 'dotenv-rails'
 
 gem 'mailjet'
+
+gem 'aws-sdk-s3', '~> 1.109'
 
