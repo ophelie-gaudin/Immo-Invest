@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :set_user
+    before_action :set_user_project, only: [:show]
     
     def index
         @project= Project.all
@@ -37,13 +37,14 @@ class ProjectsController < ApplicationController
 
     private
 
-    # def set_user
-    #     @user = User.find(params[:id])
-    #     if @user == current_user
-    #     else
-    #       redirect_to root_path
-    #     end
+    def set_user_project
+        @project_user = Project.find(params[:id].to_i).user_id
+       
+        if @project_user.to_i == current_user.id
+        else
+          redirect_to root_path
+        end
         
-    # end
+    end
 
 end
