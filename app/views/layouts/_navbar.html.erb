@@ -40,10 +40,10 @@
       <ul class="navbar-nav">
         <% if isAdmin? %>
         <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-bs-toggle="dropdown"
+          <p class="nav-link dropdown-toggle" id="navbarDropdown-1" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-           Pannel Administration
-          </a>
+           <%= link_to 'Pannel Administration', admin_pannel_path %>
+          </p>
         <%end%>
 
         <% if isUser? %>
