@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  resources :housings
+  
   resource 'user',only:[:show], :path => "my-profile"
   resources 'projects', only:[:index], :path => "dashboard"
   resource 'projects', only:[:show]
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   resources 'projects', only:[:index,:new,:create,:show], :path => "dashboard"
   # resources :projects
+  resources :projects do 
+  resources :housings 
+  end 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "statics#home"
