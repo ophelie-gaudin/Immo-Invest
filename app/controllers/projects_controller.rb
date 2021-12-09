@@ -10,30 +10,23 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        @project = Project.find(params[current_user.id])
+        @project = Project.find(params[:id])
         @project_title = @project.title 
         @project_localization = @project.localization 
         @project_comment = @project.comment
-        @project_id = @project.user_id.id
+        @project_id = @project.user_id.to_i
 
     end
 
 
     def create
-        puts "@@@@@@@@@@@@@@@@@@@@@@"
-        puts params
-    @project = Project.new(
-        title: params[:title],
-        comment: params[:comment],
-        localization: params[:localization],
-        user: user_id.to_i
+        @project = Project.create(
+        title: params[:project][:title],
+        comment: params[:project][:comment],
+        localization: params[:project][:localization],
+        user_id: current_user.id
         )
-        if @project.save
-            redirect_to projects_path
-        else
-            render "new"
-        end
-
+        redirect_to project_path(@project.id)
     end
 
 

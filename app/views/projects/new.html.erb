@@ -1,24 +1,30 @@
-<%= form_tag url_for(action: 'create'), method: "post" do |f| %>
-
-  <%= label_tag "Titre du projet" %>
-  <%= text_field_tag 'title', @project.title %>
-  <br /> <br />
-
-
-  <%= label_tag "Lieu" %>
-  <%= text_field_tag 'localization', @project.localization %>
-  <br /> <br />
 
 
 
-
-  <%= label_tag "Description du projet" %>
-  <%= text_area_tag 'comment', @project.comment%>
-  <br /> <br />
+<%= form_with(model: @project, url: projects_path, method: "post", local: true) do |f| %>
 
 
-  <%= link_to "Creer votre projet",projects_path, method: :POST%>
+<%= label_tag(:title, "titre du project :") %>
+ <%= f.text_field :title, class: 'form-control', value: @project.title%> 
+
+<br />
+
+
+ <%= label_tag(:localization, "Localisation du bien :") %>
+ <%= f.text_field :localization, class: 'form-control', value: @project.localization %> 
+
+<br />
 
 
 
-<% end %>
+ <%= label_tag(:comment, "Vos notes :") %>
+ <%= f.text_area :comment, class: 'form-control', value: @project.comment %>
+
+<br />
+
+
+ <%= f.submit "Finir la saisie d'informations"%>
+
+ </div>
+
+ <%end%>
