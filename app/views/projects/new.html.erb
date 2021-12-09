@@ -1,0 +1,30 @@
+
+
+
+<%= form_with(model: @project, url: projects_path, method: "post", local: true) do |f| %>
+
+
+<%= label_tag(:title, "titre du project :") %>
+ <%= f.text_field :title, class: 'form-control', value: @project.title%> 
+
+<br />
+
+
+ <%= label_tag(:localization, "Localisation du bien :") %>
+ <%= f.text_field :localization, class: 'form-control', value: @project.localization %> 
+
+<br />
+
+
+
+ <%= label_tag(:comment, "Vos notes :") %>
+ <%= f.text_area :comment, class: 'form-control', value: @project.comment %>
+
+<br />
+
+
+ <%= f.submit "Finir la saisie d'informations"%>
+
+ </div>
+
+ <%end%>
