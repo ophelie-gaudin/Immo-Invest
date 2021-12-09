@@ -53,25 +53,27 @@ ActiveRecord::Schema.define(version: 2021_12_08_141520) do
     t.float "rental_management"
     t.boolean "rental_unpayment_insurance"
     t.integer "building_co_tax"
+<<<<<<< HEAD
+    t.integer "maintenance_percentage"
+=======
     t.float "maintenance_percentage"
     t.float "ad_profitability"
     t.float "offer_profitability"
     t.boolean "new_property"
     t.float "rental_vacancy"
     t.bigint "project_id"
+>>>>>>> development
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_housings_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
+    t.integer "id_user"
     t.string "title"
     t.string "localization"
     t.string "comment"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
