@@ -18,7 +18,9 @@ class ProjectsController < ApplicationController
         @housing = Housing.find(params[:id])
         @housing_title =@housing.property_category
         @housing_price = @housing.offer_price
+        @housing_localization = @housing.localization
         @housing_profitability = @housing.offer_profitability
+
 
 
     end
