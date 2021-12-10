@@ -33,8 +33,8 @@
       <ul class="navbar-nav">
 
         <% if isAdmin? %>
-        <li class="nav-item dropdown dropdown-hover">
-          <p class="nav-link dropdown-toggle" id="navbarDropdown-1" role="button" data-bs-toggle="dropdown"
+        <li class="nav-item">
+          <p class="nav-link" role="button"
             aria-expanded="false">
            <%= link_to 'Pannel Administration', admin_pannel_path %>
           </p>
@@ -42,24 +42,24 @@
 
         <% if isUser? %>
         </li>
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-bs-toggle="dropdown"
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button"
             aria-expanded="false">
             Dashboard
           </a>
         </li>
 
         <% else %>
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="<%= new_user_session_path %>" id="navbarDropdown-4" role="button"
-            aria-expanded="false" data-bs-auto-close="outside">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_session_path %>" role="button"
+            aria-expanded="false">
             Connection
           </a>
           
         </li>
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="<%= new_user_registration_path %>" id="navbarDropdown-4" role="button" 
-            aria-expanded="false" data-bs-auto-close="outside">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_registration_path %>" role="button" 
+            aria-expanded="false">
             Inscription
           </a>
         <%end%>
