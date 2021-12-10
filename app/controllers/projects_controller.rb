@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-   # before_action :set_user_project, only: [:show]
+    before_action :set_user_project, only: [:show]
     
     def index
 
@@ -41,12 +41,19 @@ class ProjectsController < ApplicationController
     redirect_to project_housing_path
   end 
 
-  def edit
-    
-    @project = Project.find(params[:id])
-
+  
+    def edit
+        @project = Project.find(params[:id])
     end
-  end
+    
+    
+    def update
+        @project = Project.find(params[:id])
+        project_params = params.require(:project).permit(:title, :localization, :comment)
+        @project.update(project_params)
+        redirect_to project_path
+    end 
+
 
 
     private
@@ -58,7 +65,7 @@ class ProjectsController < ApplicationController
         else
             redirect_to root_path
         end
-        
+    end    
 end
 
 
