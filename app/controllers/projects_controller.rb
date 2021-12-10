@@ -53,30 +53,18 @@ class ProjectsController < ApplicationController
         redirect_to project_path
     end 
 
-<<<<<<< HEAD
-  end
-=======
->>>>>>> development
 
   private
 
   def set_user_project
     @project_user = Project.find(params[:id].to_i).user_id
 
-<<<<<<< HEAD
     if @project_user.to_i == current_user.id
     else
       redirect_to root_path
     end
   end
         
-=======
-        if @project_user.to_i == current_user.id
-        else
-            redirect_to root_path
-        end
-    end    
->>>>>>> development
 end
 
 
