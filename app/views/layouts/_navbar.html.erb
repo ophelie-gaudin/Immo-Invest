@@ -1,56 +1,40 @@
-  <nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-light" style='position: relative'>
-  <div class="container">
-    <a href="<%=root_path%>" class="navbar-brand"> <%#= image_tag 'logo/logo-dark.svg'%></a>
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-light navbar-sticky" style='position: relative'>
+    <div class="container">
+      <a href="<%=root_path%>" class="navbar-brand">LOGO</a>
 
     <!-- secondary -->
     <ul class="navbar-nav navbar-nav-secondary order-lg-3">
-       <% if current_user.present? == true%>
-      <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href='<%=destroy_user_session_path %>' data-confirm="Are you sure?" data-method="delete" role="button" data-bs-toggle="collapse" data-bs-target="#userNav"
-          aria-expanded="false">
-          <i class="bi bi-person"></i>
-        </a>
-      </li>
-       <%else%>
-       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href="<%= new_user_session_path %>" role="button" data-bs-toggle="collapse" data-bs-target="#userNav"
-          aria-expanded="false">
-          <i class="bi bi-person"></i>
-        </a>
-      </li>
-      <%end%>
       
-       <% if isUser? %>
+      <% if isUser? %>
+
       <li class="nav-item dropdown dropdown-hover d-none d-lg-block">
         <a class="nav-link nav-icon" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           <i class="bi bi-person"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item active"
-              href="<%= %>">Dashboard</a></li>
           <li><a class="dropdown-item "
-              href="<%= user_path(current_user)%>">Settings</a></li>
-          
+            href="<%= user_path(current_user)%>">Profil Utilisateur</a></li>
           <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>"data-confirm="Are you sure?" data-method="delete">Deconnection</a></li>
-          
         </ul>
       </li>
       
+      <%end%>
+
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href='<%= projects_path%>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+        <a class="nav-link nav-icon" role="button" id="navbar" data-bs-toggle="collapse" data-bs-target="#navbar"
           aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </a>
       </li>
     </ul>
-      <%end%>
     <!-- primary -->
-    <div class="collapse navbar-collapse" id="navbar" data-bs-parent="#mainNav">
+    <div class="collapse navbar-collapse" data-bs-parent="#mainNav">
       <ul class="navbar-nav">
+
         <% if isAdmin? %>
-        <li class="nav-item dropdown dropdown-hover">
-          <p class="nav-link dropdown-toggle" id="navbarDropdown-1" role="button" data-bs-toggle="dropdown"
+        <li class="nav-item">
+          <p class="nav-link" role="button"
             aria-expanded="false">
            <%= link_to 'Pannel Administration', admin_pannel_path %>
           </p>
@@ -58,37 +42,57 @@
 
         <% if isUser? %>
         </li>
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-bs-toggle="dropdown"
+        <li class="nav-item">
+          <a class="nav-link" href="<%= projects_path %>" role="button"
             aria-expanded="false">
-            Ce qu'on veut x2 
-          </a>
-        </li>
-        
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="<%=  %>" id="navbarDropdown-3" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false" data-bs-auto-close="outside">
             Dashboard
           </a>
         </li>
+
         <% else %>
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="<%= new_user_session_path %>" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false" data-bs-auto-close="outside">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_session_path %>" role="button"
+            aria-expanded="false">
             Connection
           </a>
           
         </li>
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="<%= new_user_registration_path %>" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false" data-bs-auto-close="outside">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_registration_path %>" role="button" 
+            aria-expanded="false">
             Inscription
           </a>
         <%end%>
+
         </li>
       </ul>
     </div>
- 
-    
-  </div>
+  <!-- mobile user menu -->
+    <% begin %>
+      <div class="collapse account-collapse" id="navbar" data-bs-parent="#mainNav">
+        <ul class="navbar-nav">
+          <% if isUser? %>
+          <li class="nav-item">
+            <a class="nav-link active" href="<%= projects_path %>">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="<%= user_path(current_user)%>">Profil Utilisateur</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-red" href="<%= destroy_user_session_path %>" data-method="delete">Deconnection</a>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link " href="<%= new_user_session_path %>">Connection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="<%= new_user_registration_path %>">Inscription</a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div> 
+    <%end%>
 </nav>
+
+<%= javascript_include_tag 'navbar.js' %>

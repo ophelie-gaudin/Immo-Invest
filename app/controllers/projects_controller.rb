@@ -35,16 +35,30 @@ class ProjectsController < ApplicationController
     end
 
 
+  def destroy 
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to project_housing_path
+  end 
+
+  def edit
+    
+    @project = Project.find(params[:id])
+
+    end
+  end
+
+
     private
 
     def set_user_project
         @project_user = Project.find(params[:id].to_i).user_id
-       
+
         if @project_user.to_i == current_user.id
         else
-          redirect_to root_path
+            redirect_to root_path
         end
         
-    end
-
 end
+
+
