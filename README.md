@@ -1,7 +1,8 @@
 #README 
 
-#Description
-# 1. Présentation
+# Description
+
+### 1. Présentation
 
 Investir dans l'immobilier est quelque chose que nous avons (presque) tous déjà rêvé de faire. Que ce soit pour soi-même ou pour espérer en tirer un revenu régulier, nous pouvons très rapidement nous perdre face à la masse des éléments à prendre en compte et leur complexité.
 
@@ -14,7 +15,7 @@ Lors des visites, certaines informations sont cruciales pour pouvoir faire une a
 Nous souhaitons donc mettre en place un outil lui permettant de récolter ces informations importantes sans risquer d'en oublier, et d'obtenir une analyse objective des biens qu'il a visités.
 
 
-# 2. Parcours utilisateur
+### 2. Parcours utilisateur
 
 L'utilisateur du site doit pouvoir avoir accès aux fonctionnalités suivantes :
 
@@ -32,11 +33,11 @@ L'utilisateur du site doit pouvoir avoir accès aux fonctionnalités suivantes :
 
 
 
-###3. Concrètement et techniquement
+### 3. Concrètement et techniquement
 
 Le site doit être accessible sur ordinateur mais aussi sur téléphone (pour être transporté lors des visites des biens immobiliers) et seulement en ligne après une connexion à son compte utilisateur.
 
-####3.1. Base de données
+#### 3.1. Base de données
 
 3 models principaux: - Utilisateur, - Projet : join table entre un utilisateur et un logement, - Logement : avec les informations liées au bien (lien vers une annonce, remarques personnelles, prix, loyer mensuel perceptible, charges, ...).
 
@@ -49,18 +50,18 @@ Le but est de faire simple et fonctionnel mais il faudra:
 
     mettre un point d'honneur au responsive design.
 
-####3.3. Backend
+#### 3.3. Backend
 
 Ce projet reprend dans les grandes lignes tout ce que nous avons vu jusqu'à présent (Rails, architecture MVC, postgresql, ... ).
 
 
 
-# 4. La version minimaliste mais fonctionnelle qu'il faut avoir livré la première semaine
+### 4. La version minimaliste mais fonctionnelle qu'il faut avoir livré la première semaine
 
 Nous souhaitons proposer un site permettant à chaque utilisateur de se connecter sur un espace personnel référençant ses projets d'investissement immobiliers (investissement locatif seulement pour le moment). Pour chacun des projets, un classement en fonction de la rentabilité brute des biens visités sera disponible et les détails de chaque bien immobilier seront accessibles.
 
 
-# 5. La version que l'on présentera aux jury
+### 5. La version que l'on présentera aux jury
 
 Nous souhaitons à l'issue de la deuxième semaine présenter un outil permettant à l'utilisateur d'avoir une interface de navigation agréable (un soin particulier doit être apporté au niveau du formulaire de saisie des informations de chaque logement puisque cet outil doit pouvoir être utilisé de manière fluide lors d'une visite sur téléphone).
 
@@ -73,7 +74,7 @@ Mettre en place un système de don.
 Optionnel : Une fois que l'utilisateur a choisi le bien pour lequel il va faire une offre, il peut imprimer le dossier pour le proposer à la banque.
 
 
-# 6. Notre mentor
+### 6. Notre mentor
 
 Nico Hermet :)
 
@@ -84,13 +85,13 @@ Nico Hermet :)
 
 Ce projet peut intéresser toute personne qui souhaite investir dans l'immobilier (locatif) et qui aimerait participer à l'élaboration d'un outil facilitant la décision d'achat. Ce projet permet aussi de revoir les notions abordées au cours de ces 2 derniers mois de THP. Quitte à passer deux semaines à coder, autant coder l'outil qui nous permettra peut-être un jour de devenir propriétaire plus sereinement !
 
-# Executive Summary :
+#### Executive Summary : https://pastebin.com/fbKgpL6k
 
-# User Flow :
+#### User Flow :
 
-# Wirefrimes :
+#### Wirefrimes :
 
-# Lien Heroku :
+#### Lien Heroku :
 
 * Developpement :
 * Production :
