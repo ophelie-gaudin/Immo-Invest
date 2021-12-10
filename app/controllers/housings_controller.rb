@@ -1,5 +1,5 @@
 class HousingsController < ApplicationController
-    # before_action :set_user_housing
+    
 
     def index
 
@@ -43,7 +43,7 @@ class HousingsController < ApplicationController
             project_id: params[:project_id]
 
         )
-    
+    redirect_to project_path(@housing.project_id)
     end
 
     
@@ -120,14 +120,6 @@ class HousingsController < ApplicationController
 
     private
 
-    # def set_user_housing
-    #     @project_user = Project.find(params[:project_id].to_i).user_id
-       
-    #     if @project_user.to_i == current_user.id
-    #     else
-    #       redirect_to root_path
-    #     end
-        
-    # end
+
 end
 
