@@ -1,12 +1,12 @@
 class HousingsController < ApplicationController
-    
+    # before_action :set_user_housing
 
     def index
 
     end
 
     def new
-        @housing = Housing.new
+        @housing = Housing.new 
     end
 
     def edit
