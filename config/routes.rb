@@ -2,11 +2,7 @@ Rails.application.routes.draw do
  
   
   resources 'users',only:[:show], :path => "my-profile"
-<<<<<<< HEAD
-  resources 'projects', only:[:index,:new,:create,:show,:edit,:destroy], :path => "dashboard"
-=======
-  resources 'projects', only:[:index,:new,:create,:show,:update], :path => "dashboard"
->>>>>>> development
+  resources 'projects', only:[:index,:new,:create,:show,:edit,:destroy,:update ], :path => "dashboard"
   
   scope 'admin', module: 'admin', as: 'admin' do
     resource 'pannel'
