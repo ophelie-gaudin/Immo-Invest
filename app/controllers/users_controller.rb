@@ -4,7 +4,11 @@ class UsersController < ApplicationController
     def show
         @user = current_user
         @user_email = current_user.email
-        
+        puts "#" * 60
+        puts "#{Rails.application.config.assets.paths}"
+        puts "#" * 60
+        puts "#" * 60
+        puts "#" * 60
     end
 
     private
