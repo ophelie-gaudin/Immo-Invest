@@ -2,8 +2,12 @@
     <div class="container">
       <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
         <div class="col-lg-14">
-          <h2>Mon Projet</h2>
-          <p>Ici, vous pouvez retrouver tous vos projets actuellement en cours, en crée de nouveaux et acceder a tout vos investissement. </p>
+          <h3>Votre projet <%=@project_title%> qui se situe à: <%=@project_localization%></h3>
+            <div class="d-flex flex-row-reverse">
+              <a href="<%= edit_project_path %>" class="btn btn-primary rounded-pill  ">Editer Votre projet</a>
+              <a href="<%= project_path %>" class="btn btn-danger rounded-pill" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
+            </div>
+          <p> <%=@project_comment%> </p>
         </div>
       </div>
     </div>
@@ -16,7 +20,7 @@
       <div class="row g-1" id="grid1" data-isotope="" style="position: relative; height: 1251px;">
         <div class="col-12 filter-design" style="position: absolute; left: 0px; top: 0px;">
           <%@housings.each do |housing|%>
-          <a href="" class="card bg-white card-hover-border">
+          <a href="<%= project_housing_path(@housings)%>" class="card bg-white card-hover-border">
             <div class="card-body">
               <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
                 <div class="col-md-6">
@@ -28,7 +32,7 @@
                 
                 
                 <div class="col-lg-6 text-end">
-                BOUTON // BOUTON // BOUTON 
+                 BOUTON DELETE DE HOUSING
                 </div>
               </div>
             </div>
