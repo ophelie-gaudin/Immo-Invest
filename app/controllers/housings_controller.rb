@@ -1,5 +1,5 @@
 class HousingsController < ApplicationController
-    # before_action :set_user_housing
+    before_action :set_user_housing
 
     def index
 
@@ -43,7 +43,7 @@ class HousingsController < ApplicationController
             project_id: params[:project_id]
 
         )
-    
+    redirect_to project_path(@housing.project_id)
     end
 
     
