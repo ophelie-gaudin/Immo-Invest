@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
-    before_action :set_user_project, only: [:show]
+   # before_action :set_user_project, only: [:show]
     
     def index
-        @project= Project.all
+
+    @projects = Project.where(user_id: current_user.id)    
         
     end
 
@@ -18,6 +19,7 @@ class ProjectsController < ApplicationController
         @project_id = @project.user_id.to_i
 
         @housings = Housing.where(project_id: params[:id])
+      
         
     end
 
@@ -29,7 +31,7 @@ class ProjectsController < ApplicationController
         localization: params[:project][:localization],
         user_id: current_user.id
         )
-        redirect_to project_path(@project.id)
+        redirect_to projects_path
     end
 
 
