@@ -22,7 +22,7 @@
       <%end%>
 
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href='<%= projects_path%>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+        <a class="nav-link nav-icon" role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
           aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </a>
@@ -43,7 +43,7 @@
         <% if isUser? %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" role="button"
+          <a class="nav-link" href="<%= projects_path %>" role="button"
             aria-expanded="false">
             Dashboard
           </a>
