@@ -19,15 +19,27 @@
         </ul>
       </li>
       
-      <%end%>
+      
 
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" role="button" id="navbar" data-bs-toggle="collapse" data-bs-target="#navbar"
+        <a class="nav-link nav-icon" href='<%= projects_path %>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
           aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </a>
       </li>
     </ul>
+    
+    <% else %>
+
+    <li class="nav-item d-lg-none">
+        <a class="nav-link nav-icon" href='<%= new_user_registration_path %>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bi bi-list"></span>
+        </a>
+      </li>
+    </ul>
+    
+    <%end%>
     <!-- primary -->
     <div class="collapse navbar-collapse" data-bs-parent="#mainNav">
       <ul class="navbar-nav">
