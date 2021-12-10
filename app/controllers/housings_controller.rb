@@ -5,6 +5,13 @@ class HousingsController < ApplicationController
 
     end
 
+    def destroy
+        @housing = Housing.find(params[:id])
+        @project = @housing.project_id
+        @housing.destroy
+        redirect_to project_path(@project)
+    end
+
     def new
         @housing = Housing.new 
     end

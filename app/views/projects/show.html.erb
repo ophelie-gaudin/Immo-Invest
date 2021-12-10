@@ -4,8 +4,8 @@
         <div class="col-lg-14">
           <h3>Votre projet <%=@project_title%> qui se situe à: <%=@project_localization%></h3>
             <div class="d-flex flex-row-reverse">
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary rounded-pill  ">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger rounded-pill" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary  ">Editer Votre projet</a>
+              <a href="<%= project_path %>" class="btn btn-danger" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
             </div>
           <p> <%=@project_comment%> </p>
         </div>
@@ -13,26 +13,27 @@
     </div>
   </section>
   
-<section class="py-15 py-xl-20">
+
+<section class="py-0 py-xl-0">
     <div class="container mt-5 mt-xl-10">
       
 
-      <div class="row g-1" id="grid1" data-isotope="" style="position: relative; height: 1251px;">
-        <div class="col-12 filter-design" style="position: absolute; left: 0px; top: 0px;">
+      <div class="row g-1" id="grid1" data-isotope="" >
+        <div class="col-12 filter-design" >
           <%@housings.each do |housing|%>
-          <a href="<%= project_housing_path(@housings)%>" class="card bg-white card-hover-border">
+          <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border">
             <div class="card-body">
               <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
                 <div class="col-md-6">
                   <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // <%=housing.offer_profitability%></p>
                   <ul class="list-inline list-inline-separated text-muted">
-                    <li class="list-inline-item"><%= housing.comment %>Je suis un commentaire  // je suis un commentaire</li>
+                    <li class="list-inline-item"><%= housing.comment %></li>
                   </ul>
                 </div>
                 
                 
                 <div class="col-lg-6 text-end">
-                 BOUTON DELETE DE HOUSING
+                 <%= link_to 'Supprimer', project_housing_path(housing.project_id, housing.id), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer ce logement ? "} %>
                 </div>
               </div>
             </div>
