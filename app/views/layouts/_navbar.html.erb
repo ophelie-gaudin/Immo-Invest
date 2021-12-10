@@ -7,8 +7,8 @@
       
       <% if isUser? %>
 
-      <li class="nav-item dropdown dropdown-hover d-none d-lg-block">
-        <a class="nav-link nav-icon" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      <li class="nav-item dropdown dropdown-hover d-lg-block">
+        <a class="nav-link nav-icon" role="button" href="<%= user_path(current_user)%>" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           <i class="bi bi-person"></i>
         </a>
@@ -19,15 +19,27 @@
         </ul>
       </li>
       
-      <%end%>
+      
 
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" role="button" id="navbar" data-bs-toggle="collapse" data-bs-target="#navbar"
+        <a class="nav-link nav-icon" href='<%= projects_path %>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
           aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="bi bi-list"></span>
+          <i class="bi bi-list"></i>
         </a>
       </li>
     </ul>
+    
+    <% else %>
+
+    <li class="nav-item d-lg-none">
+        <a class="nav-link nav-icon" href='<%= new_user_registration_path %>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list"></i>
+        </a>
+      </li>
+    </ul>
+    
+    <%end%>
     <!-- primary -->
     <div class="collapse navbar-collapse" data-bs-parent="#mainNav">
       <ul class="navbar-nav">
@@ -95,4 +107,4 @@
     <%end%>
 </nav>
 
-<%= javascript_include_tag 'navbar.js' %>
+<%#= javascript_include_tag 'navbar.js' %>
