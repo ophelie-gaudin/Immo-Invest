@@ -1,18 +1,44 @@
-
-    <div>
-      <h3><%=@project.title%></h3>
-    </div> 
-    
-    <div>
-      <h5><%=@project.localization %></h5>
+<section class="pt-10 px-0 pb-xl-5">
+    <div class="container">
+      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
+        <div class="col-lg-14">
+          <h2>Mon Projet</h2>
+          <p>Ici, vous pouvez retrouver tous vos projets actuellement en cours, en crée de nouveaux et acceder a tout vos investissement. </p>
+        </div>
+      </div>
     </div>
+  </section>
+  
+<section class="py-15 py-xl-20">
+    <div class="container mt-5 mt-xl-10">
+      
 
-    <div >
-      <p><%=@project.comment%></p>
+      <div class="row g-1" id="grid1" data-isotope="" style="position: relative; height: 1251px;">
+        <div class="col-12 filter-design" style="position: absolute; left: 0px; top: 0px;">
+          <%@housings.each do |housing|%>
+          <a href="" class="card bg-white card-hover-border">
+            <div class="card-body">
+              <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
+                <div class="col-md-6">
+                  <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> </p>
+                  <ul class="list-inline list-inline-separated text-muted">
+                    <li class="list-inline-item"><%= housing.comment %>Je suis un commentaires  // je suis un commentaires</li>
+                  </ul>
+                </div>
+                
+                
+                <div class="col-lg-6 text-end">
+                BOUTON // BOUTON // BOUTON 
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </a>
+        </div>
+        
+       
     </div>
-
-
-
+  </section>
 <table class="table caption-top">
   <caption>Liste des logements séléctionnés</caption>
 

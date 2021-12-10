@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
         @project_id = @project.user_id.to_i
 
         @housings = Housing.where(project_id: params[:id])
+      
         
     end
 
