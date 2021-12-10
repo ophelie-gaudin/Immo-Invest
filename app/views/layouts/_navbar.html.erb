@@ -4,36 +4,17 @@
 
     <!-- secondary -->
     <ul class="navbar-nav navbar-nav-secondary order-lg-3">
-       <% if current_user.present? == true%>
-      <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href='<%=destroy_user_session_path %>' data-confirm="Are you sure?" data-method="delete" role="button" data-bs-toggle="collapse" data-bs-target="#userNav"
-          aria-expanded="false">
-          <i class="bi bi-person"></i>
-        </a>
-      </li>
-       <%else%>
-       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href="<%= new_user_session_path %>" role="button" data-bs-toggle="collapse" data-bs-target="#userNav"
-          aria-expanded="false">
-          <i class="bi bi-person"></i>
-        </a>
-      </li>
-      <%end%>
       
-       <% if isUser? %>
+      <% if isUser? %>
       <li class="nav-item dropdown dropdown-hover d-none d-lg-block">
         <a class="nav-link nav-icon" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           <i class="bi bi-person"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item active"
-              href="<%= %>">Dashboard</a></li>
           <li><a class="dropdown-item "
-              href="<%= user_path(current_user)%>">Settings</a></li>
-          
+            href="<%= user_path(current_user)%>">Profil Utilisateur</a></li>
           <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>"data-confirm="Are you sure?" data-method="delete">Deconnection</a></li>
-          
         </ul>
       </li>
       
@@ -46,8 +27,9 @@
     </ul>
       <%end%>
     <!-- primary -->
-    <div class="collapse navbar-collapse" id="navbar" data-bs-parent="#mainNav">
+    <div class="collapse navbar-collapse" data-bs-parent="#mainNav">
       <ul class="navbar-nav">
+
         <% if isAdmin? %>
         <li class="nav-item dropdown dropdown-hover">
           <p class="nav-link dropdown-toggle" id="navbarDropdown-1" role="button" data-bs-toggle="dropdown"
@@ -61,16 +43,10 @@
         <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Ce qu'on veut x2 
-          </a>
-        </li>
-        
-        <li class="nav-item dropdown dropdown-hover">
-          <a class="nav-link dropdown-toggle" href="<%=  %>" id="navbarDropdown-3" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false" data-bs-auto-close="outside">
             Dashboard
           </a>
         </li>
+
         <% else %>
         <li class="nav-item dropdown dropdown-hover">
           <a class="nav-link dropdown-toggle" href="<%= new_user_session_path %>" id="navbarDropdown-4" role="button" data-bs-toggle="dropdown"
@@ -85,10 +61,36 @@
             Inscription
           </a>
         <%end%>
+
         </li>
       </ul>
     </div>
   <!-- mobile user menu -->
-    
-  </div>
+    <% begin %>
+      <div class="collapse account-collapse" id="navbar" data-bs-parent="#mainNav">
+        <ul class="navbar-nav">
+          <% if isUser? %>
+          <li class="nav-item">
+            <a class="nav-link active" href="<%= projects_path %>">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="<%= user_path(current_user)%>">Profil Utilisateur</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-red" href="<%= destroy_user_session_path %>" data-method="delete">Deconnection</a>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link " href="<%= new_user_session_path %>">Connection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="<%= new_user_registration_path %>">Inscription</a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div> 
+    <%end%>
 </nav>
+
+<%= javascript_include_tag 'navbar.js' %>
