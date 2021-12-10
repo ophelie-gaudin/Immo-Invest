@@ -31,7 +31,7 @@ PHOTOS : <%#= image_tag @housing.pictures %>
 
 <div>
 CARACTERISTIQUES :
-  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:"btn btn-info",:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
+  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded-pill',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
   <br />
 
   <h3>Somme à financer: </h3>
@@ -80,3 +80,5 @@ CARACTERISTIQUES :
   Charges de copropriété : <%=@housing.building_co_tax%> €
 
 </div>
+
+<%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary rounded-pill'%>

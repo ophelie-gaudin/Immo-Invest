@@ -32,11 +32,11 @@
           <td><%=housing.offer_price%></td>
           <td><%=housing.localization%></td>
           <td><%=housing.offer_profitability%></td>
-          <td><a class="btn btn-light" href="<%=project_housing_path(housing.id)%>">Fiche du logement</a></td>
+          <td><a class="btn btn-light" href="<%=project_housing_path(housing.project_id, housing.id)%>">Fiche du logement</a></td>
       </tr>
     <%end%>
   </tbody>
     
 </table>
-
-    <%= link_to 'Ajouter un logement', new_project_housing_path(@project)%>
+    <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded-pill'%>
+    

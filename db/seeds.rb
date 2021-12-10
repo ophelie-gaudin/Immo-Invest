@@ -13,15 +13,6 @@
   )
 end
 
-3.times do 
-  Project.create(
-    title: Faker::Lorem.sentence(word_count: 3),
-    localization: Faker::Address.city(options: { with_state: true }),
-    comment: Faker::Lorem.paragraph,
-    user_id: User.all.sample.id
-  )
-end
-
 5.times do 
   @housing = Housing.create(
     ad_price: Faker::Number.number(digits:6),
