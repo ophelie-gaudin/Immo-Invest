@@ -86,7 +86,7 @@ Ce projet peut intéresser toute personne qui souhaite investir dans l'immobilie
 
 # Executive Summary :
 
-# Parcours Utilisateurs :
+# User Flow :
 
 # Wirefrimes :
 
