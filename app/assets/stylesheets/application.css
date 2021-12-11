@@ -1439,3 +1439,33 @@ body{
   flex-direction: column;
   justify-content: space-between;
 }
+
+
+
+.accordion-header{
+  margin-left: 25px;
+}
+
+.step-block{
+  margin-left: 25px;
+}
+
+.accordion-item .step-title,
+.accordion-item .step-block {
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion-item:hover .step-title,
+.accordion-item:hover .step-block {
+  transform: scale(1.1);
+}
+
+.accordion-item:hover .accordion-button::before {
+  background: var(--bs-egg);
+  color: #ca6641;
+}
+
+.footer-div{
+  min-width: 200px;
+  margin: 10px;
+}

@@ -7,20 +7,31 @@
   <section class="footer">
     <div class="container-fluid p-5 ">
       
-      <div class="row">
-      <div class="col">
+
+      <div class="row py-5 d-flex flex-wrap justify-content-center">
+      <!--<div class="col">
       <a class="float-end" href="#top"><i class="fas fa-arrow-up"></i></a>
-      </div>
-        <div class="col">
+
+      <%#= image_tag 'logo/logo-dark'%>
+      </div> -->
+        <div class="col footer-div">
           <h4>IMMOTEP</h4>
+
+        <div class="w-100 d-flex">
+          <img src="https://svgsilh.com/svg/309113.svg" style="max-width:50px;"/>
+        
+        
+          <!--
+
           <ul type=none>
             <li><a href="<%=new_user_registration_path%>" >S'inscrire</a></li>
             <li><a href="<%=new_user_session_path%>" >Se connecter</a></li>
             <li><a data-method="delete" href="<%=destroy_user_session_path%>">Se déconnecter</a></li>
           </ul>
+          -->
         </div>
-        <div class="col">
-          <h4>À propos</h4>
+        <div class="col footer-div">
+          <h6>À propos</h6>
           <ul type=none>
             <li><a href="mailto:thpicebreakers@gmail.com" target="_blank">Nous contacter</a></li>
             <li><a href="" >Notre équipe</a></li>
@@ -30,8 +41,8 @@
 
 
         </div>
-        <div class="col">
-          <h4>Reseaux sociaux</h4>
+        <div class="col footer-div">
+          <h6>Réseaux sociaux</h6>
           <ul type=none>
             <li><a href="https://twitter.com/the_hacking_pro">Twitter</a></li>
             <li><a href="https://github.com/ophelie-gaudin/Immo-Invest">GitHub</a></li>
