@@ -31,6 +31,8 @@ L'utilisateur du site doit pouvoir avoir accès aux fonctionnalités suivantes :
 
 (OPTIONNEL: Cliquer sur imprimer pour transformer la page HTML en fichier PDF prêt à être présenté à la banque dans le cadre d'une offre - avec le détail des calculs.)
 
+![alt text](https://zupimages.net/up/21/49/r16c.jpg)
+
 
 
 ### 3. Concrètement et techniquement
