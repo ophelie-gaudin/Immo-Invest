@@ -73,3 +73,7 @@ gem 'mailjet'
 
 gem 'aws-sdk-s3', '~> 1.109'
 
+gem "chartkick"
+
+gem 'groupdate'
+
