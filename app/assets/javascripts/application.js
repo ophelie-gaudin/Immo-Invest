@@ -13,3 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+<i data-feather="eye " class="far fa-eye"></i>;
