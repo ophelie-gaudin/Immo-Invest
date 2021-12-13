@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
  
-  
   resources 'users',only:[:show], :path => "my-profile"
   resources 'projects', only:[:index,:new,:create,:show,:edit,:destroy,:update ], :path => "dashboard"
   
@@ -13,5 +12,5 @@ Rails.application.routes.draw do
   end 
 
   devise_for :users
-  root to: "statics#home"
+  root to: "statics#form"
 end
