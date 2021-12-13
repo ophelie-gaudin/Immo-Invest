@@ -23994,3 +23994,17 @@ body {
     cursor: pointer;
     color: rgba(255, 132, 0, 0.653);
 }
+
+.card-border {
+    border: 3px solid;
+    border-color: var(--bs-orange);
+    border-radius: 10px;
+    background-color: white;
+}
+.font-description {
+    font-size: 1.5rem;
+    font-family: "Montserrat Alternates", sans-serif;
+}
+.title-style {
+    font-family: "Arvo", serif;
+}

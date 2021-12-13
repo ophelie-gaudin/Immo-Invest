@@ -1,84 +1,102 @@
-<h1>FICHE DU LOGEMENT N°<%=params[:id]%> </h1>
-
 <div>
-<h3>RECAPITULATIF</h3>
-<br />
-
-Prix de l'annonce : <%=@housing.ad_price%> €
-<br />
-(Rentabilité nette : <%=@housing.ad_profitability%> %)
-<br />
-
-Prix de l'offre proposée : <%=@housing.offer_price%> €
-<br />
-(Rentabilité nette : <%=@housing.offer_profitability%> %)
-<br />
-Superficie habitable : <%=@housing.area%> m²
-<br />
-Localisation : <%=@housing.localization%>
- </div>
-
-
-<div>
-Lien de l'annonce : <%=@housing.ad_url%>
-<br />
-Notes : <%=@housing.comment%>
+  <%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary rounded-pill title-style m-5'%>
+</div>
+<h1 class="title-style" style="text-align:center">FICHE DU LOGEMENT N°<%=params[:id]%> </h1> 
+<div class="d-flex justify-content-center">
+  <div class="card-border col-md-6" >
+    <div class="card-body">
+      <h3 class="title-style "style="text-align:center">RECAPITULATIF</h3>
+      <div class="font-description">
+      <p class="card-text">Prix de l'annonce : <%=@housing.ad_price%> €</p>
+      <p> (Rentabilité nette : <%=@housing.ad_profitability%> %)</p>
+      <p> Prix de l'offre proposée : <%=@housing.offer_price%> €</p>
+      <p> (Rentabilité nette : <%=@housing.offer_profitability%> %)</p>
+      <p> Superficie habitable : <%=@housing.area%> m²</p>
+      <p> Localisation : <%=@housing.localization%></p>
+      
+      <div>
+        <p> Lien de l'annonce : <%=@housing.ad_url%></p>
+        <p> Notes : <%=@housing.comment%></p>
+      </div>
+      <div><br />
+        PHOTOS :
+          <%#= image_tag @housing.pictures %>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-PHOTOS : <%#= image_tag @housing.pictures %>
+<div style="text-align:center" ><br /><br />
+  <h4 class="title-style" >CARACTERISTIQUES </h4> 
+  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded-pill title-syle',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
+  <br />
 </div>
+<section>
+  <div container>
+    <div class="row">
+      <div class="col sm-6 m-5">
+        <div class="card-border" style= height:450px>
+          <div class="card-body ">
+            <h3 class="title-style" style="text-align:center ">Somme à financer </h3>
+            <div class="font-description">
+              <p> Prix de l'annonce : <%=@housing.ad_price%> €</p>
+              <p> (Rentabilité nette : <%=@housing.ad_profitability%> )</p>
+              <p> Prix de l'offre proposée : <%=@housing.offer_price%> €</p>
+              <p> (Rentabilité nette : <%=@housing.offer_profitability%> )</p>
+              <p> Prix des travaux : <%=@housing.repairs_price%> € </p>
+              <p> Frais de notaire : <%=@housing.notary_fees%> €</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col sm-6 m-5">
+        <div class="card-border" style= height:450px>
+          <div class="card-body">
+            <h3 class="title-style" style="text-align:center title-syle">Caractéristiques Bien du</h3>  
+            <div class="font-description">
+              <p> Superficie habitable : <%=@housing.area%> m²</p> 
+              <p> Type de bien : <%=@housing.property_category%></p> 
+              <p> Localisation : <%=@housing.localization%></p> 
+            </div> 
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div>
-CARACTERISTIQUES :
-  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded-pill',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
-  <br />
-
-  <h3>Somme à financer: </h3>
-  <br/>
-  Prix de l'annonce : <%=@housing.ad_price%> €
-  <br />
-  (Rentabilité nette : <%=@housing.ad_profitability%> )
-  <br />
-  Prix de l'offre proposée : <%=@housing.offer_price%> €
-  <br />
-  (Rentabilité nette : <%=@housing.offer_profitability%> )
-  <br />
-   Prix des travaux : <%=@housing.repairs_price%> €
-  <br /> 
-  Frais de notaire : <%=@housing.notary_fees%> €
-  <br />
 
 
-  <h3>Caractéristiques du bien : </h3>
-  <br/>
-  Superficie habitable : <%=@housing.area%> m²
-  <br />
-  Type de bien : <%=@housing.property_category%>
-  <br />
-  Localisation : <%=@housing.localization%>
-  <br />
-
-  <h3>Investissement : </h3>
-  <br/>
-  Loyer annuel (sur 12 mois) : <%=@housing.annual_rent%> €
-  <br />
-  Gestion locative : <%=@housing.rental_management%>
-  <br />
-  Pourcentage de réserve pour entretien : <%=@housing.maintenance_percentage%> €
-  <br />
-
-  <h3>Charges : </h3>
-  <br />
-  Assurance PNO : <%=@housing.pno_insurance%>
-  <br />
-  Taxe d'habitation : <%=@housing.property_tax%> €
-  <br />
-
-  Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%>
-  <br />
-  Charges de copropriété : <%=@housing.building_co_tax%> €
-
-</div>
-
-<%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary rounded-pill'%>
+<section>
+  <div container>
+    <div class="row">
+      <div class="col sm-6 m-5">
+        <div class="card-border" style= height:450px>
+          <div class="card-body ">
+            <h3 class="title-style" style="text-align:center ">Investissement </h3>
+            <div class="font-description">
+              <p> Assurance PNO : <%=@housing.pno_insurance%></p>
+              <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
+              <p> Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%></p>
+              <p> Charges de copropriété : <%=@housing.building_co_tax%> €</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col sm-6 m-5">
+        <div class="card-border" style= height:450px>
+          <div class="card-body">
+            <h3 class="title-style" style="text-align:center title-syle">Charges</h3>  
+            <div class="font-description">
+              <p> Assurance PNO : <%=@housing.pno_insurance%></p>
+              <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
+              <p> Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%></p>
+              <p> Charges de copropriété : <%=@housing.building_co_tax%> €</p>
+            </div> 
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
