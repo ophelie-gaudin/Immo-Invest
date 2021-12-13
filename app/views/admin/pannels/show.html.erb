@@ -6,7 +6,6 @@
       <th>ID</th>
       <th>Email</th>
       <th>Staff</th>
-      <th>Nombre de Projet</th>
     </tr>
   </thead>
   <tbody>
@@ -24,4 +23,9 @@
 <div>
   <h1>Graphisme d'incription</h1>
   <%= line_chart User.group_by_day(:created_at).count %>
+</div>
+
+<div>
+  <h1>Graphisme de création de projet</h1>
+  <%= column_chart Project.group_by_day_of_week(:created_at, format: "%a").count %>
 </div>
