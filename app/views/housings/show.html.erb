@@ -1,5 +1,5 @@
 <div>
-  <%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary rounded-pill title-style m-5'%>
+  <%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary title-style m-5'%>
 </div>
 <h1 class="title-style" style="text-align:center">FICHE DU LOGEMENT N°<%=params[:id]%> </h1> 
 <div class="d-flex justify-content-center">
@@ -28,8 +28,8 @@
 </div>
 
 <div style="text-align:center" ><br /><br />
-  <h4 class="title-style" >CARACTERISTIQUES </h4> 
-  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded-pill title-syle',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
+  <h4 class="title-style" >CARACTERISTIQUES </h4>
+  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary title-syle',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
   <br />
 </div>
 <section>
@@ -38,7 +38,7 @@
       <div class="col sm-6 m-5">
         <div class="card-border" style= height:450px>
           <div class="card-body ">
-            <h3 class="title-style" style="text-align:center ">Somme à financer </h3>
+            <h3 class="title-style" style="text-align:center">Somme à financer </h3>
             <div class="font-description">
               <p> Prix de l'annonce : <%=@housing.ad_price%> €</p>
               <p> (Rentabilité nette : <%=@housing.ad_profitability%> )</p>
