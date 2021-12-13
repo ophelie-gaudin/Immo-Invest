@@ -32,71 +32,86 @@
   <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded-pill title-syle',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
   <br />
 </div>
-<section>
-  <div container>
-    <div class="row">
-      <div class="col sm-6 m-5">
-        <div class="card-border" style= height:450px>
-          <div class="card-body ">
-            <h3 class="title-style" style="text-align:center ">Somme à financer </h3>
-            <div class="font-description">
-              <p> Prix de l'annonce : <%=@housing.ad_price%> €</p>
-              <p> (Rentabilité nette : <%=@housing.ad_profitability%> )</p>
-              <p> Prix de l'offre proposée : <%=@housing.offer_price%> €</p>
-              <p> (Rentabilité nette : <%=@housing.offer_profitability%> )</p>
-              <p> Prix des travaux : <%=@housing.repairs_price%> € </p>
-              <p> Frais de notaire : <%=@housing.notary_fees%> €</p>
+<div class="container d-flex flex-column gap-25">
+  <section >
+    <div >
+      <div class="row flex-md-column flex-lg-row gap-25 custom-col" id="first-row">
+        <div class="col sm-6 m-5">
+          <div class="card-border card-height">
+            <div class="card-body ">
+              <h3 class="title-style" style="text-align:center ">Somme à financer </h3>
+              <div class="font-description">
+                <p> Prix de l'annonce : <%=@housing.ad_price%> €</p>
+                <p> (Rentabilité nette : <%=@housing.ad_profitability%> )</p>
+                <p> Prix de l'offre proposée : <%=@housing.offer_price%> €</p>
+                <p> (Rentabilité nette : <%=@housing.offer_profitability%> )</p>
+                <p> Prix des travaux : <%=@housing.repairs_price%> € </p>
+                <p> Frais de notaire : <%=@housing.notary_fees%> €</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col sm-6 m-5">
-        <div class="card-border" style= height:450px>
-          <div class="card-body">
-            <h3 class="title-style" style="text-align:center title-syle">Caractéristiques Bien du</h3>  
-            <div class="font-description">
-              <p> Superficie habitable : <%=@housing.area%> m²</p> 
-              <p> Type de bien : <%=@housing.property_category%></p> 
-              <p> Localisation : <%=@housing.localization%></p> 
+        <div class="col sm-6 m-5">
+          <div class="card-border card-height " >
+            <div class="card-body">
+              <h3 class="title-style" style="text-align:center title-syle">Caractéristiques Bien du</h3>  
+              <div class="font-description">
+                <p> Superficie habitable : <%=@housing.area%> m²</p> 
+                <p> Type de bien : <%=@housing.property_category%></p> 
+                <p> Localisation : <%=@housing.localization%></p> 
+              </div> 
             </div> 
-          </div> 
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section>
-  <div container>
-    <div class="row">
-      <div class="col sm-6 m-5">
-        <div class="card-border" style= height:450px>
-          <div class="card-body ">
-            <h3 class="title-style" style="text-align:center ">Investissement </h3>
-            <div class="font-description">
-              <p> Assurance PNO : <%=@housing.pno_insurance%></p>
-              <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
-              <p> Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%></p>
-              <p> Charges de copropriété : <%=@housing.building_co_tax%> €</p>
-            </div>
           </div>
         </div>
       </div>
-      <div class="col sm-6 m-5">
-        <div class="card-border" style= height:450px>
-          <div class="card-body">
-            <h3 class="title-style" style="text-align:center title-syle">Charges</h3>  
-            <div class="font-description">
-              <p> Assurance PNO : <%=@housing.pno_insurance%></p>
-              <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
-              <p> Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%></p>
-              <p> Charges de copropriété : <%=@housing.building_co_tax%> €</p>
+    </div>
+  </section>
+
+
+
+  <section>
+    <div >
+      <div class="row flex-md-column flex-lg-row gap-25 custom-col" id="second-row">
+        <div class="col sm-6 m-5">
+          <div class="card-border card-height" >
+            <div class="card-body ">
+              <h3 class="title-style" style="text-align:center ">Investissement </h3>
+              <div class="font-description">
+                <p> Assurance PNO : <%=@housing.pno_insurance%></p>
+                <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
+                <p> Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%></p>
+                <p> Charges de copropriété : <%=@housing.building_co_tax%> €</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col sm-6 m-5">
+          <div class="card-border card-height" >
+            <div class="card-body">
+              <h3 class="title-style" style="text-align:center title-syle">Charges</h3>  
+              <div class="font-description">
+                <p> Assurance PNO : <%=@housing.pno_insurance%></p>
+                <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
+                <p> Assurance Loyers Impayés : <%=@housing.rental_unpayment_insurance%></p>
+                <p> Charges de copropriété : <%=@housing.building_co_tax%> €</p>
+              </div> 
             </div> 
-          </div> 
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<script>
+const firstRow = document.getElementById('first-row');
+const secondRow = document.getElementById('second-row');
+let rowHeight = firstRow.offsetHeight;
+
+function setHeight() {
+  secondRow.style.height = rowHeight + 'px';
+}
+
+setHeight()
+
+</script>
