@@ -31,6 +31,8 @@ L'utilisateur du site doit pouvoir avoir accès aux fonctionnalités suivantes :
 
 (OPTIONNEL: Cliquer sur imprimer pour transformer la page HTML en fichier PDF prêt à être présenté à la banque dans le cadre d'une offre - avec le détail des calculs.)
 
+![alt text](https://zupimages.net/up/21/49/r16c.jpg)
+
 
 
 ### 3. Concrètement et techniquement
@@ -95,3 +97,5 @@ Ce projet peut intéresser toute personne qui souhaite investir dans l'immobilie
 
 * Developpement : https://immo-invest-dev.herokuapp.com/
 * Production : https://immo-invest-prod.herokuapp.com/
+
+#### API Mailjet : Désactivation de l'action Mailer avec Mailjet lors de la création de compte, pour éviter le blocage de l'application sur les créations de comptes.
