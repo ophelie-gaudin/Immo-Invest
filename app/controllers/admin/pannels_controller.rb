@@ -1,16 +1,13 @@
 module Admin
   class PannelsController < ApplicationController
     before_action :only_admin
-    def new
-
-    end
-
-    def create
-
-    end
 
     def show
-     
+      @users = User.all
+
+      @projects = Project.all
+
+      @housings = Housing.all
     end
 
     private 
