@@ -5,22 +5,29 @@
         <div class="col-md-10 col-lg-8 col-xl-5">
           <div class="card">
             <div class="card-header bg-white text-center pb-0">
-              <h5 class="fs-3">Connection</h5>
+              <h5 class="fs-3">Connexion</h5>
             </div>
             <div class="card-body bg-white">
               <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="GUBWFqfTTGRtoZF39jxa7OZmKQwR7N3kI4Xyp/jGF69UVGXkhoj8kn8ZIJcfjK9yePiqxJcHaFCqE7wf5b2+4w==">
                 <div class="form-floating mb-2">
                   <label for="user_email"></label><br>
-                   <p>Email</p>
+                  <p>Email</p>
                   <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control pt-1">
                 </div>
 
                 <div class="form-floating mb-2">
-                  <label for="user_password"></label><br>
-                  <p>Password</p>
+                  <label for="user_password"></label>
+                  <br>
+                  <p>Mot de passe (6 caractères minimum)</p>
+                <div class="row">
+                <div class="col d-flex d-flex align-items-center justify-content-end ">
                   <input autocomplete="current-password" type="password" name="user[password]" id="user_password" class="form-control pt-1">
+                  <div class="password-icon3 mx-2" >
+                    <i class="far fa-eye-slash" id="icon3"></i>
+                  </div>                  
                 </div>
-
+                </div>
+                </div>
                   <div class="form-floating mb-2">
                     <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" > Se Souvenir de moi 
                     
@@ -37,5 +44,25 @@
       </div>
     </div>
 <div class="background background-overlay" ><img src="/assets/cloud-250ec9c97969706867f99e2fd6af3d1e38f61b36ce42d2ffebd9f8bf0b9cb667.jpg" width="100%" height="100%"> </div>
+
+<script>
+let active3 = true;
+let eyeIcon3 = document.getElementById("icon3");
+const pass3 = document.getElementById("user_password");
+
+eyeIcon3.addEventListener("click", function () {
+    if (active3) {
+        pass3.setAttribute("type", "text");
+        eyeIcon3.classList.value = "far fa-eye";
+        active3 = false;
+    } else {
+        pass3.setAttribute("type", "password");
+        eyeIcon3.classList.value = "far fa-eye-slash";
+        active3 = true;
+    }
+});
+</script>
+
+
 
 </section>
