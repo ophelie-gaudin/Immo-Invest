@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<!--
    <section class='py-10 py-xl-10 '>        
       <div class='container'>
          <div class='d-flex flex-column'>
@@ -24,10 +24,9 @@
                     </div>
                     <div class="mb-3">
                       <label for="localization">Localisation du bien :</label>
-                      <input class="form-control" type="text" name="housing[localization]" id="housing_localization"> 
-                    </div>
-                    
-                  </form>
+                      <input class="form-control" type="text" name="housing[localization]" id="housing_localization">                     
+                    </form>
+
                   <% end %>
                 
                 </div>
@@ -40,9 +39,7 @@
           </div>
           </div>
       </section>
-
- 
-=======
+-->
 <%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
 
 <br />
@@ -75,4 +72,3 @@
  </div>
 
  <%end%>
->>>>>>> development
