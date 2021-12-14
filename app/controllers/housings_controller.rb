@@ -55,9 +55,7 @@ class HousingsController < ApplicationController
 
     
     def update
-        @housing = Housing.find(params[:id])
-
-   
+        @housing = Housing.find(params[:id])  
 
         
         def calculate_profitability(price)
@@ -85,6 +83,13 @@ class HousingsController < ApplicationController
             if(housing.new_property == true)
                 notary_fees = 0.03
             end
+
+            puts "BLABLABLABLABLABLABLABLABLABLABLABLA"
+            puts housing.property_tax
+            puts housing.maintenance_percentage
+            puts housing.building_co_tax
+            puts housing.annual_rent
+            puts price
 
 
             fees = housing.property_tax + (price * housing.maintenance_percentage) + housing.building_co_tax + (housing.annual_rent * management) + (housing.annual_rent * pno) + (housing.annual_rent * unpayment)
