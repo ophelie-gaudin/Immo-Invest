@@ -8,8 +8,8 @@
         <div class="col-lg-14">
           <h3>Votre projet <%=@project_title%> qui se situe à: <%=@project_localization%></h3>
             <div class="d-flex flex-row-reverse">
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger m-3" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary rounded m-3">Editer Votre projet</a>
+              <a href="<%= project_path %>" class="btn btn-danger rounded m-3" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
             </div>
           <p> <%=@project_comment%> </p>
         </div>
@@ -34,8 +34,9 @@
                     <li class="list-inline-item"><%= housing.comment %></li>
                   </ul>
                   <div class="col d-flex align-items-start justify-content-end" >
-                  <a href="<%= project_housing_path(housing.project_id, housing.id) %>" class="btn btn-outline-primary mx-3" data-confirm='Voulez-vous vraiment supprimer ce logement ?' data-method='delete' data-remote="true">Supprimer <i class="fas fa-times fa-lg ms-1"></i></a>
-                  <a href="<%=edit_project_housing_path(housing.id)%>" class="btn btn-primary">Editer<i class="fas fa-pencil-alt  ms-1"></i></a>
+                  <a href="<%=edit_project_housing_path(housing.id)%>" class="btn btn-outline-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></a>
+                  <a href="<%= project_housing_path(housing.project_id, housing.id) %>" class="btn btn-primary rounded mx-3" data-confirm='Voulez-vous vraiment supprimer ce logement ?' data-method='delete' data-remote="true">Supprimer <i class="fas fa-times fa-lg ms-1"></i></a>
+                  
                 </div>
 
                 </div>
@@ -50,5 +51,5 @@
         
 
     </div>
-    <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary m-2'%>
+    <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
   </section>
