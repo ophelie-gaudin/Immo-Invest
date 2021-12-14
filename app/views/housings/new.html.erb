@@ -1,32 +1,43 @@
-<%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
-
-<br />
-
-  <%= label_tag(:property_category, "Type de bien :") %>
-  <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4' ], class: 'form-control', value: @housing.property_category %> 
-  
-<br />
-<br />
-
-
- <%= label_tag(:ad_price, "Prix du logement :") %>
- <%= f.number_field :ad_price, class: 'form-control', value: @housing.ad_price %>
-
-<br />
-<br />
+   <section class='py-10 py-xl-10 '>        
+      <div class='container'>
+         <div class='d-flex flex-column'>
+          <div class='col-9'>
+            <h2 class="fw-light mb-5">Crée un  <span class="fw-bold mb-5">logement</span></h2>
+              <div class="card">
+                <div class="card-body">
+                  <%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
+                  <form> 
+                    <label for="property_category " class='mb-3'>Type de bien :</label>
+                      <select name="housing[property_category]" id="housing_property_category"><option value="Studio">Studio</option>
+                        <option value="T1">T1</option>
+                        <option value="T1bis">T1bis</option>
+                        <option value="T2">T2</option>
+                        <option value="T2bis">T2bis</option>
+                        <option value="T3">T3</option>
+                        <option value="T4">T4</option>
+                      </select>
+                    <div class="mb-3">
+                      <label for="ad_price">Prix du logement :</label>
+                      <input class="form-control" type="number" name="housing[ad_price]" id="housing_ad_price">
+                      
+                    </div>
+                    <div class="mb-3">
+                      <label for="localization">Localisation du bien :</label>
+                      <input class="form-control" type="text" name="housing[localization]" id="housing_localization"> 
+                    </div>
+                    
+                  </form>
+                  <% end %>
+                
+                </div>
+              </div>
+            
+            </div>
+          </div>
+          <div class='col text-lg-end mr-5 '>
+            <button type="submit" class="btn btn-primary ">Crée</button>
+          </div>
+          </div>
+      </section>
 
  
- <%= label_tag(:localization, "Localisation du bien :") %>
- <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
-
-<br />
-
-
- <%= f.submit 'Ajouter un logement', :class => "btn btn-primary"%>
-
-
-
-
- </div>
-
- <%end%>

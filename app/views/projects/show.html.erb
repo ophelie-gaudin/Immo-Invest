@@ -7,8 +7,8 @@
     <div class="d-flex flex-column  mb-5">
       <div class="col-sm">
           <h2 class="fw-light mb-5">Mon <span class="fw-bold mb-5">Projet</span></h2>
-        <p> <%=@project_comment%></p>
-         </div>
+            <p> <%=@project_comment%></p>
+        </div>
          
          <div class='col-sm text-lg-end'>
               <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer Votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
@@ -41,7 +41,7 @@
           </ul>
         </div>
       <div class='col align-self-end m-5'>
-        <button class="btn btn-primary rounded bt-5  " href="<%=new_project_housing_path(@project)%>">Ajouter un logement</button>
+        <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
       </div>
       </div>
    </div>
