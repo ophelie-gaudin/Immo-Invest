@@ -18,23 +18,32 @@
                 </div>
 
                 <div class="form-floating mb-2">
-                  
                   <label for="user_password"></label>
-                  
                   <br>
-                    <p>Mot de passe (6 caractères minimum)<p>
-                  <input autocomplete="new-password" type="password" name="user[password]" id="user_password" class="form-control" >
+                  <p>Mot de passe (6 caractères minimum)</p>
+                <div class="row">
+                  <div class="col d-flex d-flex align-items-center justify-content-end ">
+                      <input autocomplete="new-password" type="password" name="user[password]" id="user_password" class="form-control" >
+                      <div class="password-icon mx-2" >
+                        <i class="far fa-eye-slash" id="icon"></i>
+                      </div>                  
+                  </div>
                 </div>
-                <div class="password-icon" >
-                  <i class="far fa-eye-slash" id="icon"></i>
+                </div>
 
-                </div>
                 <div class="form-floating mb-2">
-                  <label for="user_password_confirmation"></label><br>
+                  <label for="user_password_confirmation"></label>
+                  <br>
                   <p>Confirmer le Mot de passe<p>
-                  <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
+                <div class="row">
+                  <div class="col d-flex d-flex align-items-center justify-content-end ">
+                      <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
+                      <div class="password-icon2 mx-2" >
+                        <i class="far fa-eye-slash" id="icon2"></i>
+                      </div>                  
+                  </div>
                 </div>
-
+                </div>
                 <div class="d-grid mb-2">
                   <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
                 </div>
@@ -66,6 +75,23 @@ eyeIcon.addEventListener("click", function () {
         pass.setAttribute("type", "password");
         eyeIcon.classList.value = "far fa-eye-slash";
         active = true;
+    }
+});
+
+
+let active2 = true;
+let eyeIcon2 = document.getElementById("icon2");
+const pass2 = document.getElementById("user_password_confirmation");
+
+eyeIcon2.addEventListener("click", function () {
+    if (active2) {
+        pass2.setAttribute("type", "text");
+        eyeIcon2.classList.value = "far fa-eye";
+        active2 = false;
+    } else {
+        pass2.setAttribute("type", "password");
+        eyeIcon2.classList.value = "far fa-eye-slash";
+        active2 = true;
     }
 });
 
