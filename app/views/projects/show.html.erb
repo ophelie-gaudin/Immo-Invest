@@ -8,8 +8,8 @@
         <div class="col-lg-14">
           <h3>Votre projet <%=@project_title%> qui se situe à: <%=@project_localization%></h3>
             <div class="d-flex flex-row-reverse">
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger m-3" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary rounded m-3">Editer Votre projet</a>
+              <a href="<%= project_path %>" class="btn btn-danger rounded m-3" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
             </div>
           <p> <%=@project_comment%> </p>
         </div>
@@ -19,38 +19,37 @@
   
 
 <section class="py-0 py-xl-0">
-    <div class="container mt-5 mt-xl-10">
+    <div class="container mt-5 mt-xl-10 ">
       
 
-      <div class="row g-1" id="grid1" data-isotope="" >
-        <div class="col-12 filter-design" >
+      <div class="" id="grid1" data-isotope="" >
+        <div class=" filter-design card bg-white card-hover-border" >
           <%@housings.each do |housing|%>
-          <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border">
-            <div class="card-body">
-              <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
-                <div class="col-md-6">
-                  <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // <%=housing.offer_profitability%></p>
+          <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="">
+            <div class="card-body border border-2">
+              <div class="row ">
+                <div class="col d-flex justify-content-end">
+                  <p class="fs-lg mb-0 mt-2"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // <%=housing.offer_profitability%></p>
                   <ul class="list-inline list-inline-separated text-muted">
                     <li class="list-inline-item"><%= housing.comment %></li>
-                  <li><i class="fas fa-times"><a href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true"></a></i></li>
-                    <li></li>
                   </ul>
+                  <div class="col d-flex align-items-start justify-content-end" >
+                  <a href="<%=edit_project_housing_path(housing.id)%>" class="btn btn-outline-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></a>
+                  <a href="<%= project_housing_path(housing.project_id, housing.id) %>" class="btn btn-primary rounded mx-3" data-confirm='Voulez-vous vraiment supprimer ce logement ?' data-method='delete' data-remote="true">Supprimer <i class="fas fa-times fa-lg ms-1"></i></a>
+                  
+                </div>
+
                 </div>
                 
-                <div class="col-lg-6" style="text-align:right">
                 
-                </div>
               </div>
             </div>
             <% end %>
           </a>
-          <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary m-2'%>
+ 
         </div>
         
-<i class="fas fa-pen-square"></i>
-    </div>
-  </section>
 
-    
-     
-    
+    </div>
+    <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
+  </section>
