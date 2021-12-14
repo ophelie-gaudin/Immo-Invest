@@ -40608,17 +40608,35 @@ body {
 }
 
 .password-icon {
-    display: flex;
-    align-items: center;
     position: absolute;
-    top: 45%;
-    left: 440px;
     color: #000;
     transition: all 0.2s;
-    right: 20px;
 }
 
 .password-icon:hover {
+    cursor: pointer;
+    color: rgba(255, 132, 0, 0.653);
+}
+
+.password-icon2 {
+    position: absolute;
+    color: #000;
+    transition: all 0.2s;
+}
+
+.password-icon2:hover {
+    cursor: pointer;
+    color: rgba(255, 132, 0, 0.653);
+}
+
+.password-icon3 {
+    position: absolute;
+    color: #000;
+    transition: all 0.2s;
+
+}
+
+.password-icon3:hover {
     cursor: pointer;
     color: rgba(255, 132, 0, 0.653);
 }

@@ -2,54 +2,46 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-<section class="pt-10 px-0 pb-xl-5">
-    <div class="container">
-      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
-        <div class="col-lg-14">
-          <h3>Votre projet <%=@project_title%> qui se situe à: <%=@project_localization%></h3>
-            <div class="d-flex flex-row-reverse">
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary rounded m-3">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger rounded m-3" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
-            </div>
-          <p> <%=@project_comment%> </p>
+<section class="py-10 py-xl-10 ">
+  <div class="container">
+    <div class="d-flex flex-column  mb-5">
+      <div class="col-sm">
+          <h2 class="fw-light mb-5">Mon <span class="fw-bold mb-5">Projet</span></h2>
+            <p> <%=@project_comment%></p>
         </div>
-      </div>
-    </div>
-  </section>
-  
-
-<section class="py-0 py-xl-0">
-    <div class="container mt-5 mt-xl-10 ">
+        <div class='col-sm text-lg-end'>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer Votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+              <a href="<%= project_path %>" class="btn btn-danger m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+          </div>
       
-
-      <div class="" id="grid1" data-isotope="" >
-        <div class=" filter-design card bg-white card-hover-border" >
-          <%@housings.each do |housing|%>
-          <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="">
-            <div class="card-body border border-2">
-              <div class="row ">
-                <div class="col d-flex justify-content-end">
-                  <p class="fs-lg mb-0 mt-2"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // <%=housing.offer_profitability%></p>
-                  <ul class="list-inline list-inline-separated text-muted">
-                    <li class="list-inline-item"><%= housing.comment %></li>
-                  </ul>
-                  <div class="col d-flex align-items-start justify-content-end" >
-                  <a href="<%=edit_project_housing_path(housing.id)%>" class="btn btn-outline-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></a>
-                  <a href="<%= project_housing_path(housing.project_id, housing.id) %>" class="btn btn-primary rounded mx-3" data-confirm='Voulez-vous vraiment supprimer ce logement ?' data-method='delete' data-remote="true">Supprimer <i class="fas fa-times fa-lg ms-1"></i></a>
-                  
+        <div class="col pt-5 mt-5">
+          <ul class="list-unstyled">
+            <%@housings.each do |housing|%>
+            <li>
+              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2">
+                <div class="card-body  py-2">
+                  <div class="row d-flex ">
+                    <div class="col-6">
+                      <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
+                      <ul class="list-inline list-inline-separated text-muted">
+                        <li class="list-inline-item"><%= housing.comment %> Je suis un commentaires </li>
+                      </ul>
+                    </div>
+                    <div class="col-6 text-lg-end">
+                      <button href="" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
+                      <button href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded" style="max-width:200px">Supprimer<i class="fas fa-times fa-lg ms-1"></i></button>
+                    </div>
+                  </div>
                 </div>
-
-                </div>
-                
-                
-              </div>
-            </div>
-            <% end %>
-          </a>
- 
+              </a>
+            </li>
+            <% end%>
+            
+          </ul>
         </div>
-        
-
-    </div>
-    <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
-  </section>
+      <div class='col align-self-end m-5'>
+        <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
+      </div>
+      </div>
+  </div>
+</section>
