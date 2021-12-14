@@ -1518,6 +1518,7 @@ body{
 
 .form-outer form .page{
   width: 25%;
+  /* opacity: 0; */
   transition: margin-left -0.3s ease-in-out;
 }
 
