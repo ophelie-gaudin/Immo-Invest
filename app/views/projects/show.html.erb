@@ -1,56 +1,66 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-<section class="pt-10 px-0 pb-xl-5">
+ 
+    <section class="py-10 py-xl-10 ">
     <div class="container">
-      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
-        <div class="col-lg-14">
-          <h3>Votre projet <%=@project_title%> qui se situe à: <%=@project_localization%></h3>
-            <div class="d-flex flex-row-reverse">
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger m-3" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
-            </div>
-          <p> <%=@project_comment%> </p>
+      <div class="row  mb-5">
+        <div class="col-lg-5">
+          <h2 class="fw-light">Mon <span class="fw-bold">Projet</span></h2>
+        <p> <%=@project_comment%> je suis un commentaireje suis un commentaireje suis un commentaire</p>
+         </div>
+         <div class='col-1'>
+         </div>
+         <div class='col-6 text-lg-end'>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded-pill">Editer Votre projet</a>
+              <a href="<%= project_path %>" class="btn btn-danger m-3 rounded-pill" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
+            
+            
+      </div>
+      
+        <div class="col">
+          <ul class="list-unstyled">
+            <%@housings.each do |housing|%>
+            <li>
+              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2">
+                <div class="card-body py-2">
+                  <div class="row d-flex ">
+                    <div class="col-6">
+                      <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
+                      <ul class="list-inline list-inline-separated text-muted">
+                        <li class="list-inline-item"><%= housing.comment %>je suis un commentaires</li>
+                      </ul>
+                    </div>
+                    <div class="col-6 text-lg-end">
+                       <button href="" class="btn btn-fantom-primary rounded" style="max-width:200px">Editer</button>
+                       <button href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded-pill " style="max-width:200px">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <% end%>
+            <li class="mt-1">
+              <a href="" class="card bg-white card-hover-border">
+                <div class="card-body py-4">
+                  <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
+                    <div class="col-md-9">
+                      <p class="fs-lg mb-0">Senior Visual Designer</p>
+                      <ul class="list-inline list-inline-separated text-muted">
+                        <li class="list-inline-item">at Spotify</li>
+                        <li class="list-inline-item">San Francisco, CA</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 text-lg-end">
+                      <span>$95k – $150k</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+          </ul>
         </div>
       </div>
     </div>
   </section>
-  
-
-<section class="py-0 py-xl-0">
-    <div class="container mt-5 mt-xl-10">
-      
-
-      <div class="row g-1" id="grid1" data-isotope="" >
-        <div class="col-12 filter-design" >
-          <%@housings.each do |housing|%>
-          <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border">
-            <div class="card-body">
-              <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
-                <div class="col-md-6">
-                  <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // <%=housing.offer_profitability%></p>
-                  <ul class="list-inline list-inline-separated text-muted">
-                    <li class="list-inline-item"><%= housing.comment %></li>
-                  <li><i class="fas fa-times"><a href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true"></a></i></li>
-                    <li></li>
-                  </ul>
-                </div>
-                
-                <div class="col-lg-6" style="text-align:right">
-                
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </a>
-          <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary m-2'%>
-        </div>
-        
-<i class="fas fa-pen-square"></i>
-    </div>
-  </section>
-
-    
-     
-    
