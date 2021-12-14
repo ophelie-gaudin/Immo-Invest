@@ -12,22 +12,19 @@
 	          <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Mentions Légales</a></li>
 	        </ul>
 	      </div>
-        <!--
 	      <div class="col-md-5 col-lg-4">
 	        <div class="grouped-inputs border border-primary p-1 rounded-pill">
 	          <div class="row">
 	            <div class="col">
-	              <input type="text" class="form-control rounded-pill px-3" aria-label="Text input"
-	                placeholder="Your email">
+	              <p class="rounded-pill px-4">Prêt à nous payer un petit café ?</p>
 	            </div>
 	            <div class="col-auto">
-	              <a href="mailto:thpicebreakers@gmail.com" class="btn btn-primary btn-icon rounded-circle"><i class="bi bi-arrow-return-left"></i></a>
+								<%= button_to "Café", checkout_create_path(total: 3), class: "btn btn-primary btn-icon rounded-circle", remote: true %>
 	            </div>
 	          </div>
 	        </div>
 	      </div>
 	    </div>
-      !--->
 	    <div class="row align-items-center g-1 g-lg-6">
 	      <div class="col-md-6 col-lg-5 order-lg-2 text-center text-md-start">
 	        <ul class="list-inline small">
