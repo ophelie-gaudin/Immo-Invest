@@ -1,3 +1,4 @@
+<<<<<<< HEAD
    <section class='py-10 py-xl-10 '>        
       <div class='container'>
          <div class='d-flex flex-column'>
@@ -41,3 +42,37 @@
       </section>
 
  
+=======
+<%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
+
+<br />
+
+  <%= label_tag(:property_category, "Type de bien :") %>
+  <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4' ], class: 'form-control', value: @housing.property_category %> 
+  
+<br />
+<br />
+
+
+ <%= label_tag(:ad_price, "Prix du logement :") %>
+ <%= f.number_field :ad_price, class: 'form-control', value: @housing.ad_price %>
+
+<br />
+<br />
+
+ 
+ <%= label_tag(:localization, "Localisation du bien :") %>
+ <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+
+<br />
+
+
+ <%= f.submit 'Ajouter un logement', :class => "btn btn-primary rounded"%>
+
+
+
+
+ </div>
+
+ <%end%>
+>>>>>>> development
