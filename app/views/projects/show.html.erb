@@ -4,26 +4,23 @@
  
     <section class="py-10 py-xl-10 ">
     <div class="container">
-      <div class="row  mb-5">
-        <div class="col-lg-5">
-          <h2 class="fw-light">Mon <span class="fw-bold">Projet</span></h2>
+      <div class="d-flex flex-column  mb-5">
+        <div class="col-sm">
+          <h2 class="fw-light mb-5">Mon <span class="fw-bold mb-5">Projet</span></h2>
         <p> <%=@project_comment%> je suis un commentaireje suis un commentaireje suis un commentaire</p>
          </div>
-         <div class='col-1'>
-         </div>
-         <div class='col-6 text-lg-end'>
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded-pill">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger m-3 rounded-pill" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
-            
-            
-      </div>
+         
+         <div class='col-sm text-lg-end'>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer Votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+              <a href="<%= project_path %>" class="btn btn-danger m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+          </div>
       
-        <div class="col">
+        <div class="col pt-5 mt-5">
           <ul class="list-unstyled">
             <%@housings.each do |housing|%>
             <li>
               <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2">
-                <div class="card-body py-2">
+                <div class="card-body  py-2">
                   <div class="row d-flex ">
                     <div class="col-6">
                       <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
@@ -32,32 +29,14 @@
                       </ul>
                     </div>
                     <div class="col-6 text-lg-end">
-                       <button href="" class="btn btn-fantom-primary rounded" style="max-width:200px">Editer</button>
-                       <button href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded-pill " style="max-width:200px">Supprimer</button>
+                       <button href="" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
+                       <button href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded" style="max-width:200px">Supprimer<i class="fas fa-times fa-lg ms-1"></i></button>
                     </div>
                   </div>
                 </div>
               </a>
             </li>
             <% end%>
-            <li class="mt-1">
-              <a href="" class="card bg-white card-hover-border">
-                <div class="card-body py-4">
-                  <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
-                    <div class="col-md-9">
-                      <p class="fs-lg mb-0">Senior Visual Designer</p>
-                      <ul class="list-inline list-inline-separated text-muted">
-                        <li class="list-inline-item">at Spotify</li>
-                        <li class="list-inline-item">San Francisco, CA</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-3 text-lg-end">
-                      <span>$95k – $150k</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </li>
             
           </ul>
         </div>
