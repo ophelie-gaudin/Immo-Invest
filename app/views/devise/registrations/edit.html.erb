@@ -6,7 +6,6 @@
           <div class="card-header bg-white text-center pb-0">
             <h5  class="fs-4">Edit <%= resource_name.to_s.humanize %></h5>
           </div>
-
           <div class="card-body bg-white">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
@@ -19,11 +18,11 @@
               <% end %>
 
               <div class="field">
-                <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                <%= f.label :password %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
                 <% if @minimum_password_length %>
                   <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
+                  <em><%= @minimum_password_length %> caractères minimum</em>
                 <% end %>
               </div>
 
@@ -33,19 +32,19 @@
               </div><br />
 
               <div class="field">
-                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+                <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i><br />
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control " %>
               </div>
 
               <br />
-              <div class="actions">
-                <%= f.submit "Update" %>
+              <div class="actions  d-grid mb-2ns">
+                <%= f.submit "Editer", class: ("btn btn-lg btn-primary rounded") %>
               </div>
             <% end %><br />
 
-            <h3>Cancel my account</h3>
+            <h3>Annuler mon compte</h3>
 
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+            <p>Unhappy? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sûr ?" }, method: :delete ,class: ("btn btn-lg btn-primary rounded ") %></p>
 
             <%= link_to "Back", :back %>
           </div>
