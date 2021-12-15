@@ -6,7 +6,8 @@
   <div class="container">
     <div class="d-flex flex-column  mb-5">
       <div class="col-sm">
-          <h2 class="fw-light mb-5">Mon <span class="fw-bold mb-5">Projet</span></h2>
+          <h2 class="fw-light mb-2">Mon <span class="fw-bold mb-5">Projet: </span></h2>
+          <p>Ici , vous avez acces a vos logement inclus dans votre projets, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.
             <p> <%=@project_comment%></p>
         </div>
         <div class='col-sm text-lg-end'>
@@ -18,18 +19,32 @@
           <ul class="list-unstyled">
             <%@housings.each do |housing|%>
             <li>
-              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2">
+              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2" style='color: rgb(173 81 81 / 98%)'>
                 <div class="card-body  py-2">
-                  <div class="row d-flex ">
-                    <div class="col-6">
-                      <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
-                      <ul class="list-inline list-inline-separated text-muted">
-                        <li class="list-inline-item"><%= housing.comment %> Je suis un commentaires </li>
-                      </ul>
-                    </div>
-                    <div class="col-6 text-lg-end">
-                      <button href="" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
-                      <button href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded" style="max-width:200px">Supprimer<i class="fas fa-times fa-lg ms-1"></i></button>
+                  <div class=" d-flex flex-lg-column">
+                    <div class="d-flex-lg-column ">
+                      <div class='d-flex justify-content-between'>
+                        <div class='order-1'>
+                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
+                          <ul class="list-inline list-inline-separated text-muted">
+                          <li class="list-inline-item"><%= housing.comment %> Je suis un commentaires </li>
+                          </ul>
+                       </div>
+                       <div class='order-2 text-center p-0 '>
+                          <% if housing.offer_profitability.nil? %>
+                          <%else%>
+                          <% if housing.offer_profitability >= 0 %>
+                          <p class='pt-2'>Rentabilité estimé : <span style=' color: green'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                          <% else %>
+                          <p class='pt-2'>Rentabilité estimé : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                          <%end%>
+                          <%end%>
+                       </div>
+                        <div class=" order-3 text-md-end p-0">
+                          <button style='padding: 10px 20px' href="" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
+                          <button style='padding: 10px 20px'href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded" style="max-width:200px">Supprimer<i class="fas fa-times fa-lg ms-1"></i></button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
