@@ -1438,6 +1438,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 
 
@@ -1482,23 +1483,22 @@ body{
 
 /* FORMULAIRE */
 
-.form-body{
+/* .form-body{
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* background: url(""), -webkit-linear-gradient(bottom, #ca6641, #fff6f2); */
-
-  --form-width: 500px;
-  --form-h-padding: 35px;
-}
+  justify-content: center; */
+  /* --form-width: 500px;
+  --form-h-padding: 35px; 
+}*/
 
 .form-wrapper{
-  width: var(--form-width);
+  /* width: var(--form-width); */
   background-color: #fff;
   border-radius: 5px;
   text-align: center;
-  padding: 50px var(--form-h-padding) 10px;
+  /* padding: 50px var(--form-h-padding) 10px; */
+  padding: 3em;
 }
 
 .container header{
@@ -1507,9 +1507,6 @@ body{
   margin: 0 0 30px 0;
 }
 
-.container .slide-wrapper{
- 
-}
 
 .slide-wrapper {
   width: 100%;
@@ -1526,7 +1523,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  width: 80vw;
   /* opacity: 0; */
   transition: all 1s ease-in-out;
   opacity: 0;
@@ -1565,12 +1562,10 @@ body{
   margin-left:30px;
 }
 
-
-.slide-wrapper .slide-inner-bg .page .field .label{
-  position: absolute;
-  top: -30px;
-  font-weight: 500;
+.slide-wrapper .slide-inner-bg .page .field label{
+  margin: 6px 2px;
 }
+
 
 .slide-wrapper .slide-inner-bg .page .field input{
   border: 1px solid lightgrey;
@@ -1670,7 +1665,7 @@ form .page .field select{
 }
 
 .progress-bar .step p{
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: rgba(0,0,0,0.65);
   margin-bottom: 8px;
@@ -1707,9 +1702,9 @@ form .page .field select{
   position: absolute;
   content: '';
   bottom: 17px;
-  right: -35%;
+  right: -30%;
   height: 2px;
-  width: 70%;
+  width: 60%;
   background-color: rgba(0,0,0,0.35);
 }
 
