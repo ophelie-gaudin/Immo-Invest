@@ -1,59 +1,64 @@
 <footer class="py-10 py-xl-10 bg-white">
-	  <div class="container">
-	    <div class="row g-4 g-lg-5 mb-10">
-	      <div class="col-md-3 text-center text-md-start">
-	        <a href="<%= root_path %>" class="navbar-brand"><img src="/assets/logo-f3919bf89413ff38d693fe8a07f033b42cf25f4d1d0799b3b8bc62291deada68.svg" style="max-height:150px;"/></a>
-	      </div>
-	      <div class="col-md-4 col-lg-5 text-center text-md-start">
-	        <ul class="list-unstyled">
-	          <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Nous Contacter</a></li>
-	          <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Notre équipe</a></li>
-	          <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Recrutement</a></li>
-	          <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Mentions Légales</a></li>
-	        </ul>
-	      </div>
-	      <div class="col-md-3 col-lg-3">
-	        <div class="grouped-inputs border border-primary p-1 rounded-pill">
-	          <div class="row">
-	            <div class="col">
-	              <p class="form-control rounded-pill px-3 text-primary">Payer un café</p>
-	            </div>
-	            <div class="col-auto">
-								<%= button_to "ici", checkout_create_path(total: 3), class: "btn btn-primary btn-icon rounded-circle", remote: true %>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
+
+    <div class="container">
+      <div class="row g-4 g-lg-5 mb-10">
+
+        <div class="col-md-3 text-center text-md-start">
+          <a href="<%= root_path %>" class="navbar-brand"><img src="/assets/logo1.svg" style="max-height:100px;"/></a>
+        </div>
+        <div class="col">
+          <ul class="list-unstyled">
+            <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Nous Contacter</a></li>
+            <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Notre équipe</a></li>
+            <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Recrutement</a></li>
+            <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Mentions Légales</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-lg-3">
+          <div class="grouped-inputs border border-primary p-1 rounded-pill">
+            <div class="row">
+              <div class="col">
+                <p class="form-control rounded-pill px-3 text-primary">Payer un café</p>
+              </div>
+              <div class="col-auto">
+                <%= button_to "ici", checkout_create_path(total: 3), class: "btn btn-primary btn-icon rounded-circle", remote: true %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-3 d-flex justify-content-center">
+          <a href="#top"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
+        </div>
         <!--
-	      <div class="col-md-5 col-lg-4">
-	        <div class="grouped-inputs border border-primary p-1 rounded-pill">
-	          <div class="row">
-	            <div class="col">
-	              <input type="text" class="form-control rounded-pill px-3" aria-label="Text input"
-	                placeholder="Your email">
-	            </div>
-	            <div class="col-auto">
-	              <a href="mailto:thpicebreakers@gmail.com" class="btn btn-primary btn-icon rounded-circle"><i class="bi bi-arrow-return-left"></i></a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-      	!--->
-	    </div>
-	    <div class="row align-items-center g-1 g-lg-6">
-	      <div class="col-md-6 col-lg-5 order-lg-2 text-center text-md-start">
-	        <ul class="list-inline small">
-	          <li class="list-inline-item"><a href="https://github.com/ophelie-gaudin/Immo-Invest" class="text-reset text-primary-hover">github</a></li>
-	          <li class="list-inline-item ms-1"><a href="https://twitter.com/the_hacking_pro" class="text-reset text-primary-hover">twitter</a></li>
-	          <li class="list-inline-item ms-1"><a href="https://www.linkedin.com/school/the_hacking_project/" class="text-reset text-primary-hover">linkedin</a></li>
-	        </ul>
-	      </div>
-	      <div class="col-md-6 col-lg-4 text-center text-md-end order-lg-3">
-	        <span class="small">10 boulevard des corsaires, THP Paris CEDEX 42</span>
-	      </div>
-	      <div class="col-lg-3 order-lg-1 text-center text-md-start">
-	        <p class="small">IMMOTEP © 2021</p>
-	      </div>
-	    </div>
-	  </div>
-	</footer>
+        <div class="col-md-5 col-lg-4">
+          <div class="grouped-inputs border border-primary p-1 rounded-pill">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control rounded-pill px-3" aria-label="Text input"
+                  placeholder="Your email">
+              </div>
+              <div class="col-auto">
+                <a href="mailto:thpicebreakers@gmail.com" class="btn btn-primary btn-icon rounded-circle"><i class="bi bi-arrow-return-left"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        !--->
+      </div>
+      <div class="row align-items-center g-1 g-lg-6">
+        <div class="col-md-6 col-lg-5 order-lg-2 text-center text-md-start">
+          <ul class="list-inline small">
+            <li class="list-inline-item"><a href="https://github.com/ophelie-gaudin/Immo-Invest" class="text-reset text-primary-hover">github</a></li>
+            <li class="list-inline-item ms-1"><a href="https://twitter.com/the_hacking_pro" class="text-reset text-primary-hover">twitter</a></li>
+            <li class="list-inline-item ms-1"><a href="https://www.linkedin.com/school/the_hacking_project/" class="text-reset text-primary-hover">linkedin</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4 text-center text-md-end order-lg-3">
+          <span class="small">10 boulevard des corsaires, THP Paris CEDEX 42</span>
+        </div>
+        <div class="col-lg-3 order-lg-1 text-center text-md-start">
+          <p class="small">IMMOTEP © 2021</p>
+        </div>
+      </div>
+    </div>
+  </footer>
