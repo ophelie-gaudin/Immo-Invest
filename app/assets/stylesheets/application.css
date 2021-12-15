@@ -1487,17 +1487,18 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: url(""), -webkit-linear-gradient(bottom, #ca6641, #fff6f2);
+  /* background: url(""), -webkit-linear-gradient(bottom, #ca6641, #fff6f2); */
 
+  --form-width: 500px;
+  --form-h-padding: 35px;
 }
 
 .form-wrapper{
-  width: 400px;
-  background-color: #fff6f2;
+  width: var(--form-width);
+  background-color: #fff;
   border-radius: 5px;
   text-align: center;
-  padding: 50px 35px 10px 35px;
+  padding: 50px var(--form-h-padding) 10px;
 }
 
 .container header{
@@ -1506,71 +1507,81 @@ body{
   margin: 0 0 30px 0;
 }
 
-.container .form-outer{
+.container .slide-wrapper{
+ 
+}
+
+.slide-wrapper {
   width: 100%;
   overflow: hidden;
+  /* width:400%; */
 }
 
-.form-outer form{
+.slide-wrapper .slide-inner-bg {
   display: flex;
-  width:400%
+  width: fit-content;
 }
 
-.form-outer form .page{
-  width: 25%;
+.slide-wrapper .slide-inner-bg .page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   /* opacity: 0; */
-  transition: margin-left -0.3s ease-in-out;
+  transition: all 1s ease-in-out;
+  opacity: 0;
 }
 
-.form-outer form .page .title{
+.slide-wrapper .slide-inner-bg .page.active-slide {
+  opacity: 1;
+}
+
+.slide-wrapper .slide-inner-bg .page .title{
   text-align: left;
   font-size: 25px;
   font-weight: 500;
 }
 
-.form-outer form .page .field{
-  height: 45px;
-  width: 330px;
-  margin: 45px 0;
+.slide-wrapper .slide-inner-bg .page .field{
+  width: calc(var(--form-width) - 2 * var(--form-h-padding));
+  margin: 16px 0;
   position: relative;
 }
 
-.form-outer form .page .field-form{
+.slide-wrapper .slide-inner-bg .page .field-form{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.form-outer form .page .check-box-form{
+.slide-wrapper .slide-inner-bg .page .check-box-form{
   display: flex;
   justify-content: flex-start;
-  width: 30px;
   align-items: center;
 
 }
 
-.form-outer form .check-label{
+.slide-wrapper  .check-label{
   margin-left:30px;
 }
 
 
-.form-outer form .page .field .label{
+.slide-wrapper .slide-inner-bg .page .field .label{
   position: absolute;
   top: -30px;
   font-weight: 500;
 }
 
-.form-outer form .page .field input{
-  height: 100%;
+.slide-wrapper .slide-inner-bg .page .field input{
   border: 1px solid lightgrey;
   border-radius: 5px;
   font-size: 18px;
-  padding: 1.3rem 1.3rem 1.3rem 15px;
+  padding: 8px;
   color: rgba(0,0,0,0.65);
 
 }
 
-.form-outer form .page .field input:focus{
+.slide-wrapper .slide-inner-bg .page .field input:focus{
   box-shadow: none;
   border: 3px solid rgba(202, 102, 65, 0.48);
 }
@@ -1587,7 +1598,7 @@ form .page .field select{
   color: rgba(0,0,0,0.65);
 }
 
-.form-outer form .page .field #submit-link{
+.slide-wrapper .slide-inner-bg .page .field .submit-link{
   border: none;
   background: none;
   height: 1.5em;
@@ -1596,11 +1607,14 @@ form .page .field select{
 
 }
 
+.slide-wrapper .slide-inner-bg .page .field .submit-link:hover{
+  color: #000;
+}
 
-.form-outer form .page .field button{
+
+.form-wrapper .field button{
   width: 100%;
   height: calc(100% + 5px);
-  margin-top: -20px;
   border: none;
   border-radius: 5px;
   background: #ca6641;
@@ -1613,20 +1627,36 @@ form .page .field select{
   transition: 0.3s ease;
 }
 
-.form-outer form .page .field button:hover{
+.form-wrapper .field button:hover{
   background: #000;
 }
 
-.form-outer form .page .btns button{
+/* .slide-wrapper .slide-inner-bg .page .btns button{
   margin-top: -20px!important;
+} */
+
+
+.form-wrapper .btns {
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-form .page .btns button.prev{
+.form-wrapper .btns button.prev-{
   margin-right: 3px;
   font-size: 17px;
+  background-color: #fff6f2;
+  border: 1px solid #ca6641;
+  color:#ca6641;
 }
 
-form .page .btns button.next{
+.form-wrapper .btns button.prev:hover{
+  background-color: #ca6641;
+  border: 1px solid #ca6641;
+  color:#fff6f2;
+}
+
+.form-wrapper .btns button.next{
   margin-left: 3px;
 }
 
@@ -1641,11 +1671,11 @@ form .page .btns button.next{
 .container .progress-bar .step{
   position: relative;
   text-align: center;
-  width: 100%;
+  width: 20%;
 }
 
 .progress-bar .step p{
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 500;
   color: #000;
   margin-bottom: 8px;
@@ -1658,7 +1688,6 @@ form .page .btns button.next{
 }
 
 .progress-bar .step .bullet{
-  position: relative;
   height: 25px;
   width: 25px;
   border: 2px solid #000;
@@ -1681,10 +1710,10 @@ form .page .btns button.next{
 .progress-bar .step .bullet:after{
   position: absolute;
   content: '';
-  bottom: 11px;
-  right: -51px;
+  bottom: 17px;
+  right: -35%;
   height: 3px;
-  width: 44px;
+  width: 70%;
   background: #262626;
 }
 
@@ -1727,3 +1756,8 @@ form .page .btns button.next{
   display: block;
   color: #fff;
 }
+
+.slide-wrapper .slide-inner-bg .page .btns button{
+  margin: 0;
+}
+

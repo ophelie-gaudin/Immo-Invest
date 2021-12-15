@@ -1,54 +1,75 @@
 
  document.addEventListener("DOMContentLoaded", () =>{
+   console.log("JHGKJGKJGJKGJG");
   const slidePage = document.querySelector(".slidepage");
-  const firstNextBtn = document.querySelector(".nextBtn");
-  const prevBtnSec = document.querySelector(".prev-1");
-  const nextBtnSec = document.querySelector(".next-1");
-  const prevBtnThird = document.querySelector(".prev-2");
-  const nextBtnThird = document.querySelector(".next-2");
-  const nextBtnFourfth = document.querySelector(".next-3");
-  const prevBtnFourth = document.querySelector(".prev-3");
-  const prevBtnFifth = document.querySelector(".prev-4");
-  const submitBtn = document.querySelector(".submit");
+  const nextBtn = document.querySelector("#next-btn");
+  const prevBtn = document.querySelector("#prev-btn");
+  const submitBtn = document.querySelector("#submit-btn");
+  const bullet = document.querySelectorAll(".step .bullet");
   const progressText = document.querySelectorAll(".step p");
   const progressCheck = document.querySelectorAll(".step .check");
-  const bullet = document.querySelectorAll(".step .bullet");
-  let max = 4;
-  let current = 1;
+  const slideInnerBg = document.querySelector(".slide-wrapper .slide-inner-bg")
+  const nbSlide = slideInnerBg.childElementCount;
+
+  let max = nbSlide;
+  let current = 0;
 
 
   
-  firstNextBtn.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-25%";
-    bullet[current - 1].classList.add("active");
-    progressText[current - 1].classList.add("active");
-    progressCheck[current - 1].classList.add("active");
-    current +=1;
+  nextBtn.addEventListener("click", function(event){
+    event.preventDefault()
+    event.stopPropagation()
+    console.log("current", current);
+    prevBtn.style.display = `block`;
+
+    // if(current > 0) {
+      slideInnerBg.children[current].classList.remove("active-slide")
+    // }
+    
+    slideInnerBg.children[current + 1].classList.add("active-slide")
+    bullet[current].classList.add("active");
+    progressText[current].classList.add("active");
+    progressCheck[current].classList.add("active");
+    slideInnerBg.style.transform = `translateX(-${100/(nbSlide) * (current+1) }%)`
+
+    current++;
+
+    if(current === nbSlide - 1){
+      nextBtn.style.display = `none`;
+      submitBtn.style.display = `block`;
+    }
   });
 
-  nextBtnSec.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-50%";
-    bullet[current - 1].classList.add("active");
-    progressText[current - 1].classList.add("active");
-    progressCheck[current - 1].classList.add("active");
-    current +=1;
-  });
-  
-  nextBtnThird.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-75%";
-    bullet[current - 1].classList.add("active");
-    progressText[current - 1].classList.add("active");
-    progressCheck[current - 1].classList.add("active");
-    current +=1;
+  prevBtn.addEventListener("click", function(event){
+    event.preventDefault()
+    event.stopPropagation()
+    console.log("current", current);
+    submitBtn.style.display = `none`;
+    nextBtn.style.display = `block`;
+
+
+    // if(current < nbSlide - 1) {
+      slideInnerBg.children[current].classList.remove("active-slide")
+    // }
+    
+    slideInnerBg.children[current - 1].classList.add("active-slide")
+
+    bullet[current - 1].classList.remove("active");
+    progressText[current - 1].classList.remove("active");
+    progressCheck[current - 1].classList.remove("active");
+
+    slideInnerBg.style.transform = `translateX(-${100/(nbSlide) * (current - 1) }%)`
+
+    current--;
+
+    if(current === 0){
+      prevBtn.style.display = `none`;
+      // submitBtn.style.display = `block`;
+    }
   });
 
-  nextBtnFourfth.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-100%";
-    bullet[current - 1].classList.add("active");
-    progressText[current - 1].classList.add("active");
-    progressCheck[current - 1].classList.add("active");
-    current +=1;
-  });
+
+ 
 
 
   submitBtn.addEventListener("click", function(){
@@ -67,38 +88,6 @@
 
   
 
-
-  prevBtnSec.addEventListener("click", function(){
-    slidePage.style.marginLeft = "0%";
-    bullet[current - 2].classList.remove("active");
-    progressText[current - 2].classList.remove("active");
-    progressCheck[current - 2].classList.remove("active");
-    current -=1;
-  });
-  
-  prevBtnThird.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-25%";
-    bullet[current - 2].classList.remove("active");
-    progressText[current - 2].classList.remove("active");
-    progressCheck[current - 2].classList.remove("active");
-    current -=1;
-  });
-  
-  prevBtnFourth.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-50%";
-    bullet[current - 2].classList.remove("active");
-    progressText[current - 2].classList.remove("active");
-    progressCheck[current - 2].classList.remove("active");
-    current -=1;
-  });
-
-  prevBtnFifth.addEventListener("click", function(){
-    slidePage.style.marginLeft = "-75%";
-    bullet[current - 2].classList.remove("active");
-    progressText[current - 2].classList.remove("active");
-    progressCheck[current - 2].classList.remove("active");
-    current -=1;
-  });
 
 
 

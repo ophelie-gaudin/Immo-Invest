@@ -6,227 +6,234 @@
 <div class="container form-wrapper">
   <header>Formulaire</header>
 
-  <div class="progress-bar">
+    <div class="progress-bar">
+      <div class="step">
+        <p>Annonce</p>
+        <div class="bullet">
+          <span style="margin-top:-3px;">1</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+
+      <div class="step">
+        <p>Logement</p>
+        <div class="bullet">
+          <span style="margin-top:-3px;">2</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+
+      <div class="step">
+        <p>Charges</p>
+        <div class="bullet">
+          <span style="margin-top:-3px;">3</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+
+      <div class="step">
+        <p>Invest</p>
+        <div class="bullet">
+          <span style="margin-top:-3px;">4</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+
+      <div class="step"> 
+        <p>Offre</p>
+        <div class="bullet">
+          <span style="margin-top:-3px;">5</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+
+    </div>
+  
+    <%= form_with(model: @housing, url: project_housing_path, method: "put", local: true) do |f| %>
     
-    <div class="step">
-      <p>Logement</p>
-      <div class="bullet">
-        <span style="margin-top:-3px;">1</span>
-      </div>
-      <div class="check fas fa-check"></div>
-    </div>
+  <div class="slide-wrapper">
+    <div class="slide-inner-bg">
+      <div class="page active-slide slidepage">
 
-    <div class="step">
-      <p>Charges</p>
-      <div class="bullet">
-        <span style="margin-top:-3px;">2</span>
-      </div>
-      <div class="check fas fa-check"></div>
-    </div>
+        <div>
+          <div class="title">Références de l'annonce :</div>
 
-    <div class="step">
-      <p>Invest</p>
-      <div class="bullet">
-        <span style="margin-top:-3px;">3</span>
-      </div>
-      <div class="check fas fa-check"></div>
-    </div>
+          <div class="field field-form">      
+            <%= label_tag(:ad_url, "Lien vers l'annonce :") %>
+            <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
+          </div>
+          
+          <div class="field field-form">
+            <%= label_tag(:ad_price, "Prix de l'annonce :") %>
+            <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
+          </div>
 
-    <div class="step"> 
-      <p>Offre</p>
-      <div class="bullet">
-        <span style="margin-top:-3px;">4</span>
-      </div>
-      <div class="check fas fa-check"></div>
-    </div>
+          <div class="field field-form">
+            <%= label_tag(:property_category, "Type de bien :")  %>
+            <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4', 'T5', 'T6', 'Immeuble', 'Autre' ], class: 'form-control', value: @housing.property_category %> 
+          </div>
+          
+          <div class="field field-form">
+            <%= label_tag(:localization, "Localisation du bien :") %>
+            <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+          </div>
+        </div>
 
-  </div>
-  
-  <div class="form-outer">
-  <%= form_with(model: @housing, url: project_housing_path, method: "put", local: true) do |f| %>
-  
-
-    <div class="page slidepage">
-      <div class="title">Références de l'annonce :</div>
-
-      <div class="field field-form">      
-        <%= label_tag(:ad_url, "Lien vers l'annonce :") %>
-        <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
+        
       </div>
-      
-      <div class="field field-form">
-        <%= label_tag(:ad_price, "Prix de l'annonce :") %>
-        <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
-      </div>
-
-      <div class="field field-form">
-        <%= label_tag(:property_category, "Type de bien :")  %>
-        <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4', 'T5', 'T6', 'Immeuble', 'Autre' ], class: 'form-control', value: @housing.property_category %> 
-      </div>
-      
-      <div class="field field-form">
-        <%= label_tag(:localization, "Localisation du bien :") %>
-        <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
-      </div>
-
-      <div class="field nextBtn">
-        <button href="#">Next</button>
-        <br />
-        <%= f.submit "Soumettre les informations", id:"submit-link"%>
-      </div>      
-    </div>
 
 
 
 
       <div class="page">
-      <div class="title">Caractéristiques du bien :</div>
+
+        <div>
+
+          <div class="title">Caractéristiques du bien :</div>
 
 
-      <div class="field field-form">
-        <%= label_tag(:area, "Surface habitable :")%>
-        <%= f.number_field :area, class: 'form-control', value: @housing.area %>
+          <div class="field field-form">
+            <%= label_tag(:area, "Surface habitable :")%>
+            <%= f.number_field :area, class: 'form-control', value: @housing.area %>
+          </div>
+
+          <div class="field field-form">
+            <%= label_tag(:repairs_price, "Prix des travaux :") %>
+            <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
+          </div>
+
+          <div class="field check-box-form">
+            <%#= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
+            <%= check_box_tag(:new_property, class: 'form-control', value: @housing.new_property) %>
+            <%= label_tag(:new_property, "Neuf", class:"check-label") %>
+          </div>
+        </div>
+
+         
       </div>
 
-      <div class="field field-form">
-        <%= label_tag(:repairs_price, "Prix des travaux :") %>
-        <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
+
+
+      <div class="page">
+
+        <div>
+          <div class="title">Charges :</div>
+          
+          <div class="field field-form">
+            <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
+            <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+          </div>
+
+          <div class="field field-form">
+            <%= label_tag(:property_tax, "Taxe foncière :") %>
+            <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+          </div>
+
+          <div class="field check-box-form">
+            <%= check_box_tag(:pno_insurance, class: 'form-control', value: @housing.pno_insurance) %>
+            <%#= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
+            <%= label_tag(:pno_insurance, "Assurance PNO ", class:"check-label") %>
+          </div>
+
+          <div class="field check-box-form">
+            <%= check_box_tag(:rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance) %>
+            <%#= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
+            <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés", class:"check-label") %>
+          </div>
+        </div>
+
+       
+        
       </div>
 
-      <div class="field check-box-form">
-        <%#= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
-        <%= check_box_tag(:new_property, class: 'form-control', value: @housing.new_property) %>
-        <%= label_tag(:new_property, "Neuf", class:"check-label") %>
+
+
+
+      <div class="page">
+
+        <div>
+
+          <div class="title">Investissement :</div>
+
+          <div class="field field-form">
+            <%= label_tag(:annual_rent, "Loyer annuel complet :") %>
+            <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
+          </div>
+
+          <div class="field check-box-form">      
+            <%= check_box_tag(:rental_management, class: 'form-control', value: @housing.rental_management) %>
+            <%#= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
+            <%= label_tag(:rental_management, "Gestion locative", class:"check-label") %>
+          </div>
+
+          <div class="field field-form">
+          <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
+          <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
+          </div>
+
+          <div class="field field-form">      
+            <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien :") %>
+            <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
+          </div>
+
+        </div>
+
+       
+
       </div>
 
-      <div class="field btns">
-        <button class="prev-1 prev">Previous</button>
-        <button class="next-1 next">Next</button>
-      </div> 
-
-      <br />
-      <%= f.submit "Soumettre les informations", id:"submit-link"%>         
-    </div>
 
 
 
-    <div class="page">
-      <div class="title">Charges :</div>
+      <div class="page">
+        <div>
+
+          <div class="title">Offre</div>
+
+          <div class="field field-form">
+            <%= label_tag(:comment, "Vos notes :") %>
+            <%= f.text_area :comment, class: 'form-control', value: @housing.comment %>
+          </div>
+
+          <div class="field field-form">
+            <%= label_tag(:comment, "Ajoutez les photos de ce logement :") %>
+            <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
+          </div>
+
+          <div class="field field-form">
+          <%= label_tag(:offer_price, "Prix de votre offre :") %>
+          <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
+          </div>
+
+          <div class="field field-form">
+            <%= label_tag(:notary_fees, "Frais de notaire :") %>
+            <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
+          </div>
+
+          <div class="field field-form">
+            <%= label_tag(:agency_fees, "Frais d'agence :") %>
+            <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
+          </div>
+        </div>
       
-      <div class="field field-form">
-        <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
-        <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+          
       </div>
-
-      <div class="field field-form">
-        <%= label_tag(:property_tax, "Taxe foncière :") %>
-        <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
-      </div>
-
-      <div class="field check-box-form">
-        <%= check_box_tag(:pno_insurance, class: 'form-control', value: @housing.pno_insurance) %>
-         <%#= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
-         <%= label_tag(:pno_insurance, "Assurance PNO ", class:"check-label") %>
-      </div>
-
-      <div class="field check-box-form">
-        <%= check_box_tag(:rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance) %>
-
-         <%#= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
-         <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés", class:"check-label") %>
-      </div>
-
-
-      <div class="field btns">
-        <button class="prev-2 prev">Previous</button>
-        <button class="next-2 next">Next</button>
-      </div> 
-
-      <br />
-      <%= f.submit "Soumettre les informations", id:"submit-link"%>     
     </div>
-
-
-
-
-    <div class="page">
-      <div class="title">Investissement :</div>
-
-      <div class="field field-form">
-        <%= label_tag(:annual_rent, "Loyer annuel complet :") %>
-        <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
-      </div>
-
-      <div class="field check-box-form">
-        <%= check_box_tag(:rental_management, class: 'form-control', value: @housing.rental_management) %>
-
-         <%#= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
-         <%= label_tag(:rental_management, "Gestion locative") %>
-      </div>
-
-      <div class="field field-form">
-       <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
-       <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
-      </div>
-
-      <div class="field field-form">      
-        <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien :") %>
-        <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
-      </div>
-
-
-      <div class="field btns">
-        <button class="prev-3 prev">Previous</button>
-        <button class="next-3 next">Next</button>
-      </div>   
-      <br />
-      <%= f.submit "Soumettre les informations", id:"submit-link"%>
-
     </div>
+          <div class="field btns">
+            <button id="prev-btn" class="prev col"  style="display:none;"><i class="fas fa-chevron-circle-left"></i> Préc.</button>
+            <button id="next-btn" class="next col">Suivant <i class="fas fa-chevron-circle-right"></i></button>
+            <button id="submit-btn" class="next col" style="display:none;">FINIR <i class="fas fa-check-circle"></i></button>
+          <%#= f.submit "Soumettre les informations", class:"submit-link"%>
+            <%#= button_tag type: 'submit', class: "button postfix col" do %>
+            
+            <%# end %>
+          <%#= f.submit "Finir la saisie d'informations", class:"next-3 next col"%>
+        </div> 
 
-
-
-
-    <div class="page">
-      <div class="title">Offre</div>
-
-      <div class="field field-form">
-        <%= label_tag(:comment, "Vos notes :") %>
-        <%= f.text_area :comment, class: 'form-control', value: @housing.comment %>
-      </div>
-
-      <div class="field field-form">
-        <%= label_tag(:comment, "Ajoutez les photos de ce logement :") %>
-        <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
-      </div>
-
-      <div class="field field-form">
-       <%= label_tag(:offer_price, "Prix de votre offre :") %>
-       <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
-      </div>
-
-      <div class="field field-form">
-        <%= label_tag(:notary_fees, "Frais de notaire :") %>
-        <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
-      </div>
-
-      <div class="field field-form">
-        <%= label_tag(:agency_fees, "Frais d'agence :") %>
-        <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
-      </div>
-
-      <div class="field btns">
-        <button class="prev-4 prev">Previous</button>
-        <%= f.submit "Finir la saisie d'informations"%>
-      </div>      
-    </div>
-
-
-
-  <%end%>
-  </div>
   
-  </div>
+    <%end%>
+
 </div>
 
 <script src="../../assets/javascripts/form.js"></script>
@@ -238,113 +245,89 @@
 
 
 
-<%= form_with(model: @housing, url: project_housing_path, method: "put", local: true) do |f| %>
+<%#= form_with(model: @housing, url: project_housing_path, method: "put", local: true) do |f| %>
 
- <%= label_tag(:localization, "Localisation du bien :") %>
- <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+ <%#= label_tag(:localization, "Localisation du bien :") %>
+ <%#= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
 
-<br />
 
-<%= label_tag(:ad_price, "Prix de l'annonce :") %>
- <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
+<%#= label_tag(:ad_price, "Prix de l'annonce :") %>
+ <%#= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
 
-<br />
 
-  <%= label_tag(:property_category, "Type de bien :") %>
-  <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4' ], class: 'form-control', value: @housing.property_category %> 
+  <%#= label_tag(:property_category, "Type de bien :") %>
+  <%#= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4' ], class: 'form-control', value: @housing.property_category %> 
   
-<br />
 
- <%= label_tag(:comment, "Vos notes :") %>
- <%= f.text_area :comment, class: 'form-control', value: @housing.comment %>
-
-<br />
-
- <%= label_tag(:area, "Surface habitable :") %>
- <%= f.number_field :area, class: 'form-control', value: @housing.area %>
-
-<br />
-
- <%= label_tag(:ad_url, "Lien vers l'annonce :") %>
- <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
-
-<br />
-
- <%= label_tag(:offer_price, "Prix de votre offre :") %>
- <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
-
-<br />
-
- <%= label_tag(:repairs_price, "Prix des travaux :") %>
- <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
-
-<br />
-
- <%= label_tag(:annual_rent, "Loyer annuel complet :") %>
- <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
-
-<br />
+ <%#= label_tag(:comment, "Vos notes :") %>
+ <%#= f.text_area :comment, class: 'form-control', value: @housing.comment %>
 
 
- <%= label_tag(:notary_fees, "Frais de notaire :") %>
- <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
+ <%#= label_tag(:area, "Surface habitable :") %>
+ <%#= f.number_field :area, class: 'form-control', value: @housing.area %>
 
-<br />
 
- <%= label_tag(:agency_fees, "Frais d'agence :") %>
- <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
+ <%#= label_tag(:ad_url, "Lien vers l'annonce :") %>
+ <%#= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
 
-<br />
 
- <%= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
- <%= label_tag(:pno_insurance, "Assurance PNO ") %>
+ <%#= label_tag(:offer_price, "Prix de votre offre :") %>
+ <%#= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
 
-<br />
 
- <%= label_tag(:property_tax, "Taxe foncière :") %>
- <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+ <%#= label_tag(:repairs_price, "Prix des travaux :") %>
+ <%#= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
 
-<br />
 
- <%= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
- <%= label_tag(:rental_management, "Gestion locative") %>
-
-<br />
-
- <%= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
- <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés") %>
-
-<br />
-
- <%= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
- <%= label_tag(:new_property, "Neuf") %>
-
-<br />
-
- <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
- <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
-
-<br />
-
- <%= label_tag(:maintenance_percentage, "Pourcentage de vacance locative :") %>
- <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
-
-<br />
- <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
- <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
-
-<br />
-  <%= label_tag(:pictures, "Ajouter vos images") %>
-  <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
-
-<br />
+ <%#= label_tag(:annual_rent, "Loyer annuel complet :") %>
+ <%#= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
 
 
 
+ <%#= label_tag(:notary_fees, "Frais de notaire :") %>
+ <%#= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
 
 
- <%= f.submit "Finir la saisie d'informations"%>
+ <%#= label_tag(:agency_fees, "Frais d'agence :") %>
+ <%#= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
 
- </div>
 
- <%end%>
+ <%#= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
+ <%#= label_tag(:pno_insurance, "Assurance PNO ") %>
+
+
+ <%#= label_tag(:property_tax, "Taxe foncière :") %>
+ <%#= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+
+
+ <%#= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
+ <%#= label_tag(:rental_management, "Gestion locative") %>
+
+
+ <%#= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
+ <%#= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés") %>
+
+
+ <%#= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
+ <%#= label_tag(:new_property, "Neuf") %>
+
+
+ <%#= label_tag(:building_co_tax, "Charges de copropriété :") %>
+ <%#= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+
+
+ <%#= label_tag(:maintenance_percentage, "Pourcentage de vacance locative :") %>
+ <%#= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
+
+ <%#= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
+ <%#= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
+
+  <%#= label_tag(:pictures, "Ajouter vos images") %>
+  <%#= f.file_field :pictures, :multiple => true, :class => "form-control" %>
+
+
+ <%#= f.submit "Finir la saisie d'informations"%>
+
+
+
+ <%#end%>
