@@ -36,7 +36,7 @@
   <section >
     <div >
       <div class="row flex-md-column flex-lg-row gap-25 custom-col" id="first-row">
-        <div class="col sm-6 m-5">
+        <div class="col sm-6 m-6">
           <div class="card-border card-height">
             <div class="card-body ">
               <h3 class="title-style" style="text-align:center ">Somme à financer </h3>
@@ -72,7 +72,7 @@
   <section>
     <div >
       <div class="row flex-md-column flex-lg-row gap-25 custom-col" id="second-row">
-        <div class="col sm-6 m-5">
+        <div class="col sm-6 m-6">
           <div class="card-border card-height" >
             <div class="card-body ">
               <h3 class="title-style" style="text-align:center ">Investissement </h3>
@@ -112,6 +112,6 @@ function setHeight() {
   secondRow.style.height = rowHeight + 'px';
 }
 
-setHeight()
+document.addEventListener('DOMcontentLoaded',setHeight(),false)
 
 </script>
