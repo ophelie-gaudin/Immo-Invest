@@ -1538,7 +1538,7 @@ body{
 
 .slide-wrapper .slide-inner-bg .page .title{
   text-align: left;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -1615,26 +1615,22 @@ form .page .field select{
 .form-wrapper .field button{
   width: 100%;
   height: calc(100% + 5px);
-  border: none;
   border-radius: 5px;
   background: #ca6641;
   color: #fff6f2;
-  font-size: 18px;
-  font-size: 500;
+  border: 1px solid #ca6641;
+
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.3s ease;
+  padding: 10px 30px;
 }
 
 .form-wrapper .field button:hover{
   background: #000;
+  border-color: #000;
 }
-
-/* .slide-wrapper .slide-inner-bg .page .btns button{
-  margin-top: -20px!important;
-} */
-
 
 .form-wrapper .btns {
   margin: 16px 0;
@@ -1642,30 +1638,29 @@ form .page .field select{
   justify-content: space-between;
 }
 
-.form-wrapper .btns button.prev-{
+.form-wrapper .btns #prev-btn{
   margin-right: 3px;
   font-size: 17px;
-  background-color: #fff6f2;
+  background-color: #fff;
   border: 1px solid #ca6641;
   color:#ca6641;
 }
 
-.form-wrapper .btns button.prev:hover{
+.form-wrapper .btns #prev-btn:hover{
   background-color: #ca6641;
-  border: 1px solid #ca6641;
   color:#fff6f2;
 }
 
-.form-wrapper .btns button.next{
+.form-wrapper .btns  #next-btn{
   margin-left: 3px;
 }
 
 .container .progress-bar{
   display: flex;
   flex-direction: row;
-  margin: 40px 0;
+  margin: 30px 0;
   background-color: rgba(0,0,0,0);
-  color: #000;
+  color: rgba(0,0,0,0.65);
 }
 
 .container .progress-bar .step{
@@ -1675,9 +1670,9 @@ form .page .field select{
 }
 
 .progress-bar .step p{
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #000;
+  color: rgba(0,0,0,0.65);
   margin-bottom: 8px;
   transition: 0.2s;
 }
@@ -1690,7 +1685,7 @@ form .page .field select{
 .progress-bar .step .bullet{
   height: 25px;
   width: 25px;
-  border: 2px solid #000;
+  border: 2px solid rgba(0,0,0,0.65);
   display: inline-block;
   border-radius: 50%;
   transition: 0.2s;
@@ -1704,6 +1699,7 @@ form .page .field select{
 .progress-bar .step:last-child .bullet:before,
 .progress-bar .step:last-child .bullet:after{
   display: none;
+  color: rgba(0,0,0,0.65);
 }
 
 .progress-bar .step .bullet:before,
@@ -1712,14 +1708,14 @@ form .page .field select{
   content: '';
   bottom: 17px;
   right: -35%;
-  height: 3px;
+  height: 2px;
   width: 70%;
-  background: #262626;
+  background-color: rgba(0,0,0,0.35);
 }
 
 .progress-bar .step .bullet.active:after{
   background: #ca6641;
-  transform: sclaeX(0);
+  transform: scaleX(0);
   transform-origin: left;
   animation: animate 0.3s linear forwards;
 }

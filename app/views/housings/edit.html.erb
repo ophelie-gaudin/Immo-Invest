@@ -4,7 +4,7 @@
 
 <div class="form-body">
 <div class="container form-wrapper">
-  <header>Formulaire</header>
+  <h4>Formulaire</h4>
 
     <div class="progress-bar">
       <div class="step">
@@ -55,7 +55,7 @@
     <div class="slide-inner-bg">
       <div class="page active-slide slidepage">
 
-        <div>
+        <div class="d-flex flex-column justify-content-between">
           <div class="title">Références de l'annonce :</div>
 
           <div class="field field-form">      
@@ -87,7 +87,7 @@
 
       <div class="page">
 
-        <div>
+        <div class="d-flex flex-column justify-content-between"> 
 
           <div class="title">Caractéristiques du bien :</div>
 
@@ -116,7 +116,7 @@
 
       <div class="page">
 
-        <div>
+        <div class="d-flex flex-column justify-content-between">
           <div class="title">Charges :</div>
           
           <div class="field field-form">
@@ -151,7 +151,7 @@
 
       <div class="page">
 
-        <div>
+        <div class="d-flex flex-column justify-content-between">
 
           <div class="title">Investissement :</div>
 
@@ -186,12 +186,12 @@
 
 
       <div class="page">
-        <div>
+        <div class="d-flex flex-column justify-content-between">
 
           <div class="title">Offre</div>
 
           <div class="field field-form">
-            <%= label_tag(:comment, "Vos notes :") %>
+            <%= label_tag(:comment, "Vos remarques :") %>
             <%= f.text_area :comment, class: 'form-control', value: @housing.comment %>
           </div>
 
