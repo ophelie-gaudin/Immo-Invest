@@ -79,3 +79,4 @@ gem 'groupdate'
 
 gem 'stripe'
 
+gem 'image_processing', '1.2'

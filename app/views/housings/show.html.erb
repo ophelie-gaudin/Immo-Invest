@@ -20,7 +20,10 @@
       </div>
       <div><br />
         PHOTOS :
-          <%#= image_tag @housing.pictures %>
+        <%# @housing.pictures.each do |other| %>
+          <%#= image_tag other%>
+        <%# end %>
+          
           </div>
       </div>
     </div>
