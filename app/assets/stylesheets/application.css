@@ -7184,7 +7184,21 @@ body{
   flex-direction: column;
   justify-content: space-between;
   overflow-x: hidden;
+  background: url();
 }
+
+body::after {
+    content: "";
+    background: url("/assets/briques-281de2473dbe1bae5f2eb4c52349dbec51003030e8847405a49fff81976f38dc.jpg");
+    opacity: 0.35;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    background-attachment: fixed;  
+  }
 
 .step-block {
     background-color: rgba(255, 246, 242, 0.2);
@@ -7209,7 +7223,7 @@ body{
 
 .accordion-item:hover .step-title,
 .accordion-item:hover .step-block {
-    transform: scale(1.1);
+    transform: scale(1.1)!important;
 }
 
 .accordion-item:hover .accordion-button::before {
@@ -7328,17 +7342,38 @@ body{
     font-size: 1rem;
     text-align: justify;
     padding: 20px;
-    color: #ca6641;
-    border: 1px solid #ca6641;
-    border-radius: 8px;
-    background-color: rgba(202, 102, 65, 0.2);
-    margin: 10px 0;
-    width: 800px;
+    color: #fff6f2;
+    border: 1px solid #fff6f2;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.2) ;
+    margin: 10px auto;
+    max-width: 80%;
   }
 
 nav {
     background-color: #fff;
     padding: 0!important;
+}
+
+a.nav-link:hover {
+    color: #ca6641!important;
+}
+
+div.main-div{
+    width: 90%;
+    margin: 5% auto;
+    border: 2px solid #ca6641;
+    border-radius: 2px;
+    background-color: #ca6641;
+    color: #fff6f2;
+}
+
+.border {
+    border-radius: 4px;
+}
+
+.card{
+    color: #000;
 }
 
 /* FORMULAIRE */
@@ -7505,7 +7540,7 @@ div.form-content {
   width: 100%;
 }
 
-.warning-area {
+.form-content .warning-area {
   font-size: 0.85rem;
   text-align: justify;
   padding: 20px;
