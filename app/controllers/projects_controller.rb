@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
     localization: params[:project][:localization],
     user_id: current_user.id
     )
+    flash[:notice] = "Création de projet réussi 👌"
     redirect_to projects_path
   end
 
@@ -38,6 +39,7 @@ class ProjectsController < ApplicationController
       project.destroy
     end
     @project.destroy
+    flash[:notice] = "Suppression de projet réussi !"
     redirect_to projects_path
   end 
 
@@ -51,6 +53,7 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         project_params = params.require(:project).permit(:title, :localization, :comment)
         @project.update(project_params)
+        flash[:notice] = "Édition du projet réussi 👌"
         redirect_to project_path
     end 
 

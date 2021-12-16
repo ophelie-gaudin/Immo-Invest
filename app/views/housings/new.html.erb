@@ -1,11 +1,12 @@
-
-   <section class='py-10 py-xl-10 '>        
-      <div class='container'>
-         <div class='d-flex flex-column'>
-          <div class='col-9'>
-            <h2 class="fw-light mb-5">Créer un  <span class="fw-bold mb-5">logement :</span></h2>
+<section>
+    <div class="py-15 d-flex flex-column container level-3 min-vh-100">
+      <div class="row align-items-center justify-content-center my-auto">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+          <div class="card">
+            <div class="card-header bg-white pb-0">
+            <h4 class="fw-light mb-5">Créer un nouveau <span class="fw-bold mb-5">logement </span></h4>
               <div class="card">
-                <div class="card-body" style='border: 1px solid  #d7a285 ;'>
+                <div class="card-body">
                   <%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
                   <form> 
                     <label for="property_category " class='mb-3'>Type de bien *:</label>
@@ -29,8 +30,8 @@
                     <div class="mb-3">
                       <label for="localization">Localisation du bien *:</label>
                       <input class="form-control" type="text" name="housing[localization]" id="housing_localization">                     
-                     <div class='col text-lg-end m-5 '>
-                      <button type="submit" class="btn btn-primary rounded ">Créer</button>
+                     <div class='col text-lg-end'>
+                      <button type="submit" class="btn btn-primary rounded "  style="margin-top: 15px;">Créer</button>
                     </form>
 
                   <% end %>
@@ -39,6 +40,8 @@
               </div>
             
             </div>
+          </div>
+                    </div>
           </div>
          
           </div>
