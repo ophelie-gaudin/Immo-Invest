@@ -7319,7 +7319,22 @@ body{
     box-shadow: 0 0 0 0 #99462870;
 }
 
+.card-hover-border {
+    color: rgba(26, 25, 25, 0.185);
+    border: 2px;
+}
 
+.warning-area {
+    font-size: 1rem;
+    text-align: justify;
+    padding: 20px;
+    color: #ca6641;
+    border: 1px solid #ca6641;
+    border-radius: 8px;
+    background-color: rgba(202, 102, 65, 0.2);
+    margin: 10px 0;
+    width: 800px;
+  }
 
 
 /* FORMULAIRE */
@@ -7544,11 +7559,6 @@ div.form-content {
   background-color: #ca6641;
   color: #fff;
 }
+ /* END */
 
 
-/* OTHER CSS */
-
-.card-hover-border {
-    color: rgba(26, 25, 25, 0.185);
-    border: 2px;
-}
