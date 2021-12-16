@@ -4,24 +4,31 @@
       <div class="row g-4 g-lg-5 mb-10">
 
         <div class="col-md-3 text-center text-md-start">
-          <a href="<%= root_path %>" class="navbar-brand"><img src="/assets/logo1.svg" style="max-height:100px;"/></a>
+          <a href="<%= root_path %>" class="navbar-brand d-flex flex-column align-items-center"><img src="/assets/logo1.svg" style="max-height:100px;"/>
+          
+          <span style="font-family: 'Bakbak One', cursive; font-size: 3rem; color:black;">Immotep </span>    
+          </a>
         </div>
         <div class="col">
           <ul class="list-unstyled">
-            <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Nous Contacter</a></li>
+            <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Nous contacter</a></li>
             <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Notre équipe</a></li>
             <li class="mb-1"><a href="mailto:thpicebreakers@gmail.com" class="text-reset text-primary-hover">Recrutement</a></li>
             <li class="mb-1"><a href="<%= 404 %>" class="text-reset text-primary-hover">Mentions Légales</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-lg-3">
+        <p class="small text-secondary">Cet outil représente plus de 600h de travail pour vous aider. <br />
+        Si vous appréciez notre travail, n'hésitez pas à nous payer un café, nous vous en remercions d'avance ! <br /> </p>
           <div class="grouped-inputs border border-primary p-1 rounded-pill">
             <div class="row">
               <div class="col">
                 <p class="form-control rounded-pill px-3 text-primary">Payer un café</p>
               </div>
               <div class="col-auto">
-                <%= button_to "ici", checkout_create_path(total: 3), class: "btn btn-primary btn-icon rounded-circle", remote: true %>
+                <%= button_to checkout_create_path(total: 3), class: "btn btn-primary btn-icon rounded-circle", remote: true do %>
+                  <i class="fas fa-coffee"></i>
+                <% end %>
               </div>
             </div>
           </div>
@@ -29,21 +36,6 @@
         <div class="col col-lg-3 d-flex justify-content-center">
           <a href="#top"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
         </div>
-        <!--
-        <div class="col-md-5 col-lg-4">
-          <div class="grouped-inputs border border-primary p-1 rounded-pill">
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control rounded-pill px-3" aria-label="Text input"
-                  placeholder="Your email">
-              </div>
-              <div class="col-auto">
-                <a href="mailto:thpicebreakers@gmail.com" class="btn btn-primary btn-icon rounded-circle"><i class="bi bi-arrow-return-left"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        !--->
       </div>
       <div class="row align-items-center g-1 g-lg-6">
         <div class="col-md-6 col-lg-5 order-lg-2 text-center text-md-start">
