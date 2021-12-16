@@ -1,5 +1,12 @@
+<section>
+    <div class="py-15 d-flex flex-column container level-3 min-vh-100">
+      <div class="row align-items-center justify-content-center my-auto">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+          <div class="card">
+            <div class="card-header bg-white pb-0">
 
-<h3 class="fs-4">Nouveau projet :</h3>
+            <h4 class="fw-light mb-5">Créer un nouveau  <span class="fw-bold mb-5">projet </span></h4>
+
 
 <div class="card-body">
 <%= form_with(model: @project, url: projects_path, method: "post", local: true) do |f| %>
@@ -23,36 +30,19 @@
 
 <br />
 
-
- <%= f.submit "Créer un Projet", class:'btn btn-primary rounded' %>
+  <div class='col text-lg-end' style="margin-top: 15px;">
+    <%= f.submit "Créer", class:'btn btn-primary rounded' %>
+  </div>
 
 
 
  <%end%>
 </div>
 
- <section>
-              <h3 class="fs-4">Example</h3>
-
-              <div class="card ">
-                <div class="card-body ">
-                  <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary rounded">Submit</button>
-                  </form>
-                </div>
-              </div>
-            </section>
--->
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

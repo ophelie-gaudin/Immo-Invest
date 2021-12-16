@@ -7184,7 +7184,7 @@ body{
   flex-direction: column;
   justify-content: space-between;
   overflow-x: hidden;
-  background: url();
+  background-color: #fff6f2;
 }
 
 body::after {
@@ -7376,13 +7376,16 @@ div.main-div{
     color: #000;
 }
 
+.card:hover{
+    color: #000;
+}
+
 /* FORMULAIRE */
 
 .form-body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff6f2;
 }
 
 .form-wrapper {
@@ -7549,6 +7552,7 @@ div.form-content {
   border-radius: 8px;
   background-color: rgba(202, 102, 65, 0.2);
   margin: 10px 0;
+  max-width: 100% !important;
 }
 
 .my-input input {
