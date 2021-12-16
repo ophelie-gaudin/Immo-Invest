@@ -10,8 +10,12 @@ class HousingsController < ApplicationController
         @project = @housing.project_id
         @housing.destroy
         
-        flash[:notice] = "Suppression de logement réussi !"
-        redirect_to project_path(@project)
+        if
+          flash[:notice] = "Suppression de logement réussi !"
+          redirect_to project_path(@project)
+        elsif 
+          flash[:alerte] = "Suppression de logement raté !"
+        end
     end
 
     def new
@@ -128,9 +132,15 @@ class HousingsController < ApplicationController
             offer_profitability: calculate_profitability(Housing.find(params[:id]).offer_price)
         )
 
-        @housing.pictures.attach(params[:housing][:pictures])
-        flash[:notice] = "Édition du logement réussi 👌"
-        redirect_to project_housing_path
+        
+        if 
+          #@housing.pictures.attach(params[:housing][:pictures])
+          flash[:notice] = "Édition du logement réussi 👌"
+          redirect_to project_housing_path
+        elsif 
+          flash[:alert] = "Erreur lors de l'édition du logement"
+        end
+        
 
     end
 
