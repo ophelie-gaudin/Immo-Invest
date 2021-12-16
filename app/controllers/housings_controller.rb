@@ -26,6 +26,7 @@ class HousingsController < ApplicationController
         @housing_price = @housing.offer_price
         @housing_localization = @housing.localization
         @housing_profitability = @housing.offer_profitability
+        @housing_pictures = @housing.pictures
 
     end
 
@@ -98,7 +99,7 @@ class HousingsController < ApplicationController
             profitability = ((housing.annual_rent*(1-housing.rental_vacancy)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
         end
     
-        @housing.update(
+        @housing.update(           
             ad_price: params[:housing][:ad_price],
             property_category: params[:housing][:property_category],
             localization: params[:housing][:localization],
@@ -115,23 +116,21 @@ class HousingsController < ApplicationController
             rental_management: params[:housing][:rental_management],
             rental_unpayment_insurance: params[:housing][:rental_unpayment_insurance],
             building_co_tax: params[:housing][:building_co_tax],
-
             maintenance_percentage: params[:housing][:maintenance_percentage],
             rental_vacancy: params[:housing][:rental_vacancy],
-            new_property: params[:housing][:new_property]
-          )
+            new_property: params[:housing][:new_property])
 
         @housing.update(
             ad_profitability: calculate_profitability(Housing.find(params[:id]).ad_price),
             offer_profitability: calculate_profitability(Housing.find(params[:id]).offer_price)
         )
 
+        @housing.pictures.attach(params[:housing][:pictures])
         redirect_to project_housing_path
 
     end
 
     private
-
 
 end
 

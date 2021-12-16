@@ -1,51 +1,62 @@
-<section class="pt-10 px-0 pb-xl-5">
-    <div class="container">
-      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
-        <div class="col-lg-14">
-          <h3>Votre projet <%=@project_title%> </h3>
-            <div class="d-flex flex-row-reverse">
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary  ">Editer Votre projet</a>
-              <a href="<%= project_path %>" class="btn btn-danger" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet</a>
-            </div>
-          <p> <%=@project_comment%> </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
 
-<section class="py-0 py-xl-0">
-    <div class="container mt-5 mt-xl-10">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<section class="py-10 py-xl-10 ">
+  <div class="container">
+    <div class="d-flex flex-column  mb-5">
+      <div class="col-sm">
+          <h2 class="fw-light mb-2">Mon <span class="fw-bold mb-5">Projet: </span></h2>
+          <p>Ici , vous avez acces a vos logement inclus dans votre projets, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.
+            <p> <%=@project_comment%></p>
+        </div>
+        <div class='col-sm text-lg-end'>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer Votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+              <a href="<%= project_path %>" class="btn btn-danger m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+          </div>
       
-
-      <div class="row g-1" id="grid1" data-isotope="" >
-        <div class="col-12 filter-design" >
-          <%@housings.each do |housing|%>
-          <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border">
-            <div class="card-body">
-              <div class="row align-items-center g-2 g-md-4 text-center text-md-start">
-                <div class="col-md-6">
-                  <p class="fs-lg mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // <%=housing.offer_profitability%></p>
-                  <ul class="list-inline list-inline-separated text-muted">
-                    <li class="list-inline-item"><%= housing.comment %></li>
-                  </ul>
+        <div class="col pt-5 mt-5">
+          <ul class="list-unstyled">
+            <%@housings.each do |housing|%>
+            <li>
+              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2" style='color: rgb(173 81 81 / 98%)'>
+                <div class="card-body  py-2">
+                  <div class=" d-flex flex-lg-column">
+                    <div class="d-flex-lg-column ">
+                      <div class='d-flex justify-content-between'>
+                        <div class='order-1'>
+                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
+                          <ul class="list-inline list-inline-separated text-muted">
+                          <li class="list-inline-item"><%= housing.comment %> Je suis un commentaires </li>
+                          </ul>
+                       </div>
+                       <div class='order-2 text-center p-0 '>
+                          <% if housing.offer_profitability.nil? %>
+                          <%else%>
+                          <% if housing.offer_profitability >= 0 %>
+                          <p class='pt-2'>Rentabilité estimé : <span style=' color: green'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                          <% else %>
+                          <p class='pt-2'>Rentabilité estimé : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                          <%end%>
+                          <%end%>
+                       </div>
+                        <div class=" order-3 text-md-end p-0">
+                          <button style='padding: 10px 20px' href="" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
+                          <button style='padding: 10px 20px'href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded" style="max-width:200px">Supprimer<i class="fas fa-times fa-lg ms-1"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                
-                
-                <div class="col-lg-6 text-end">
-                 <%= link_to 'Supprimer', project_housing_path(housing.project_id, housing.id), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer ce logement ? "} %>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </a>
-          <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded-pill m-2'%>
+              </a>
+            </li>
+            <% end%>
+            
+          </ul>
         </div>
-        
-
-    </div>
-  </section>
-
-    
-     
-    
+      <div class='col align-self-end m-5'>
+        <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
+      </div>
+      </div>
+  </div>
+</section>
