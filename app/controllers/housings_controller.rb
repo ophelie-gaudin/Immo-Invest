@@ -51,6 +51,7 @@ class HousingsController < ApplicationController
             project_id: params[:project_id]
 
         )
+    flash[:success] = "Création de logement réussi 👌"
     redirect_to project_path(@housing.project_id)
     end
 
