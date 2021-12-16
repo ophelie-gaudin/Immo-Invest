@@ -8,10 +8,10 @@
             <p> <%=@project_comment%></p>
         </div>
         <div class='col-sm text-lg-end'>
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer Votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
-              <a href="<%= project_path %>" class="btn btn-danger m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+              <a href="<%= project_path %>" class="btn btn-primary m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
           </div>
-      
+
         <div class="col pt-5 mt-5">
           <ul class="list-unstyled">
             <%@housings.each do |housing|%>
@@ -38,17 +38,15 @@
                           <%end%>
                        </div>
                         <div class=" order-3 text-md-end p-0">
-                        <div class="row">
-                        <div class="col">
-                          <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-fantom-primary rounded ' do%>
+                          <div class="col d-flex">
+                          <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%>
                           Editer<i class="fas fa-pencil-alt  ms-1"></i>
                           <%end%>
-                          </div>
-                          <div class="col">
-                          <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary rounded' do %>
-                          Supprimer<i class="fas fa-times fa-lg"></i>
+
+                          <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %>
+                          Supprimer<i class="fas fa-times ms-1"></i>
                           <%end%>
-                          </div>
+                        </div>
                          </div>
                         </div>
                       </div>
