@@ -32,7 +32,8 @@
 
 <div style="text-align:center" ><br /><br />
   <h4 class="title-style" >CARACTERISTIQUES </h4> 
-  <%= link_to "Formulaire", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded title-syle',:onclick => "alert('Vous allez modifier les informations de ce logement.')"%>
+  <%= link_to "Editer", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded '%>
+  <%= link_to "Supprimer", housing_path(@housing.id), method: :delete, class:'btn btn-primary rounded'%>
   <br />
 </div>
 <div class="container d-flex flex-column gap-25">
@@ -57,7 +58,7 @@
         <div class="col sm-6 m-5">
           <div class="card-border card-height " >
             <div class="card-body">
-              <h3 class="title-style" style="text-align:center title-syle">Caractéristiques Bien du</h3>  
+              <h3 class="title-style" style="text-align:center ">Caractéristiques du Bien</h3>  
               <div class="font-description">
                 <p> Superficie habitable : <%=@housing.area%> m²</p> 
                 <p> Type de bien : <%=@housing.property_category%></p> 
@@ -91,7 +92,7 @@
         <div class="col sm-6 m-5">
           <div class="card-border card-height" >
             <div class="card-body">
-              <h3 class="title-style" style="text-align:center title-syle">Charges</h3>  
+              <h3 class="title-style" style="text-align:center ">Charges</h3>  
               <div class="font-description">
                 <p> Assurance PNO : <%=@housing.pno_insurance%></p>
                 <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>

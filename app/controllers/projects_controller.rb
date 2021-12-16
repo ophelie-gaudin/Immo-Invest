@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
 
 
   def destroy 
+    puts 2222222222222
     @project = Project.find(params[:id])
     @project_housings = Housing.where(project_id: @project.id)
     @project_housings.each do |project|

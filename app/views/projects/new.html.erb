@@ -5,7 +5,7 @@
 <%= form_with(model: @project, url: projects_path, method: "post", local: true) do |f| %>
 
 
-<%= label_tag :title, "Titre du project :", class:"form-label" %>
+<%= label_tag :title, "Titre du project *:", class:"form-label" %>
  <%= f.text_field :title, class: 'form-control', value: @project.title%> 
 
 <br />
@@ -30,7 +30,7 @@
 
  <%end%>
 </div>
-
+<!-->
  <section>
               <h3 class="fs-4">Example</h3>
 

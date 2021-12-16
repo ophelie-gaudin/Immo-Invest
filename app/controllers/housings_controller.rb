@@ -6,10 +6,11 @@ class HousingsController < ApplicationController
     end
 
     def destroy
+        
         @housing = Housing.find(params[:id])
-        @project = @housing.project_id
+        @project = Project.find(@housing.project_id)
         @housing.destroy
-        redirect_to project_path(@project)
+        
     end
 
     def new
@@ -17,7 +18,7 @@ class HousingsController < ApplicationController
     end
 
     def edit
-        @housing = Housing.find(params[:id])        
+        @housing = Housing.find(params[:id])
     end
 
     def show
@@ -121,7 +122,7 @@ class HousingsController < ApplicationController
         )
 
         @housing.pictures.attach(params[:housing][:pictures])
-        redirect_to project_housing_path
+        #redirect_to project_housing_path
 
     end
 

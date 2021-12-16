@@ -46,9 +46,8 @@
     --bs-danger: #d34f2d;
     --bs-light: #eee;
     --bs-dark: #222;
-    --bs-font-sans-serif: "Inter", sans-serif;
-    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
+    --bs-font-sans-serif: font-family: 'Montserrat', sans-serif;
+    --bs-font-monospace: font-family: 'Roboto', sans-serif;
     --bs-gradient: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.15),

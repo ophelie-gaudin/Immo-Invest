@@ -8,7 +8,7 @@
                 <div class="card-body" style='border: 1px solid  #d7a285 ;'>
                   <%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
                   <form> 
-                    <label for="property_category " class='mb-3'>Type de bien :</label>
+                    <label for="property_category " class='mb-3'>Type de bien *:</label>
                       <select name="housing[property_category]" id="housing_property_category"><option value="Studio">Studio</option>
                         <option value="T1">T1</option>
                         <option value="T1bis">T1bis</option>
@@ -22,12 +22,12 @@
                         <option value="Autre">Autre</option>
                       </select>
                     <div class="mb-3">
-                      <label for="ad_price">Prix du logement :</label>
+                      <label for="ad_price">Prix du logement * :</label>
                       <input class="form-control" type="number" name="housing[ad_price]" id="housing_ad_price">
                       
                     </div>
                     <div class="mb-3">
-                      <label for="localization">Localisation du bien :</label>
+                      <label for="localization">Localisation du bien *:</label>
                       <input class="form-control" type="text" name="housing[localization]" id="housing_localization">                     
                      <div class='col text-lg-end m-5 '>
                       <button type="submit" class="btn btn-primary rounded ">Crée</button>
