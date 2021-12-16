@@ -9,6 +9,8 @@ class HousingsController < ApplicationController
         @housing = Housing.find(params[:id])
         @project = @housing.project_id
         @housing.destroy
+        
+        flash[:notice] = "Suppression de logement réussi !"
         redirect_to project_path(@project)
     end
 
@@ -51,7 +53,7 @@ class HousingsController < ApplicationController
             project_id: params[:project_id]
 
         )
-    flash[:success] = "Création de logement réussi 👌"
+    flash[:notice] = "Création de logement réussi 👌"
     redirect_to project_path(@housing.project_id)
     end
 
@@ -127,6 +129,7 @@ class HousingsController < ApplicationController
         )
 
         @housing.pictures.attach(params[:housing][:pictures])
+        flash[:notice] = "Édition du logement réussi 👌"
         redirect_to project_housing_path
 
     end
