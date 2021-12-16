@@ -11,7 +11,7 @@
             <p> <%=@project_comment%></p>
         </div>
         <div class='col-sm text-lg-end'>
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer Votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
               <a href="<%= project_path %>" class="btn btn-danger m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
           </div>
       
@@ -27,7 +27,7 @@
                         <div class='order-1'>
                           <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
                           <ul class="list-inline list-inline-separated text-muted">
-                          <li class="list-inline-item"><%= housing.comment %> Je suis un commentaires </li>
+                          <li class="list-inline-item"><%= housing.comment %></li>
                           </ul>
                        </div>
                        <div class='order-2 text-center p-0 '>
@@ -41,7 +41,7 @@
                           <%end%>
                        </div>
                         <div class=" order-3 text-md-end p-0">
-                          <button style='padding: 10px 20px' href="" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
+                          <button style='padding: 10px 20px' href="<%= edit_project_housing_path(housing.id)%>" class="btn btn-fantom-primary rounded">Editer<i class="fas fa-pencil-alt  ms-1"></i></button>
                           <button style='padding: 10px 20px'href="<%= project_housing_path(housing.project_id, housing.id) %>" data-confirm='Are you sure ?' data-method='delete' data-remote="true" class="btn btn-danger rounded" style="max-width:200px">Supprimer<i class="fas fa-times fa-lg ms-1"></i></button>
                         </div>
                       </div>

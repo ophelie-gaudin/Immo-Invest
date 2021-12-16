@@ -7,6 +7,7 @@ class HousingsController < ApplicationController
 
     def destroy
         @housing = Housing.find(params[:id])
+        puts params
         @project = @housing.project_id
         @housing.destroy
         redirect_to project_path(@project)
