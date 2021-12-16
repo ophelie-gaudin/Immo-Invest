@@ -1,4 +1,3 @@
-
 //  document.addEventListener("DOMContentLoaded", () =>{
 //    console.log("JHGKJGKJGJKGJG");
 //   const slidePage = document.querySelector(".slidepage");
@@ -14,8 +13,6 @@
 //   let max = nbSlide;
 //   let current = 0;
 
-
-  
 //   nextBtn.addEventListener("click", function(event){
 //     event.preventDefault()
 //     event.stopPropagation()
@@ -25,7 +22,7 @@
 //     // if(current > 0) {
 //       slideInnerBg.children[current].classList.remove("active-slide")
 //     // }
-    
+
 //     slideInnerBg.children[current + 1].classList.add("active-slide")
 //     bullet[current].classList.add("active");
 //     progressText[current].classList.add("active");
@@ -47,9 +44,8 @@
 //     submitBtn.style.display = `none`;
 //     nextBtn.style.display = `block`;
 
-
 //       slideInnerBg.children[current].classList.remove("active-slide")
-    
+
 //     slideInnerBg.children[current - 1].classList.add("active-slide")
 
 //     bullet[current - 1].classList.remove("active");
@@ -65,10 +61,6 @@
 //     }
 //   });
 
-
- 
-
-
 //   submitBtn.addEventListener("click", function(){
 //     bullet[current - 1].classList.add("active");
 //     progressText[current - 1].classList.add("active");
@@ -80,61 +72,51 @@
 //     }, 800);
 //   });
 
-
-
-
-  
-
-
-
-
 // });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const endBtn = document.getElementById("end-btn");
+    const slideWrapper = document.querySelector(".form-content");
+    const stepper = document.querySelector(".stepper");
+    let currentSlide = 0;
 
-document.addEventListener('DOMContentLoaded',() => {
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  const endBtn = document.getElementById('end-btn');
-  const slideWrapper = document.querySelector('.form-content')
-  const stepper = document.querySelector('.stepper')
-  let currentSlide = 0;
+    prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-  prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+        slideWrapper.children[currentSlide].classList.remove("active");
 
-      slideWrapper.children[currentSlide].classList.remove('active')
+        currentSlide--;
 
-      currentSlide--;
+        stepper.children[currentSlide].classList.remove("checked");
+        slideWrapper.children[currentSlide].classList.add("active");
 
-      stepper.children[currentSlide].classList.remove('checked')
-      slideWrapper.children[currentSlide].classList.add('active')
+        nextBtn.style.display = "block";
+        endBtn.style.display = "none";
 
-      nextBtn.style.display = 'block';
-      endBtn.style.display = 'none';
+        if (currentSlide === 0) {
+            prevBtn.style.display = "none";
+        }
+    });
 
-      if (currentSlide === 0 ) {
-          prevBtn.style.display = 'none';
-      }
-  })
+    nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-  nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+        slideWrapper.children[currentSlide].classList.remove("active");
+        stepper.children[currentSlide].classList.add("checked");
 
-      slideWrapper.children[currentSlide].classList.remove('active')
-      stepper.children[currentSlide].classList.add('checked')
+        currentSlide++;
 
-      currentSlide++;
+        slideWrapper.children[currentSlide].classList.add("active");
 
-      slideWrapper.children[currentSlide].classList.add('active')
+        prevBtn.style.display = "block";
 
-      prevBtn.style.display = 'block';
-
-      if (currentSlide === slideWrapper.childElementCount-2 ) {
-          nextBtn.style.display = 'none';
-          endBtn.style.display = 'block';
-      }
-  })
-})
-
+        if (currentSlide === slideWrapper.childElementCount - 2) {
+            nextBtn.style.display = "none";
+            endBtn.style.display = "block";
+        }
+    });
+});

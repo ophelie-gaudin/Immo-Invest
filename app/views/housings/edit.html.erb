@@ -611,6 +611,8 @@
           <%#= f.submit "Finir la saisie d'informations", class:"next-3 next col"%>
         </div> 
 
+  <%= label_tag(:property_category, "Type de bien *:") %>
+  <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4' ], class: 'form-control', value: @housing.property_category %> 
   
     <%end%>
 
