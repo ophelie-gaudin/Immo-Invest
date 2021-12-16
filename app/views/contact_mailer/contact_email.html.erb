@@ -6,11 +6,11 @@
   <body>
     <h1>Nouveau message de la part d'un utilisateur</h1>
     <p>
-      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : .
+     De la part dev<%= @contact.email%> 
     </p>
     <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+      <%= @contact.message%>
     </p>
-    <p> À très vite sur monsite.fr !
+    
   </body>
 </html>
