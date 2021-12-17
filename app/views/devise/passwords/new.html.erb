@@ -1,5 +1,3 @@
-
-<!--
 <section>
     <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
       <div class="row align-items-center justify-content-center my-auto">
@@ -9,24 +7,16 @@
               <h5 class="fs-3">Mot de passe oublié?</h5>
             </div>
             <div class="card-body bg-white">
-              <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="GUBWFqfTTGRtoZF39jxa7OZmKQwR7N3kI4Xyp/jGF69UVGXkhoj8kn8ZIJcfjK9yePiqxJcHaFCqE7wf5b2+4w==">
+              <form class="new_user" id="new_user" action="/users/password" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ogZFmQeEaLHNrHsiv5rbNCF7MNq/rOLyFRoczmiWObP9Jbvlv7ZBtZIVBSrX2tZCRRM01kwjVDrrXhwP22i0Ag==">
                 <div class="form-floating mb-2">
-                  <label for="user_email"></label><br>
-                  <p>Adresse mail</p>
-                  <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control pt-1">
-                </div>
-
-                <div class="form-floating mb-2">
-                  <label for="user_password"></label>
-                  <br>
-                  
+                   <div class="field">
+                    <label for="user_email" class='mb-2'>Email</label><br>
+                    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email"class="form-control pt-2">
+                    </div>
+                  </div>
                 <div class="d-grid mb-2ns">
-                  <input type="submit" name="commit" value="Réinitialisation du mot de passe" data-disable-with="Forget password" class='btn btn-lg btn-primary'>
-                  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-                  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-                <% end %>
+                    <input type="submit" name="commit" value="Envoyer mon email de recuperation" data-disable-with="Send me reset password instructions" class='btn btn-primary rounded'>  
                 </div>
-                <%= render "devise/shared/links" %>
               </form>
             </div>
           </div>
@@ -34,27 +24,3 @@
       </div>
     </div>
 </section>
-
--->
-
-
-
-
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-
