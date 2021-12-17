@@ -23940,13 +23940,15 @@ pre[class*="language-"] {
 }
 
 /* ADAPT CSS THEME */
+html{
+    overflow-x: hidden;
+}
 
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-x: hidden;
     background-color: #fff6f2;
 }
 
