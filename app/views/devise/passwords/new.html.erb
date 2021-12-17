@@ -1,3 +1,45 @@
+
+<!--
+<section>
+    <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
+      <div class="row align-items-center justify-content-center my-auto">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+          <div class="card">
+            <div class="card-header bg-white text-center pb-0">
+              <h5 class="fs-3">Mot de passe oublié?</h5>
+            </div>
+            <div class="card-body bg-white">
+              <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="GUBWFqfTTGRtoZF39jxa7OZmKQwR7N3kI4Xyp/jGF69UVGXkhoj8kn8ZIJcfjK9yePiqxJcHaFCqE7wf5b2+4w==">
+                <div class="form-floating mb-2">
+                  <label for="user_email"></label><br>
+                  <p>Adresse mail</p>
+                  <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control pt-1">
+                </div>
+
+                <div class="form-floating mb-2">
+                  <label for="user_password"></label>
+                  <br>
+                  
+                <div class="d-grid mb-2ns">
+                  <input type="submit" name="commit" value="Réinitialisation du mot de passe" data-disable-with="Forget password" class='btn btn-lg btn-primary'>
+                  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+                  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+                <% end %>
+                </div>
+                <%= render "devise/shared/links" %>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+-->
+
+
+
+
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -14,3 +56,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
