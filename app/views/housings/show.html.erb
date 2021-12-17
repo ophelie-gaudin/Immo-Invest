@@ -1,11 +1,11 @@
 <div>
-  <%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary rounded title-style m-5'%>
+  <%=link_to 'retour', project_path(@housing.project_id) , class: 'btn btn-primary rounded  m-5'%>
 </div>
-<h1 class="title-style" style="text-align:center">FICHE DU LOGEMENT N°<%=params[:id]%> </h1> 
+<h1 class="" style="text-align:center">FICHE DU LOGEMENT N°<%=params[:id]%> </h1> 
 <div class="d-flex justify-content-center">
   <div class="card-border col-md-6" >
     <div class="card-body">
-      <h3 class="title-style "style="text-align:center">RECAPITULATIF</h3>
+      <h3 class=" "style="text-align:center">RECAPITULATIF</h3>
       <div class="font-description">
       <p class="card-text">Prix de l'annonce : <%=@housing.ad_price%> €</p>
       <p> (Rentabilité nette : <%=@housing.ad_profitability%> %)</p>
@@ -31,7 +31,7 @@
 </div>
 
 <div style="text-align:center" ><br /><br />
-  <h4 class="title-style" >CARACTERISTIQUES </h4> 
+  <h4 class="" >CARACTERISTIQUES </h4> 
   <%= link_to "Editer", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded '%>
   <%= link_to "Supprimer", housing_path(@housing.id), method: :delete, class:'btn btn-primary rounded'%>
   <br />
@@ -43,7 +43,7 @@
         <div class="col sm-6 m-6">
           <div class="card-border card-height">
             <div class="card-body ">
-              <h3 class="title-style" style="text-align:center ">Somme à financer </h3>
+              <h3 class="" style="text-align:center ">Somme à financer </h3>
               <div class="font-description">
                 <p> Prix de l'annonce : <%=@housing.ad_price%> €</p>
                 <p> (Rentabilité nette : <%=@housing.ad_profitability%> )</p>
@@ -58,7 +58,7 @@
         <div class="col sm-6 m-5">
           <div class="card-border card-height " >
             <div class="card-body">
-              <h3 class="title-style" style="text-align:center ">Caractéristiques du Bien</h3>  
+              <h3 class="" style="text-align:center ">Caractéristiques du Bien</h3>  
               <div class="font-description">
                 <p> Superficie habitable : <%=@housing.area%> m²</p> 
                 <p> Type de bien : <%=@housing.property_category%></p> 
@@ -79,7 +79,7 @@
         <div class="col sm-6 m-6">
           <div class="card-border card-height" >
             <div class="card-body ">
-              <h3 class="title-style" style="text-align:center ">Investissement </h3>
+              <h3 class="" style="text-align:center ">Investissement </h3>
               <div class="font-description">
                 <p> Assurance PNO : <%=@housing.pno_insurance%></p>
                 <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
@@ -92,7 +92,7 @@
         <div class="col sm-6 m-5">
           <div class="card-border card-height" >
             <div class="card-body">
-              <h3 class="title-style" style="text-align:center ">Charges</h3>  
+              <h3 class="" style="text-align:center ">Charges</h3>  
               <div class="font-description">
                 <p> Assurance PNO : <%=@housing.pno_insurance%></p>
                 <p> Taxe d'habitation : <%=@housing.property_tax%> €</p>
