@@ -1,13 +1,13 @@
-<div class="main-div">
+<div class="main-div card-shadow">
   <div class="pt-5 px-0">
     <div class="container">
       <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
         <div class="col-lg-14">
           <h2 class="fw-light mb-4">Mon <span class="fw-bold mb-5">Projet: </span> <%=@project.title%></h2>
-            <p>Ici , vous avez acces a vos logement inclus dans votre projets, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.</p>
+            <p>Ici, vous avez accès aux logements que vous avez ajouté à votre projet, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.</p>
             <br />
-            <p>Localisation: <%=@project.localization%></p>    
-            <p>Mes remarques: <%=@project_comment%></p>         
+            <p><span style="font-weight:700">Localisation:</span> <%=@project.localization%></p>    
+            <p><span style="font-weight:700">Mes remarques:</span> <%=@project_comment%></p>         
         </div>
         <div class='col-sm text-lg-end'>
           <a href="<%= edit_project_path %>" class="btn btn-light m-1 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
@@ -29,7 +29,7 @@
                     <div class="d-flex-lg-column ">
                       <div class='d-flex justify-content-between'>
                         <div class='order-1'>
-                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=  truncate(housing.localization, length:10 )%> // </p>
+                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  <i class="fas fa-circle" style="font-size: 0.3rem"></i>   <%=housing.ad_price%>€  <i class="fas fa-circle" style="font-size: 0.3rem"></i>  <%=  truncate(housing.localization, length:10 )%>  </p>
                           <ul class="list-inline list-inline-separated text-muted">
                           <li class="list-inline-item"><%= housing.comment %></li>
                           </ul>
@@ -38,9 +38,9 @@
                           <% if housing.offer_profitability.nil? %>
                           <%else%>
                           <% if housing.offer_profitability >= 0 %>
-                          <p class='pt-2'>Rentabilité estimé : <span style=' color: green'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                          <p class='pt-2'>Rentabilité estimée : <span style=' color: green'> <%=housing.offer_profitability.round(2)%> % </span></p>
                           <% else %>
-                          <p class='pt-2'>Rentabilité estimé : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                          <p class='pt-2'>Rentabilité estimée : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
                           <%end%>
                           <%end%>
                         </div>

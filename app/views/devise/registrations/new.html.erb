@@ -2,12 +2,14 @@
   <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
     <div class="row align-items-center justify-content-center my-auto">
       <div class="col-md-10 col-lg-8 col-xl-5">
-        <div>
+        <div class=" card-shadow">
           <div class="card-header bg-white text-center pb-0">
+          <div class="w-100 d-flex">
               <%= link_to root_path do %>
                 <i class="fas fa-arrow-left">
-                </i>Retour
+                </i>  Retour
               <%end%>
+              </div>
             <h5 class="fs-4">Inscription</h5>
           </div>
           <div class="card-body bg-white">
@@ -32,7 +34,7 @@
                 <div class="form-floating mb-2">
                   <label for="user_password_confirmation"></label>
                   <br>
-                  <p>Confirmer le Mot de passe<p>
+                  <p>Confirmer le mot de passe<p>
                 <div class="row">
                   <div class="col d-flex d-flex align-items-center justify-content-end ">
                       <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
@@ -46,12 +48,12 @@
               </div>
               </div>
               
-              <div class="d-grid mb-2">
-                <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
+              <div class="d-grid mb-1">
+                <input type="submit" name="commit" value="S'inscrire" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
               </div>
             </form>
           </div>
-          <div class="card-footer  inverted text-center" style="color: black;">
+          <div class="card-footer  inverted text-center bg-white" style="color: black;">
             <p class="text-secondary" style="color: #000 !important;" >Vous avez déjà un compte ? <a href="<%= new_user_session_path %>" class="underline" style="color: #000;">Sign In</a>
             </p>
           </div>

@@ -1,4 +1,4 @@
-<div class="main-div">
+<div class="main-div card-shadow">
 <div class="pt-5 px-0">
     <div class="container">
       <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
@@ -29,7 +29,7 @@
                 <div class="d-flex align-items-center">
                   <div class="ms-2">
                     <p class="mb-0 lh-1"><%=project.localization %></p>
-                    <p class="mb-0 lh-1"><%=project.comment%></p>
+                    <p class="mb-0 lh-1"><%= truncate(project.comment, length:30 )%></p>
                   </div>
                 </div>
               </div>
