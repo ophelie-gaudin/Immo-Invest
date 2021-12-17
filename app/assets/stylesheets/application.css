@@ -23950,6 +23950,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     background-color: #fff6f2;
+    overflow-x: hidden;
+
 }
 
 body::after {
