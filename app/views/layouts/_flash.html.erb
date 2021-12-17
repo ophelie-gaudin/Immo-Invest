@@ -1,5 +1,5 @@
-<div class="flash">
-  <div style='position: relative; width: 80%'>
+<div id="timer" class="flash" remote= true>
+  <div style='position: relative; width: 100%'> 
     <% flash.each do |name, msg| %>
       <div class='alert alert-<%= name %>' role="alert">
         <%= msg %>

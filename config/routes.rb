@@ -19,4 +19,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "statics#home"
+
+  scope controller: :statics do
+    get :contact
+    post :create
+  
+  end
 end
