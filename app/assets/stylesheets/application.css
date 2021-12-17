@@ -23940,13 +23940,15 @@ pre[class*="language-"] {
 }
 
 /* ADAPT CSS THEME */
+html{
+    overflow-x: hidden;
+}
 
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-x: hidden;
     background-color: #fff6f2;
 }
 
@@ -24372,10 +24374,10 @@ div.form-content {
 /* FLASH */
 
 .flash {
-    width: 100%;
+    width: 65%;
     position: absolute;
+    left: calc(67.5% - 50%);
     z-index: 10;
-    left: 0;
     top: 110px;
     height: 100px;
     display: grid;

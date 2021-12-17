@@ -26,13 +26,13 @@
           <ul class="list-unstyled">
             <%@housings.each do |housing|%>
             <li>
-              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border mt-2" style='color: rgb(173 81 81 / 98%)'>
+              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border" style='color: rgb(173 81 81 / 98%)'>
                 <div class="card-body  py-2">
                   <div class=" d-flex flex-lg-column">
                     <div class="d-flex-lg-column ">
                       <div class='d-flex justify-content-between'>
                         <div class='order-1'>
-                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=housing.localization%> // </p>
+                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=  truncate(housing.localization, length:10 )%> // </p>
                           <ul class="list-inline list-inline-separated text-muted">
                           <li class="list-inline-item"><%= housing.comment %></li>
                           </ul>
@@ -68,7 +68,7 @@
           </ul>
         </div>
       <div class='col d-flex justify-content-end bg-white'>
-        <%=button_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
+        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
       </div>
 
       
