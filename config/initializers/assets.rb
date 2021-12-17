@@ -19,6 +19,13 @@ Rails.application.config.assets.precompile += %w[
 
 Rails.application.config.assets.precompile += %w[ 
   decohome(1).jpg
+  decohome.jpg
+  giphy_failure.gif
+  giphy_success.gif
+  logo1.svg
+  logo.svg
+  404.jpg
+  500.jpg
 ]
 
 Rails.application.config.assets.precompile += %w[ index.bundle.css.map ]
