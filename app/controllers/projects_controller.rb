@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
     @housings = Housing.where(project_id: params[:id]) 
   end
 
-
   def create
     @project = Project.create(
     title: params[:project][:title],
@@ -30,9 +29,7 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-
   def destroy 
-    puts 2222222222222
     @project = Project.find(params[:id])
     @project_housings = Housing.where(project_id: @project.id)
     @project_housings.each do |project|
@@ -43,20 +40,17 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end 
 
-  
-    def edit
-        @project = Project.find(params[:id])
-    end
+  def edit
+    @project = Project.find(params[:id])
+  end
     
-    
-    def update
-        @project = Project.find(params[:id])
-        project_params = params.require(:project).permit(:title, :localization, :comment)
-        @project.update(project_params)
-        flash[:notice] = "Édition du projet réussi 👌"
-        redirect_to project_path
-    end 
-
+  def update
+    @project = Project.find(params[:id])
+    project_params = params.require(:project).permit(:title, :localization, :comment)
+    @project.update(project_params)
+    flash[:notice] = "Édition du projet réussi 👌"
+    redirect_to project_path
+  end 
 
   private
 
