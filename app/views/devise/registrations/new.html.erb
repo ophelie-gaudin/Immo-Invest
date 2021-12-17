@@ -1,20 +1,32 @@
-
-  <section>
-    <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
-      <div class="row align-items-center justify-content-center my-auto">
-        <div class="col-md-10 col-lg-8 col-xl-5">
-
-          <div>
-            <div class="card-header bg-white text-center pb-0">
-              <h5 class="fs-4">Inscription</h5>
-            </div>
-            <div class="card-body bg-white">
-              <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jASccM2l1hhlbqRQAKKtVVMomIJ+zIWieCgokgr9HcA7ljTrJWUkYxOOvsXZhM7G3WfDMhEAtnkBYHtzq7m+2w==">
-
-                <div class="form-floating mb-2">
-                  <label for="user_email" ></label><br>
-                  <p>Adresse mail<p>
-                  <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email"class="form-control"  >
+<section>
+  <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
+    <div class="row align-items-center justify-content-center my-auto">
+      <div class="col-md-10 col-lg-8 col-xl-5">
+        <div>
+          <div class="card-header bg-white text-center pb-0">
+              <%= link_to "path" do %>
+                <i class="fas fa-arrow-left">
+                </i> Retour
+              <%end%>
+            <h5 class="fs-4">Inscription</h5>
+          </div>
+          <div class="card-body bg-white">
+            <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jASccM2l1hhlbqRQAKKtVVMomIJ+zIWieCgokgr9HcA7ljTrJWUkYxOOvsXZhM7G3WfDMhEAtnkBYHtzq7m+2w==">
+              <div class="form-floating mb-2">
+                <label for="user_email" ></label><br>
+                <p>Adresse Email<p>
+                <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email"class="form-control"  >
+              </div>
+              <div class="form-floating mb-2">
+                <label for="user_password"></label>
+                <br>
+                <p>Mot de passe (6 caractères minimum)</p>
+              <div class="row">
+                <div class="col d-flex d-flex align-items-center justify-content-end ">
+                  <input autocomplete="new-password" type="password" name="user[password]" id="user_password" class="form-control" >
+                  <div class="password-icon mx-2" >
+                    <i class="far fa-eye-slash" id="icon"></i>
+                  </div>                  
                 </div>
 
                 <div class="form-floating mb-2">
