@@ -1,12 +1,10 @@
 <nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-light navbar-sticky" style='position: relative'>
     <div class="container">
 
-      <div>
-        <a href="<%=root_path%>" class="navbar-brand">
-            <img src="/assets/logo1.svg" style="max-height:40px;"/>
-        <span style="font-family: 'Bakbak One', cursive; margin-left: 20px;">Immotep </span>    
-        </a>
-      </div>
+      <a href="<%=root_path%>" class="navbar-brand">
+          <img src="/assets/logo1.svg" style="max-height:60px;"/>
+      <span> IMMOTEP </span>    
+      </a>
   
 
 
@@ -26,12 +24,12 @@
       <li class="nav-item dropdown dropdown-hover d-lg-block">
         <a class="nav-link nav-icon" role="button" href="<%= user_path(current_user)%>" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
-          <i class="fa-solid fa-user" title="Mes informations"></i>
+          <i class="fa-solid fa-user" title="Profil utilisateur"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item "
-            href="<%= user_path(current_user)%>">Mes informations</a></li>
-          <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>" data-method="delete">Déconnexion</a></li>
+            href="<%= user_path(current_user)%>">Profil Utilisateur</a></li>
+          <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>" data-method="delete">Deconnexion</a></li>
         </ul>
       </li>
       
@@ -44,7 +42,7 @@
 
       <li class="nav-item d-lg-none">
         <a class="nav-link nav-icon" href="<%= destroy_user_session_path %>" data-method="delete" role="button">
-          <i class="fas fa-times" title="Déconnexion"></i>
+          <i class="fas fa-times" title="Deconnexion"></i>
         </a>
       </li>
     </ul>
@@ -62,7 +60,7 @@
     <%end%>
     <!-- primary -->
     <div class="collapse navbar-collapse" data-bs-parent="#mainNav">
-      <ul class="navbar-nav w-100">
+      <ul class="navbar-nav">
 
         <% if isAdmin? %>
         <li class="nav-item">
@@ -76,12 +74,11 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= projects_path %>" role="button"
             aria-expanded="false">
-            Mes projets
+            Dashboard
           </a>
         </li>
 
         <% else %>
-        <div class="w-100 d-flex justify-content-end">
         <li class="nav-item">
           <a class="nav-link" href="<%= new_user_session_path %>" role="button"
             aria-expanded="false">
@@ -94,11 +91,9 @@
             aria-expanded="false">
             Inscription
           </a>
-        </li>
-        </div>
-
         <%end%>
 
+        </li>
       </ul>
     </div>
   <!-- mobile user menu -->
@@ -110,10 +105,10 @@
             <a class="nav-link active" href="<%= projects_path %>">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="<%= user_path(current_user)%>">Mes informations</a>
+            <a class="nav-link " href="<%= user_path(current_user)%>">Profil Utilisateur</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-red" href="<%= destroy_user_session_path %>" data-method="delete">Déconnexion</a>
+            <a class="nav-link text-red" href="<%= destroy_user_session_path %>" data-method="delete">Deconnexion</a>
           </li>
           <% else %>
           <li class="nav-item">
@@ -126,11 +121,9 @@
         </ul>
       </div>
     </div> 
-    <!--
     <% if isUser? %>
     <span class="me-3"><%="#{current_user.email}"%></span>
     <%end%>
-    -->
     <%end%>
 </nav>
 
