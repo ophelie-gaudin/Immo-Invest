@@ -7,29 +7,26 @@
     <div class="card-body">
       <h3 class=" "style="text-align:center">RECAPITULATIF</h3>
       <div class="font-description">
-      <p class="card-text">Prix de l'annonce : <%=@housing.ad_price%> €</p>
-      <p> (Rentabilité nette : <%=@housing.ad_profitability%> %)</p>
-      <p> Prix de l'offre proposée : <%=@housing.offer_price%> €</p>
-      <p> (Rentabilité nette : <%=@housing.offer_profitability%> %)</p>
-      <p> Superficie habitable : <%=@housing.area%> m²</p>
-      <p> Localisation : <%=@housing.localization%></p>
-      
-      <div>
-        <p> Lien de l'annonce : <%=@housing.ad_url%></p>
-        <p> Notes : <%=@housing.comment%></p>
-      </div>
-      <div><br />
-        PHOTOS :
-        <% @housing.pictures.each do |other| %>
-          <%= image_tag other %>
-        <% end %>
-          
-          </div>
+        <p class="card-text">Prix de l'annonce : <%=@housing.ad_price%> €</p>
+        <p> (Rentabilité nette : <%=@housing.ad_profitability%> %)</p>
+        <p> Prix de l'offre proposée : <%=@housing.offer_price%> €</p>
+        <p> (Rentabilité nette : <%=@housing.offer_profitability%> %)</p>
+        <p> Superficie habitable : <%=@housing.area%> m²</p>
+        <p> Localisation : <%=@housing.localization%></p>
+        <div>
+          <p> Lien de l'annonce : <%=@housing.ad_url%></p>
+          <p> Notes : <%=@housing.comment%></p>
+        </div>
+        <div><br />
+          PHOTOS :
+          <% @housing.pictures.each do |other| %>
+            <%= image_tag other %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 <div style="text-align:center" ><br /><br />
   <h4 class="" >CARACTERISTIQUES </h4> 
   <%= link_to "Editer", edit_project_housing_path(@housing.id), method: :get, class:'btn btn-primary rounded '%>
@@ -70,9 +67,6 @@
       </div>
     </div>
   </section>
-
-
-
   <section>
     <div >
       <div class="row flex-md-column flex-lg-row gap-25 custom-col" id="second-row">
