@@ -17,6 +17,10 @@ Rails.application.config.assets.precompile += %w[
   form.js
 ]
 
+Rails.application.config.assets.precompile += %w[ 
+  decohome(1).jpg
+]
+
 Rails.application.config.assets.precompile += %w[ index.bundle.css.map ]
 
 # Precompile additional assets.
