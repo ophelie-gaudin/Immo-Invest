@@ -13,7 +13,6 @@ class HousingsController < ApplicationController
         
         if
             flash[:notice] = "Suppression de logement réussi !"
-            redirect_to project_path(@project)
         elsif 
             flash[:alerte] = "Suppression de logement raté !"
         end
