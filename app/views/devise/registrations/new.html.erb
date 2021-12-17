@@ -51,7 +51,7 @@
 
             </div>
             <div class="card-footer  inverted text-center">
-              <p class="text-secondary">Tu as déjà un compte ? <a href="<%= new_user_session_path %>" class="underline">Sign In</a>
+              <p class="text-secondary">Vous avez déjà un compte ? <a href="<%= new_user_session_path %>" class="underline">Sign In</a>
               </p>
             </div>
           </div>
@@ -60,41 +60,7 @@
     </div>
 
 
-<script>
-let active = true;
-let eyeIcon = document.getElementById("icon");
-const pass = document.getElementById("user_password");
-
-eyeIcon.addEventListener("click", function () {
-    if (active) {
-        pass.setAttribute("type", "text");
-        eyeIcon.classList.value = "far fa-eye";
-        active = false;
-    } else {
-        pass.setAttribute("type", "password");
-        eyeIcon.classList.value = "far fa-eye-slash";
-        active = true;
-    }
-});
-
-
-let active2 = true;
-let eyeIcon2 = document.getElementById("icon2");
-const pass2 = document.getElementById("user_password_confirmation");
-
-eyeIcon2.addEventListener("click", function () {
-    if (active2) {
-        pass2.setAttribute("type", "text");
-        eyeIcon2.classList.value = "far fa-eye";
-        active2 = false;
-    } else {
-        pass2.setAttribute("type", "password");
-        eyeIcon2.classList.value = "far fa-eye-slash";
-        active2 = true;
-    }
-});
-
-</script>
+<script src = " /../../assets/javascripts/registration.js" ></script>
 
 
 </section>
