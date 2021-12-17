@@ -19,6 +19,8 @@ Rails.application.config.assets.precompile += %w[
 
 Rails.application.config.assets.precompile += %w[ 
   decohome(1).jpg
+  decohome.jpg
+  giphy.gif
 ]
 
 Rails.application.config.assets.precompile += %w[ index.bundle.css.map ]
