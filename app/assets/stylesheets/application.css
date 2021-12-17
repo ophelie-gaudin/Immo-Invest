@@ -24374,8 +24374,8 @@ div.form-content {
 .flash {
     width: 100%;
     position: absolute;
-    z-index: 10;
     left: 0;
+    z-index: 10;
     top: 110px;
     height: 100px;
     display: grid;
