@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header bg-white text-center ">
             <div class="d-flex justify-content-between align-items-center">
-              <%= link_to "Retour", :back , class: "" %>
+
               <h4  class="fs-4">Éditer votre profil <% resource_name.to_s.humanize %></h4>
               <%= link_to "Retour", :back , class: "v-hidden" %>
             </div>
@@ -39,34 +39,19 @@
                 <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control " %>
               </div>
 
-            <div class="gap-7 d-flex flex-column mt-5">
+            <div class=" d-flex flex-column mt-5">
               <div class="actions  d-grid mb-2ns">
                 <%= f.submit "Editer", class: ("btn btn-lg btn-primary rounded") %>
               </div>
 
-            <% end %><br />
-
-            <h3>Annuler mon compte</h3>
-
-            <p>Unhappy? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûrs ?" }, method: :delete ,class: ("btn btn-lg btn-primary rounded ") %></p>
-            <!-- des choses à supprimer en bas -->
-
-            <%= link_to "Back", :back %>
+            <% end %>
+            <br />
               
-              <% end %>
-              <div class="d-flex flex-column gap-2">
-                <h4 class="text-center">Supprimer mon compte</h4>
-                <div class='d-flex'>
-                  <form class="button_to" method="post" action="/users" style='width:100%;'>
-                    <input type="hidden" name="_method" value="delete">
-                    <input data-confirm="Vous êtes sûr ?" class="btn btn-lg rounded d-grid mb-2 deleteAccount " type="submit" value="Supprimer mon compte" style='width:100%; background:transparent; border:1px solid red; color:red;' >
-                    <input type="hidden" name="authenticity_token" value="mzfz8km7R7LC748IHtFuZij8LiFs5mzd/SRyphC/4zf5m5100yUnwjBzPvOSllYuo8WHHaJEhVine014Jhmnng==">
-                  </form>
-                </div>
-              </div>
+            <p class="mt-4 text-center">Pour vous désinscrire, <%= link_to "cliquez ici.", registration_path(resource_name), data: { confirm: "Voulez-vous vraiment supprimer votre compte ?" }, method: :delete %> </p>
+            <%= link_to "<< Retour", :back %>
+              
             </div>
 
-            <!-- des choses à supprimer là-haut -->
           </div>
         </div>
       </div>

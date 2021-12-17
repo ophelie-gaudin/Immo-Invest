@@ -1,16 +1,26 @@
+<div class="main-div">
+<div class="pt-5 px-0">
+    <div class="container">
+      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
+        <div class="col-lg-14">
+          <h2 class="fw-light mb-4">Mon <span class="fw-bold mb-5">Projet: </span> <%=@project.title%></h2>
+            <p>Ici , vous avez acces a vos logement inclus dans votre projets, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.</p>
+            <br />
+            <p>Localisation: <%=@project.localization%></p>    
+            <p>Mes remarques: <%=@project_comment%></p>         
+      </div>
 
-<section class="py-10 py-xl-10 ">
-  <div class="container">
-    <div class="d-flex flex-column  mb-5">
-      <div class="col-sm">
-          <h2 class="fw-light mb-2">Mon <span class="fw-bold mb-5">Projet: </span></h2>
-          <p>Ici , vous avez acces a vos logement inclus dans votre projets, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.
-            <p> <%=@project_comment%></p>
-        </div>
-        <div class='col-sm text-lg-end'>
-              <a href="<%= edit_project_path %>" class="btn btn-outline-primary m-3 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
-              <a href="<%= project_path %>" class="btn btn-primary m-3 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
-          </div>
+       <div class='col-sm text-lg-end'>
+              <a href="<%= edit_project_path %>" class="btn btn-light m-1 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+              <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+      </div>
+
+    </div>
+  </div>
+<div class="py-0 py-xl-5 bg-white">
+    <div class="container">
+
+
 
         <div class="col pt-5 mt-5">
           <ul class="list-unstyled">
@@ -39,14 +49,12 @@
                        </div>
                         <div class=" order-3 text-md-end p-0">
                           <div class="col d-flex">
-                          <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%>
-                          Editer<i class="fas fa-pencil-alt  ms-1"></i>
-                          <%end%>
+                            <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%><i class="fas fa-pencil-alt  ms-1"></i>
+                            <%end%>
 
-                          <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %>
-                          Supprimer<i class="fas fa-times ms-1"></i>
-                          <%end%>
-                        </div>
+                            <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times ms-1"></i>
+                            <%end%>
+                          </div>
                          </div>
                         </div>
                       </div>
@@ -59,9 +67,10 @@
             
           </ul>
         </div>
-      <div class='col align-self-end m-5'>
-        <%=link_to 'Ajouter un logement', new_project_housing_path(@project), class: 'btn btn-primary rounded m-2'%>
+      <div class='col d-flex justify-content-end bg-white'>
+        <%=button_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
       </div>
-      </div>
+
+      
   </div>
-</section>
+
