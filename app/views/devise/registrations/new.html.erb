@@ -28,21 +28,38 @@
                     <i class="far fa-eye-slash" id="icon"></i>
                   </div>                  
                 </div>
-              </div>
-              </div>
-              <div class="form-floating mb-2">
-                <label for="user_password_confirmation"></label>
-                <br>
-                <p>Confirmer le Mot de passe<p>
-              <div class="row">
-                <div class="col d-flex d-flex align-items-center justify-content-end ">
-                    <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
-                    <div class="password-icon2 mx-2" >
-                      <i class="far fa-eye-slash" id="icon2"></i>
-                    </div>                  
+
+                <div class="form-floating mb-2">
+                  <label for="user_password"></label>
+                  <br>
+                  <p>Mot de passe (6 caractères minimum)</p>
+                <div class="row">
+                  <div class="col d-flex d-flex align-items-center justify-content-end ">
+                      <input autocomplete="new-password" type="password" name="user[password]" id="user_password" class="form-control" >
+                      <div class="password-icon mx-2" >
+                        <i class="far fa-eye-slash" id="icon"></i>
+                      </div>                  
+                  </div>
+                </div>
+                </div>
+
+                <div class="form-floating mb-2">
+                  <label for="user_password_confirmation"></label>
+                  <br>
+                  <p>Confirmer le Mot de passe<p>
+                <div class="row">
+                  <div class="col d-flex d-flex align-items-center justify-content-end ">
+                      <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
+                      <div class="password-icon2 mx-2" >
+                        <i class="far fa-eye-slash" id="icon2"></i>
+                      </div>                  
+                  </div>
+                </div>
+
                 </div>
               </div>
               </div>
+              
               <div class="d-grid mb-2">
                 <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
               </div>
