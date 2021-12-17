@@ -15,7 +15,7 @@ end
 
 5.times do 
   @housing = Housing.create(
-    ad_price: Faker::Number.number(digits:6),
+    ad_price: Faker::Number.number(digits:60),
     property_category: Faker::String.random(length: 4),
     localization: Faker::Address.city(options: { with_state: true }),
     ad_url: Faker::Internet.url,

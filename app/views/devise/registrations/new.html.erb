@@ -1,10 +1,10 @@
 
-  <section class="bg-black overflow-hidden">
+  <section>
     <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
       <div class="row align-items-center justify-content-center my-auto">
         <div class="col-md-10 col-lg-8 col-xl-5">
 
-          <div class="card">
+          <div>
             <div class="card-header bg-white text-center pb-0">
               <h5 class="fs-4">Inscription</h5>
             </div>
@@ -50,8 +50,8 @@
               </form>
 
             </div>
-            <div class="card-footer bg-opaque-black inverted text-center">
-              <p class="text-secondary">Tu as déjà un compte ? <a href="<%= new_user_session_path %>" class="underline">Sign In</a>
+            <div class="card-footer  inverted text-center">
+              <p class="text-secondary">Vous avez déjà un compte ? <a href="<%= new_user_session_path %>" class="underline">Sign In</a>
               </p>
             </div>
           </div>
@@ -59,43 +59,8 @@
       </div>
     </div>
 
-    <div class="background background-overlay " ><img src="/assets/cloud-250ec9c97969706867f99e2fd6af3d1e38f61b36ce42d2ffebd9f8bf0b9cb667.jpg" width="100%" height="100%"> </div>
 
-<script>
-let active = true;
-let eyeIcon = document.getElementById("icon");
-const pass = document.getElementById("user_password");
-
-eyeIcon.addEventListener("click", function () {
-    if (active) {
-        pass.setAttribute("type", "text");
-        eyeIcon.classList.value = "far fa-eye";
-        active = false;
-    } else {
-        pass.setAttribute("type", "password");
-        eyeIcon.classList.value = "far fa-eye-slash";
-        active = true;
-    }
-});
-
-
-let active2 = true;
-let eyeIcon2 = document.getElementById("icon2");
-const pass2 = document.getElementById("user_password_confirmation");
-
-eyeIcon2.addEventListener("click", function () {
-    if (active2) {
-        pass2.setAttribute("type", "text");
-        eyeIcon2.classList.value = "far fa-eye";
-        active2 = false;
-    } else {
-        pass2.setAttribute("type", "password");
-        eyeIcon2.classList.value = "far fa-eye-slash";
-        active2 = true;
-    }
-});
-
-</script>
+<script src = " /../../assets/javascripts/registration.js" ></script>
 
 
 </section>

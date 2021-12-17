@@ -1,48 +1,55 @@
-
-<section class="pt-5 px-0 pb-xl-5">
+<div class="main-div">
+<div class="pt-5 px-0">
     <div class="container">
       <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
         <div class="col-lg-14">
-          <h2 class="fw-light mb-4">Bienvenue sur votre<span class="fw-bold mb-4"> Dashboard</span></h2>
-          <p>Ici, vous pouvez retrouver tous vos projets actuellement en cours, en crée de nouveaux et acceder a tout vos investissement. </p>
+          <h2 class="fw-light mb-4">Bienvenue sur <span class="fw-bold mb-4">vos projets</span></h2>
+          <p>Ici, vous pouvez retrouver tous vos projets locatifs en cours, en créer de nouveaux et accéder au comparateur de logements. </p>
+
+          <div class="warning-area"><p><span style="font-size:2rem; font-weight: 600;">&#9888;</span> Attention : notre outil permet de conseiller nos utilisateurs en facilitant la comparaison de biens immobiliers selon certains critères déterminés par les utilisateurs eux-mêmes. <br />
+          Nous ne pourrons donc être tenus pour responsables des conséquences des achats effectués. </p>
         </div>
       </div>
     </div>
-  </section>
-<section class="py-0 py-xl-5">
+  </div>
+<div class="py-0 py-xl-5 bg-white">
     <div class="container">
-      <div class="row g-3 g-xl-5 mb-5">
-        <div class="col-lg-6">
-          <h3 class="fw-light mb-4">Mes<span class="fw-bold mb-4"> Projets :</span></h3>
-        </div>
-      </div>
+
+
       <div class="row g-3 g-xl-5">
         <%@projects.each do |project|%>
-        <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up">
-          <a href='<%= project_path(project.id) %>' class="card border card-arrow">
-            <div class="card-header">
-              <h3 class="card-title"><%=project.title%></h3>
-            </div>
-            <div class="card-footer">
-              <div class="d-flex align-items-center">
-                <div class="ms-2">
-                  <p class="mb-0 lh-1"><%=project.localization %></p>
-                  <p class="mb-0 lh-1"><%=project.comment%></p>
+          <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up">
+            
+            <a href='<%= project_path(project.id) %>' class="card border card-arrow">
+              <div class="card-header">
+                <h3 class="card-title"><%=project.title%></h3>
+              </div>
+
+              <div class="card-footer">
+                <div class="d-flex align-items-center">
+                  <div class="ms-2">
+                    <p class="mb-0 lh-1"><%=project.localization %></p>
+                    <p class="mb-0 lh-1"><%=project.comment%></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </a>
-        </div>
+
+            </a>
+            
+          </div>
         <%end%>
       </div>
-    </div>
-</section>
-<section class="pt-3 px-5 pb-xl-5">
+
+        <div class="pt-3 px-5">
     <div class="container">
       <div class="row justify-content-end align-items-center gutter-3 gutter-lg-5 ">
         <div class="col-lg-3 ">
-          <%=link_to 'Creé un nouveau projet', new_project_path , class: 'btn btn-primary rounded'%>
+          <%=link_to 'Créer un nouveau projet', new_project_path , class: 'btn btn-primary rounded'%>
+        </div>
       </div>
     </div>
+  </div>
     </div>
-</section>
+</div>
+
+</div>

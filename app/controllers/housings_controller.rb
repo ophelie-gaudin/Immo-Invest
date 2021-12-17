@@ -6,15 +6,16 @@ class HousingsController < ApplicationController
     end
 
     def destroy
+        
         @housing = Housing.find(params[:id])
-        @project = @housing.project_id
+        @project = Project.find(@housing.project_id)
         @housing.destroy
         
         if
-          flash[:notice] = "Suppression de logement réussi !"
-          redirect_to project_path(@project)
+            flash[:notice] = "Suppression de logement réussi !"
+            redirect_to project_path(@project)
         elsif 
-          flash[:alerte] = "Suppression de logement raté !"
+            flash[:alerte] = "Suppression de logement raté !"
         end
     end
 
@@ -23,7 +24,7 @@ class HousingsController < ApplicationController
     end
 
     def edit
-        @housing = Housing.find(params[:id])        
+        @housing = Housing.find(params[:id])
     end
 
     def show
