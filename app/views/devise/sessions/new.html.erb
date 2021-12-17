@@ -30,10 +30,13 @@
                 </div>
                   <div class="form-floating mb-2">
                     <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" > Se souvenir de moi 
-                    
                     <label for="user_remember_me"></label>
                   </div>
-
+                  <div class="form-floating mb-2">
+                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                    <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %><br />
+                  <% end %>
+                  </div>
                 <div class="d-grid mb-2ns">
                   <input type="submit" name="commit" value="Log in" data-disable-with="Log in" class='btn btn-lg btn-primary'>
                 </div>
@@ -43,9 +46,4 @@
         </div>
       </div>
     </div>
-
-
-
-
-
 </section>

@@ -49,10 +49,10 @@
                        </div>
                         <div class=" order-3 text-md-end p-0">
                           <div class="col d-flex">
-                            <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%><i class="fas fa-pencil-alt  ms-1"></i>
+                            <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%><i class="fas fa-pencil-alt fa-lg   ms-1"></i>
                             <%end%>
 
-                            <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times ms-1"></i>
+                            <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times fa-lg ms-1"></i>
                             <%end%>
                           </div>
                          </div>
@@ -68,7 +68,7 @@
           </ul>
         </div>
       <div class='col d-flex justify-content-end bg-white'>
-        <%=button_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
+        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
       </div>
 
       
