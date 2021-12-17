@@ -54,10 +54,8 @@ class HousingsController < ApplicationController
     redirect_to project_path(@housing.project_id)
   end
 
-    
   def update
     @housing = Housing.find(params[:id])  
-
         
     def calculate_profitability(price)
       housing = Housing.find(params[:id])
@@ -122,11 +120,8 @@ class HousingsController < ApplicationController
     elsif 
       flash[:alert] = "Erreur lors de l'édition du logement"
     end
-        
-
   end
 
   private
-
 end
 
