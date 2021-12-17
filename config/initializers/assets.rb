@@ -14,8 +14,7 @@ Rails.application.config.assets.precompile += %w[
   flash.js 
   registration.js 
   session.js 
-  form.js 
-  remove_housing.js.erb
+  form.js
 ]
 
 Rails.application.config.assets.precompile += %w[ index.bundle.css.map ]
