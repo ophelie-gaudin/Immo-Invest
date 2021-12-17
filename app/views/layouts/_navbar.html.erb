@@ -2,8 +2,8 @@
     <div class="container">
 
       <div>
-        <% link_to root_path, class: "navbar-brand" %>
-            <%= image_tag "logo1.svg", style: "max-height:40px" %>
+        <a href="<%=root_path%>" class="navbar-brand">
+            <img src="/assets/logo1.svg" style="max-height:40px;"/>
         <span style="font-family: 'Bakbak One', cursive; margin-left: 20px;">Immotep </span>    
         </a>
       </div>
@@ -126,14 +126,10 @@
         </ul>
       </div>
     </div> 
-    <!--
-    <% if isUser? %>
-    <span class="me-3"><%="#{current_user.email}"%></span>
-    <%end%>
-    -->
+
     <%end%>
 </nav>
 
 
 
-<%#= javascript_include_tag 'navbar.js' %>
+<%= javascript_include_tag 'navbar.js' %>
