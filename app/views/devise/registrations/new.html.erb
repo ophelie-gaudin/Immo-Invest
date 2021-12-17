@@ -43,24 +43,34 @@
                       </div>                  
                   </div>
                 </div>
-                </div>
-                <div class="d-grid mb-2">
-                  <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
-                </div>
-              </form>
 
-            </div>
-            <div class="card-footer  inverted text-center">
-              <p class="text-secondary">Vous avez déjà un compte ? <a href="<%= new_user_session_path %>" class="underline">Sign In</a>
-              </p>
-            </div>
+                </div>
+              </div>
+              </div>
+              <div class="form-floating mb-2">
+                <label for="user_password_confirmation"></label>
+                <br>
+                <p>Confirmer le Mot de passe<p>
+              <div class="row">
+                <div class="col d-flex d-flex align-items-center justify-content-end ">
+                    <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
+                    <div class="password-icon2 mx-2" >
+                      <i class="far fa-eye-slash" id="icon2"></i>
+                    </div>                  
+                </div>
+              </div>
+              </div>
+              <div class="d-grid mb-2">
+                <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" class='btn btn-lg btn-primary'>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer  inverted text-center" style="color: black;">
+            <p class="text-secondary" style="color: #000 !important;" >Vous avez déjà un compte ? <a href="<%= new_user_session_path %>" class="underline" style="color: #000;">Sign In</a>
+            </p>
           </div>
         </div>
       </div>
     </div>
-
-
-<script src = " /../../assets/javascripts/registration.js" ></script>
-
-
+<%= javascript_include_tag 'registration.js' %>
 </section>

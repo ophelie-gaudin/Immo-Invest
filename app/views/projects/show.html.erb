@@ -1,5 +1,5 @@
 <div class="main-div">
-<div class="pt-5 px-0">
+  <div class="pt-5 px-0">
     <div class="container">
       <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
         <div class="col-lg-14">
@@ -8,24 +8,21 @@
             <br />
             <p>Localisation: <%=@project.localization%></p>    
             <p>Mes remarques: <%=@project_comment%></p>         
+        </div>
+        <div class='col-sm text-lg-end'>
+          <a href="<%= edit_project_path %>" class="btn btn-light m-1 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
+          <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+        </div>
       </div>
-
-       <div class='col-sm text-lg-end'>
-              <a href="<%= edit_project_path %>" class="btn btn-light m-1 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
-              <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
-      </div>
-
     </div>
   </div>
-<div class="py-0 py-xl-5 bg-white">
+  <div class="py-0 py-xl-5 bg-white">
     <div class="container">
-
-
-
         <div class="col pt-5 mt-5">
           <ul class="list-unstyled">
             <%@housings.each do |housing|%>
             <li>
+              <div id="<%=housing.id%>">
               <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border" style='color: rgb(173 81 81 / 98%)'>
                 <div class="card-body  py-2">
                   <div class=" d-flex flex-lg-column">
@@ -37,7 +34,7 @@
                           <li class="list-inline-item"><%= housing.comment %></li>
                           </ul>
                         </div>
-                      <div class='order-2 text-center p-0 '>
+                        <div class='order-2 text-center p-0 '>
                           <% if housing.offer_profitability.nil? %>
                           <%else%>
                           <% if housing.offer_profitability >= 0 %>
@@ -46,31 +43,36 @@
                           <p class='pt-2'>Rentabilité estimé : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
                           <%end%>
                           <%end%>
-                       </div>
+                        </div>
                         <div class=" order-3 text-md-end p-0">
                           <div class="col d-flex">
                             <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%><i class="fas fa-pencil-alt fa-lg   ms-1"></i>
                             <%end%>
 
-                            <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times fa-lg ms-1"></i>
+
+                            <%= button_to  housing_path(housing.id), method: :delete, remote: :true, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times ms-1"></i>
+
                             <%end%>
                           </div>
-                         </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </a>
+              </div>
             </li>
             <% end%>
             
           </ul>
         </div>
-      <div class='col d-flex justify-content-end bg-white'>
-        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
       </div>
+      <div class='col d-flex justify-content-end bg-white'>
+        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-5' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
+      </div>
+    </div>
 
       
   </div>
+</div>
 
