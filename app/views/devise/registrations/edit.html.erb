@@ -1,56 +1,119 @@
-<section class="bg-black overflow-hidden">
+<section>
   <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
     <div class="row align-items-center justify-content-center my-auto">
       <div class="col-md-10 col-lg-8 col-xl-5">
         <div class="card">
-          <div class="card-header bg-white text-center pb-0">
-            <h5  class="fs-4">Edit <%= resource_name.to_s.humanize %></h5>
+          <div class="card-header bg-white text-center ">
+            <div class="d-flex justify-content-between align-items-center">
+              <%= link_to "Retour", :back , class: "" %>
+              <h4  class="fs-4">Éditer votre profil <% resource_name.to_s.humanize %></h4>
+              <%= link_to "Retour", :back , class: "v-hidden" %>
+            </div>
           </div>
-          <div class="card-body bg-white">
+          <div class="card-body bg-white" id="form-container">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
-
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%><br />
-
+              <div class="field d-flex flex-column">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+              </div>
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
 
-              <div class="field">
-                <%= f.label :password %> <i>(laissez vide si vous ne voulez pas le changer)</i><br />
+              <div class="field d-flex flex-column">
+                <%= f.label :mot_de_passe %> <i class="inputDescription">(laissez vide si vous ne voulez pas le changer)</i>
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
                 <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> caractères minimum</em>
+                  <em class="pwLength"><%= @minimum_password_length %> caractères minimum</em>
                 <% end %>
               </div>
 
               <div class="field">
-                <%= f.label :password_confirmation %><br />
+                <%= f.label :confirmation_du_mot_de_passe %>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-              </div><br />
+              </div>
 
-              <div class="field">
-                <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i><br />
+              <div class="field d-flex flex-column">
+                <%= f.label :mot_de_passe_actuel %> <i class="inputDescription">(nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i>
                 <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control " %>
               </div>
 
-              <br />
+            <div class="gap-7 d-flex flex-column mt-5">
               <div class="actions  d-grid mb-2ns">
                 <%= f.submit "Editer", class: ("btn btn-lg btn-primary rounded") %>
               </div>
+
             <% end %><br />
 
             <h3>Annuler mon compte</h3>
 
-            <p>Unhappy? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sûr ?" }, method: :delete ,class: ("btn btn-lg btn-primary rounded ") %></p>
+            <p>Unhappy? <%= button_to "Annuler mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûrs ?" }, method: :delete ,class: ("btn btn-lg btn-primary rounded ") %></p>
+            <!-- des choses à supprimer en bas -->
 
             <%= link_to "Back", :back %>
+              
+              <% end %>
+              <div class="d-flex flex-column gap-2">
+                <h4 class="text-center">Supprimer mon compte</h4>
+                <div class='d-flex'>
+                  <form class="button_to" method="post" action="/users" style='width:100%;'>
+                    <input type="hidden" name="_method" value="delete">
+                    <input data-confirm="Vous êtes sûr ?" class="btn btn-lg rounded d-grid mb-2 deleteAccount " type="submit" value="Supprimer mon compte" style='width:100%; background:transparent; border:1px solid red; color:red;' >
+                    <input type="hidden" name="authenticity_token" value="mzfz8km7R7LC748IHtFuZij8LiFs5mzd/SRyphC/4zf5m5100yUnwjBzPvOSllYuo8WHHaJEhVine014Jhmnng==">
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- des choses à supprimer là-haut -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="background background-overlay"><img src="/assets/cloud-250ec9c97969706867f99e2fd6af3d1e38f61b36ce42d2ffebd9f8bf0b9cb667.jpg" width="100%" height="100%"> </div>
 </section>
+
+
+
+<style scoped>
+
+h4{
+  margin-bottom: 0 !important;
+}
+
+.deleteAccount{
+  transition-duration: 0.3s;
+  opacity: 0.6;
+}
+
+.deleteAccount:hover{
+  cursor: pointer;
+  background: #a75959 !important;
+  color: white !important;
+  border-color: #a75959 !important;
+
+}
+
+.inputDescription{
+  color: #747474;
+  font-size: 14px
+}
+
+#form-container > form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pwLength{
+  text-align: right;
+  font-size: 12px;
+  color: #a75959;
+}
+
+.v-hidden{
+  visibility: hidden;
+}
+
+</style>

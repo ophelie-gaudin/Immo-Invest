@@ -1,0 +1,11 @@
+<div class="flash">
+  <div style='position: relative; width: 80%'>
+    <% flash.each do |name, msg| %>
+      <div class='alert alert-<%= name %>' role="alert">
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag 'flash.js' %>
