@@ -101,39 +101,4 @@
 
       </ul>
     </div>
-  <!-- mobile user menu -->
-    <% begin %>
-      <div class="collapse account-collapse" id="navbar" data-bs-parent="#mainNav">
-        <ul class="navbar-nav">
-          <% if isUser? %>
-          <li class="nav-item">
-            <a class="nav-link active" href="<%= projects_path %>">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="<%= user_path(current_user)%>">Mes informations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-red" href="<%= destroy_user_session_path %>" data-method="delete">Déconnexion</a>
-          </li>
-          <% else %>
-          <li class="nav-item">
-            <a class="nav-link " href="<%= new_user_session_path %>">Connexion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="<%= new_user_registration_path %>">Inscription</a>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div> 
-    <!--
-    <% if isUser? %>
-    <span class="me-3"><%="#{current_user.email}"%></span>
-    <%end%>
-    -->
-    <%end%>
 </nav>
-
-
-
-<%#= javascript_include_tag 'navbar.js' %>
