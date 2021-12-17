@@ -14707,6 +14707,9 @@ figure {
 }
 .card:hover {
     z-index: 4;
+    font-weight: 500;
+    color: #ca6641 !important;
+    border: 1px solid #ca6641 !important;
 }
 .card-arrow .card-header,
 .card-arrow .card-footer,
