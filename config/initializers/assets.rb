@@ -22,6 +22,8 @@ Rails.application.config.assets.precompile += %w[
   decohome.jpg
   giphy_failure.gif
   giphy_success.gif
+  logo1.svg
+  logo.svg
 ]
 
 Rails.application.config.assets.precompile += %w[ index.bundle.css.map ]
