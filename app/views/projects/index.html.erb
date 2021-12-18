@@ -11,36 +11,36 @@
         </div>
       </div>
     </div>
-    <div class="py-0 py-xl-5 bg-white">
-      <div class="container">
-        <div class="row g-3 g-xl-5">
-          <%@projects.each do |project|%>
-            <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up"> 
-              <a href='<%= project_path(project.id) %>' class="card border">
-                <div class="card-header">
-                  <h3 class="card-title"><%=project.title%></h3>
-                </div>
-                <div class="card-footer">
-                  <div class="d-flex align-items-center">
-                    <div class="ms-2">
-                      <p class="mb-0 lh-1"><%=project.localization %></p>
-                      <p class="mb-0 lh-1"><%= truncate(project.comment, length:30 )%></p>
-                    </div>
+  </div>
+  <div class="py-0 py-xl-5 bg-white">
+    <div class="container">
+      <div class="row g-3 g-xl-5">
+        <%@projects.each do |project|%>
+          <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade-up">           
+            <%= link_to project_path(project.id), class:"card border card-arrow" do %>
+              <div class="card-header">
+                <h3 class="card-title"><%=project.title%></h3>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex align-items-center">
+                  <div class="ms-2">
+                    <p class="mb-0 lh-1"><%=project.localization %></p>
+                    <p class="mb-0 lh-1"><%= truncate(project.comment, length:30 )%></p>
                   </div>
+                </div>           
+              </div>
+            <%end%>
+          </div>
+          <div class="pt-3 px-5">
+            <div class="container">
+              <div class="row justify-content-end align-items-center gutter-3 gutter-lg-5 ">
+                <div class="col-lg-3 ">
+                  <%=link_to 'Créer un nouveau projet', new_project_path , class: 'btn btn-primary rounded'%>
                 </div>
-              </a>            
-            </div>
-          <%end%>
-        </div>
-        <div class="pt-3 px-5">
-          <div class="container">
-            <div class="row justify-content-end align-items-center gutter-3 gutter-lg-5 ">
-              <div class="col-lg-3 ">
-                <%=link_to 'Créer un nouveau projet', new_project_path , class: 'btn btn-primary rounded'%>
               </div>
             </div>
           </div>
-        </div>
+        <%end%>
       </div>
     </div>
   </div>
