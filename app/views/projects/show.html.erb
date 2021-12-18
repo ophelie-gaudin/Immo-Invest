@@ -11,7 +11,9 @@
         </div>
         <div class='col-sm text-lg-end'>
         <%= link_to edit_project_path, class:"btn btn-light m-1 rounded" do %>Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i> <%end%>
-        <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes-vous sûrs ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+        <%=link_to project_path, {class:'btn btn-light m-1 rounded',  'data-confirm' => 'Etes-vous sûrs', 'data-method' => 'DELETE'} do %>
+        Supprimer votre projet <i class="fas fa-times fa-lg ms-1"></i> 
+        <% end %>
         </div>
       </div>
     </div>
@@ -65,7 +67,7 @@
         </ul>
       </div>
       <div class='col d-flex justify-content-end bg-white'>
-        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-5' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
+        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-5' do %> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
       </div>
     </div>      
   </div>

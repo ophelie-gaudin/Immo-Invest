@@ -1,21 +1,21 @@
-<nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-light navbar-sticky" style='position: relative'>
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-sticky navbar-light navbar-sticky  position-fixed" >
   <div class="container">
-    <div>
-      <a href="<%=root_path%>" class="navbar-brand">
-        <%= image_tag "logo1.svg", style: "max-height:40px" %>
-        <span style="font-family: 'Bakbak One', cursive; margin-left: 20px;">Immotep </span>    
-      </a>
-    </div>
 
+    <div>
+      <%=link_to root_path, class:'navbar-brand' do %><%= image_tag "logo1.svg", style: "max-height:40px" %>
+      <span style="font-family: 'Bakbak One', cursive; margin-left: 20px;">Immotep </span> 
+      <% end %>  
+    </div>
+  
+
+
+    
     <ul class="navbar-nav navbar-nav-secondary order-lg-3">
       
       <% if isAdmin? %>
 
         <li class="nav-item d-lg-none">
-          <a class="nav-link nav-icon" href='<%= admin_pannel_path %>' role="button"
-          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-users-cog" title="Pannel Administration"></i>
-          </a>
+          <%link_to admin_pannel_path, class:'nav-link nav-icon', role:'button' do %><i class="fas fa-users-cog" title="Pannel Administration"></i> <% end %>
         </li>
 
       <%end%>
@@ -23,36 +23,34 @@
       <% if isUser? %>
 
       <li class="nav-item dropdown dropdown-hover d-lg-block">
-        <a class="nav-link nav-icon" role="button" href="<%= user_path(current_user)%>" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <i class="fa-solid fa-user" title="Mes informations"></i>
-        </a>
+        <%= link_to user_path(current_user), {class:'nav-link nav-icon', :role => 'button', 'id' => 'dropdownMenuButton1', 'data-bs-toggle' => 'dropdown', 'aria-expanded' => 'false' } do %>
+        <i class="fa-solid fa-user"></i>
+        <% end %> 
+
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item " href="<%= user_path(current_user)%>">Mes informations</a></li>
-          <li><a class="dropdown-item text-red" href="<%= destroy_user_session_path %>" data-method="delete">Déconnexion</a></li>
+          <li><%=link_to 'Mes informations',user_path(current_user), class:'dropdown-item'%></li>
+          <li><%=link_to 'Déconnexion',destroy_user_session_path , {class:'dropdown-item text-red','data-method' =>'delete'} %></li>
         </ul>  
       </li>
       
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href='<%= projects_path %>' role="button"
-          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-book" title="Dashboard"></i>
-        </a>
+        <%=link_to projects_path, {class:'nav-link nav-icon', :role => 'button', 'aria-controls' => 'navbar', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' } do %>
+        <i class="fas fa-book" title="Mes projets"></i>
+        <% end %> 
       </li>
 
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href="<%= destroy_user_session_path %>" data-method="delete" role="button">
-          <i class="fas fa-times" title="Déconnexion"></i>
-        </a>
+        <%=link_to destroy_user_session_path , {class:'dropdown-item text-red',:role => 'button','data-method' =>'delete'} do%>
+          <i class="fas fa-times" title= "Déconnexion"></i>
+        <% end %>
       </li>
     
-      <% else %>
+      <%else%>
 
       <li class="nav-item d-lg-none">
-        <a class="nav-link nav-icon" href='<%= new_user_registration_path %>' role="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa-solid fa-user" title="Inscription"></i>
-        </a>
+        <%=link_to new_user_registration_path, {class:'nav-link nav-icon', :role => 'button', 'aria-controls' => 'navbar', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation','data-bs-toggle' => 'collapse','data-bs-target' => '#navbar'} do %>
+        <i class="fa-solid fa-user" title="Inscription"></i>
+        <% end %> 
       </li>
 
     </ul>
@@ -74,29 +72,19 @@
         <%end%>
 
         <% if isUser? %>
-
-        <li class="nav-item">
-          <a class="nav-link" href="<%= projects_path %>" role="button"
-            aria-expanded="false">
-            Mes projets
-          </a>
+      
+        <li class="nav-item ">
+            <%=link_to 'Mes projets',projects_path, {class:'nav-link', :role => 'button', 'aria-expanded' => 'false'} %>
         </li>
 
         <% else %>
 
         <div class="w-100 d-flex justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_user_session_path %>" role="button"
-              aria-expanded="false">
-              Connexion
-            </a> 
+            <%=link_to 'Connexion',new_user_session_path, {class:'nav-link', :role => 'button', 'aria-expanded' => 'false'} %>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<%= new_user_registration_path %>" role="button" 
-              aria-expanded="false">
-              Inscription
-            </a>
+            <%=link_to 'Inscription',new_user_registration_path, {class:'nav-link', :role => 'button', 'aria-expanded' => 'false'} %>
           </li>
         </div>
 
