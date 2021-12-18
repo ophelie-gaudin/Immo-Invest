@@ -26,7 +26,6 @@ class HousingsController < ApplicationController
     @housing_price = @housing.offer_price
     @housing_localization = @housing.localization
     @housing_profitability = @housing.offer_profitability
-    @housing_pictures = @housing.pictures
   end
 
   def create
@@ -114,7 +113,6 @@ class HousingsController < ApplicationController
     )
         
     if 
-      #@housing.pictures.attach(params[:housing][:pictures])
       flash[:notice] = "Édition du logement réussi 👌"
       redirect_to project_housing_path
     elsif 
