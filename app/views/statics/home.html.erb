@@ -1,138 +1,120 @@
-
 <section class="cover overflow-hidden inverted bg-black" >
-    <div class="d-flex flex-column min-vh-100 container py-10 level-1">
-      <div class="row my-auto">
-          
-        <div class="col-md-5">
+  <div class="d-flex flex-column min-vh-100 container py-10 level-1">
+    <div class="row my-auto">          
+      <div class="col-md-5">
         <h1 class="codinfox-sidebar-description sidebar-personal-info-section fw-bold ">Devenez rentier  
-          <div class="codinfox-changing-keywords" id="change">
-        
+          <div class="codinfox-changing-keywords" id="change">        
             <span class="hidden">sans vous prendre <br /> la tête </span><br/>
             <span class="hidden">en faisant des <br /> choix éclairés</span><br/>
             <span class="hidden">sans perdre <br /> votre temps</span><br/>
-            <span class="hidden">en toute simplicité</span>
+            <span class="hidden">en toute simplicité</span>        
+          </div>
+        </h1>
         
-    </div>
-    </h1>
-        
-          <h6>Vous aimeriez investir dans l'immobilier locatif mais trouver le meilleur bien vous semble trop complexe? 
-          <br />
-          <br />
-          Nous avons la solution pour vous : </h6>
-          <br />
-          <% if isUser? %>
+        <h6>Vous aimeriez investir dans l'immobilier locatif mais trouver le meilleur bien vous semble trop complexe? 
+        <br />
+        <br />
+        Nous avons la solution pour vous : </h6>
+        <br />
+        <% if isUser? %>
           <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
-          <%else%>
+        <%else%>
           <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
-          <%end%>
-        </div>
+        <%end%>
       </div>
     </div>
-    <div class="background background-overlay  aos-init aos-animate" data-aos-delay="200"  >
-     <div tabindex="0" class="plyr  plyr--video plyr--html5 plyr--fullscreen-enabled   plyr--playing">
-        <video data-video="" playsinline="" autoplay="" muted="" loop="" width="100%" height="100%">
-          <source src='/assets/video-2-fd5897e39137e9d3cf82d673724fe8002d70d671b015914d4a8a58327f980dd4.mp4' >
-        </video>
-        <div class="plyr__poster"></div>   
-      </div>
+  </div>
+  <div class="background background-overlay  aos-init aos-animate" data-aos-delay="200"  >
+    <div tabindex="0" class="plyr  plyr--video plyr--html5 plyr--fullscreen-enabled   plyr--playing">
+      <video data-video="" playsinline="" autoplay="" muted="" loop="" width="100%" height="100%">
+        <source src='/assets/video-2-fd5897e39137e9d3cf82d673724fe8002d70d671b015914d4a8a58327f980dd4.mp4' >
+      </video>
+      <div class="plyr__poster"></div>   
     </div>
-    <span class="scroll-down"></span>
-  </section>
+  </div>
+  <span class="scroll-down"></span>
+</section>
 
 <section class="py-15 overflow-hidden" id="numbers-section" data-aos="fade-up"data-aos-duration="2000">
-    <div class="container">
-      <div class="row justify-content-center position-relative">
-        <div class="col-xl-10">
-          <q class="fs-4 font-italic">L’immobilier apparaît comme la valeur la plus sûre du marché pour la majorité des français. </q> <p> (selon une étude de l'Ifop) </p>
-          <div class="row g-3 g-md-5 mt-4">
-            <div class="col-md-6 col-lg-4">
-              <span class="fs-2 lh-1 fw-bold">61 % </span>
-              <p class="d-block text-muted fs-lg mt-1"> <span class="text-black">du patrimoine des français correspondent à des actifs immobiliers.</span> (sondages de l'INSEE, 2021)</p>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <span class="fs-2 lh-1 fw-bold">68 % </span> 
-              <p class="d-block text-muted fs-lg mt-1"><span class="text-black">des français estiment que l'immobilier est le meilleur investissement, loin devant les marchés financiers 7%</span> (enquête réalisée par le Crédit Foncier, 2018)</p>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <span class="fs-2 lh-1 fw-bold">1,29 %</span>
-              <p class="d-block text-muted fs-lg mt-1"><span class="text-black">taux moyen des crédits immobiliers en juin 2019, contre 6% dans les années 2000. </span>(étude de l'Observatoire Crédit Logement/CSA)</p>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center position-relative">
+      <div class="col-xl-10">
+        <q class="fs-4 font-italic">L’immobilier apparaît comme la valeur la plus sûre du marché pour la majorité des français. </q> <p> (selon une étude de l'Ifop) </p>
+        <div class="row g-3 g-md-5 mt-4">
+          <div class="col-md-6 col-lg-4">
+            <span class="fs-2 lh-1 fw-bold">61 % </span>
+            <p class="d-block text-muted fs-lg mt-1"> <span class="text-black">du patrimoine des français correspondent à des actifs immobiliers.</span> (sondages de l'INSEE, 2021)</p>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <span class="fs-2 lh-1 fw-bold">68 % </span> 
+            <p class="d-block text-muted fs-lg mt-1"><span class="text-black">des français estiment que l'immobilier est le meilleur investissement, loin devant les marchés financiers 7%</span> (enquête réalisée par le Crédit Foncier, 2018)</p>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <span class="fs-2 lh-1 fw-bold">1,29 %</span>
+            <p class="d-block text-muted fs-lg mt-1"><span class="text-black">taux moyen des crédits immobiliers en juin 2019, contre 6% dans les années 2000. </span>(étude de l'Observatoire Crédit Logement/CSA)</p>
           </div>
         </div>
-        <br />
-        <br />
-          <% if isUser? %>
-          <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
-          <%else%>
-          <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
-          <%end%>
-
       </div>
+      <br />
+      <br />
+      <% if isUser? %>
+        <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded mt-10", style:"max-width:260px" %>
+      <%else%>
+        <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded mt-10", style:"max-width:260px" %>
+      <%end%>
     </div>
-  </section>
-
-
-    <section class="py-15 bg-primary ">
-      <div class="container" >
-        <div class="row align-items-center justify-content-between">
-
-          <div class="col-lg-6 mb mb-lg-0">
-            <div class="frame">
-              <div data-aos="zoom-out-right">
-                <%= image_tag 'decohome.jpg', :style=>'width:100%' %>
-              </div>
-              <span class="bg-white"></span>
-            </div>
-          </div>
-
-          <br/>
-          <br/>
-
-          <div class="col-lg-6 col-xl-5 mt-10">
-            <h2 class="fw-bold">Trouver un bien immobilier rentable semble compliqué...</h2>
-            <p class="text-white"  style="text-align: justify;">Les annonces sont nombreuses et via divers canaux (internet, agences, bouche à oreille...), ce qui demande beaucoup d'organisation pour ne pas perdre les annonces intéressantes.
-            <br />
-            <br />Lors des visites, vous pouvez facilement oublier des informations cruciales pour évaluer la rentabilité d'un bien ou vous laisser porter par un coup de coeur (ce qui n'est pas l'objectif d'un investissement immobilier!).
-            </p>
-          
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-
-<section class="py-15" >
-      <div class="container" >
-        <div class="row align-items-center d-flex justify-content-between" >
-            
-          <div class="col-lg-6 col-xl-5">
-            <h2 class="fw-bold">... sauf si vous avez les bons outils ! </h2>
-            <p class="text-secondary" style="text-align: justify;">Notre outil vous permet de stocker les informations de l'ensemble des biens qui vous intéressent au même endroit.
-            <br /> <br />N'oubliez plus de poser les questions importantes au vendeur afin d'estimer le potentiel d'un bien immobilier et recentrez-vous sur votre objectif d'investissement !
-            <br /> <br />Vous pourrez facilement comparer l'ensemble des biens que vous avez visité les uns avec les autres grâce à un comparateur de rentabilité.</p>
-          </div>
-
-            <div class="col-lg-6 mt-10 mb-lg-0" >
-              <div class="frame">
-                <div data-aos="zoom-out-left">
-                  <%= image_tag 'decohome(1).jpg', :style=>'width:100%' %>
-                </div>
-                <span class="bg-primary"></span>
-              </div>
-            </div>
-
-        </div>
-      </div>
-    </section>
-
+  </div>
+</section>
 
 <section class="py-15 bg-primary ">
-    <div class="container">
-      <h2 style="color: white">Comment utiliser notre outil</h2>
+  <div class="container" >
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-6 mb mb-lg-0">
+        <div class="frame">
+          <div data-aos="zoom-out-right">
+            <%= image_tag 'decohome.jpg', :style=>'width:100%' %>
+          </div>
+          <span class="bg-white"></span>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="col-lg-6 col-xl-5 mt-10">
+        <h2 class="fw-bold">Trouver un bien immobilier rentable semble compliqué...</h2>
+        <p class="text-white"  style="text-align: justify;">Les annonces sont nombreuses et via divers canaux (internet, agences, bouche à oreille...), ce qui demande beaucoup d'organisation pour ne pas perdre les annonces intéressantes.
+        <br />
+        <br />Lors des visites, vous pouvez facilement oublier des informations cruciales pour évaluer la rentabilité d'un bien ou vous laisser porter par un coup de coeur (ce qui n'est pas l'objectif d'un investissement immobilier!).
+        </p>   
+      </div>
     </div>
+  </div>
+</section>
 
+<section class="py-15" >
+  <div class="container" >
+    <div class="row align-items-center d-flex justify-content-between" >            
+      <div class="col-lg-6 col-xl-5">
+        <h2 class="fw-bold">... sauf si vous avez les bons outils ! </h2>
+        <p class="text-secondary" style="text-align: justify;">Notre outil vous permet de stocker les informations de l'ensemble des biens qui vous intéressent au même endroit.
+        <br /> <br />N'oubliez plus de poser les questions importantes au vendeur afin d'estimer le potentiel d'un bien immobilier et recentrez-vous sur votre objectif d'investissement !
+        <br /> <br />Vous pourrez facilement comparer l'ensemble des biens que vous avez visité les uns avec les autres grâce à un comparateur de rentabilité.</p>
+      </div>
+      <div class="col-lg-6 mt-10 mb-lg-0" >
+        <div class="frame">
+          <div data-aos="zoom-out-left">
+            <%= image_tag 'decohome(1).jpg', :style=>'width:100%' %>
+          </div>
+          <span class="bg-primary"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-15 bg-primary ">
+  <div class="container">
+    <h2 style="color: white">Comment utiliser notre outil</h2>
+  </div>
   <div class="card d-flex align-items-center w-100" id="vertical-steps-container">
     <div class="card-body "id="vertical-steps">
       <div class="accordion accordion-steps" id="accordion-steps">
@@ -147,155 +129,151 @@
               <p class="step-block text-white p-2"data-aos="fade-left">Définissez les critères importants dans votre recherche de bien immobilier.</p>
             </div>
           </div>
-  </div>
-
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading-steps-2">
-      <button class="accordion-button fs-5 collapsed mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-2" aria-expanded="false" aria-controls="collapse-steps-2">
-      <h6 class="step-title"data-aos="fade-right">Stockez les informations des annonces <strong>au même endroit</strong> </h6>
-      </button>
-    </h2>
-    <div id="collapse-steps-2" class="accordion-collapse " aria-labelledby="heading-steps-2" data-bs-parent="#accordion-steps">
-      <div class="accordion-body">
-        <p class=" p-2 text-white step-block" data-aos="fade-left">Lorsque vous trouvez des biens qui vous intéressent, stockez toutes leurs informations ainsi que le lien vers leur annonce.</p>
-      </div>
-    </div>
-  </div>
-  
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="heading-steps-2">
-          <button class="accordion-button fs-5 collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-3" aria-expanded="false" aria-controls="collapse-steps-3">
-          <h6 class="step-title"data-aos="fade-right">Visitez et posez les <strong>bonnes questions</strong></h6>                      
-          </button>
-        </h2>
-        <div id="collapse-steps-2" class="accordion-collapse " aria-labelledby="heading-steps-2" data-bs-parent="#accordion-steps">
-          <div class="accordion-body">
-            <p class="p-2 text-white step-block"data-aos="fade-left">Lors de la visite d'un bien ou d'un entretien téléphonique, posez les <strong>questions pertinentes</strong> dans le cas d'un investissement locatif.</p>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-steps-2">
+            <button class="accordion-button fs-5 collapsed mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-2" aria-expanded="false" aria-controls="collapse-steps-2">
+              <h6 class="step-title"data-aos="fade-right">Stockez les informations des annonces <strong>au même endroit</strong> </h6>
+            </button>
+          </h2>
+          <div id="collapse-steps-2" class="accordion-collapse " aria-labelledby="heading-steps-2" data-bs-parent="#accordion-steps">
+            <div class="accordion-body">
+              <p class=" p-2 text-white step-block" data-aos="fade-left">Lorsque vous trouvez des biens qui vous intéressent, stockez toutes leurs informations ainsi que le lien vers leur annonce.</p>
+            </div>
+          </div>
+        </div>  
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-steps-2">
+            <button class="accordion-button fs-5 collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-3" aria-expanded="false" aria-controls="collapse-steps-3">
+              <h6 class="step-title"data-aos="fade-right">Visitez et posez les <strong>bonnes questions</strong></h6>                      
+            </button>
+          </h2>
+          <div id="collapse-steps-2" class="accordion-collapse " aria-labelledby="heading-steps-2" data-bs-parent="#accordion-steps">
+            <div class="accordion-body">
+              <p class="p-2 text-white step-block"data-aos="fade-left">Lors de la visite d'un bien ou d'un entretien téléphonique, posez les <strong>questions pertinentes</strong> dans le cas d'un investissement locatif.</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="heading-steps-2">
-          <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-4" aria-expanded="false" aria-controls="collapse-steps-4">
-          <h6 class="step-title"data-aos="fade-right">Utilisez le calculateur de <strong>rentabilité</strong></h6>
-          </button>
-        </h2>
-        <div id="collapse-steps-2" class="accordion-collapse " aria-labelledby="heading-steps-2" data-bs-parent="#accordion-steps">
-          <div class="accordion-body">
-            <p class="p-2 text-white step-block"data-aos="fade-left">Notre outil calcule pour vous la <strong>rentabilité</strong> des biens que vous avez stockés.</p>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-steps-2">
+            <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-4" aria-expanded="false" aria-controls="collapse-steps-4">
+              <h6 class="step-title"data-aos="fade-right">Utilisez le calculateur de <strong>rentabilité</strong></h6>
+            </button>
+          </h2>
+          <div id="collapse-steps-2" class="accordion-collapse " aria-labelledby="heading-steps-2" data-bs-parent="#accordion-steps">
+            <div class="accordion-body">
+              <p class="p-2 text-white step-block"data-aos="fade-left">Notre outil calcule pour vous la <strong>rentabilité</strong> des biens que vous avez stockés.</p>
+            </div>
           </div>
-        </div>
-      </div>
-      
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="heading-steps-3">
-          <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-5" aria-expanded="false" aria-controls="collapse-steps-5">
-            <h6 class="step-title"data-aos="fade-right">Trouvez le <strong>meilleur investissement</strong></h6>
-          </button>
-        </h2>
-        <div id="collapse-steps-3" class="accordion-collapse " aria-labelledby="heading-steps-3" data-bs-parent="#accordion-steps">
-          <div class="accordion-body">
-            <p class="text-white p-2  step-block"data-aos="fade-left"><strong>Comparez</strong> les biens et <strong>choisissez</strong> celui qui correspond à vos attentes.</p>
+        </div>      
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading-steps-3">
+            <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-steps-5" aria-expanded="false" aria-controls="collapse-steps-5">
+              <h6 class="step-title"data-aos="fade-right">Trouvez le <strong>meilleur investissement</strong></h6>
+            </button>
+          </h2>
+          <div id="collapse-steps-3" class="accordion-collapse " aria-labelledby="heading-steps-3" data-bs-parent="#accordion-steps">
+            <div class="accordion-body">
+              <p class="text-white p-2  step-block"data-aos="fade-left"><strong>Comparez</strong> les biens et <strong>choisissez</strong> celui qui correspond à vos attentes.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
     <% if isUser? %>
-    <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
+      <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-light rounded mt-2" %>
     <%else%>
-    <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
+      <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-light rounded mt-2" %>
     <%end%>
-
-          
+  </div> 
 </section>
 
 <section id="staff" class="py-0">
-    <div class="container-full">
-      <div class="row g-0">
-        <div class="col-6 col-lg-8 col-xl-6">
-          <div class="card h-100 bg-egg inverted">
-            <div class="card-wrap bg-secondary">
-              <div class="card-footer mb-auto text-egg">
-                <h3>Notre équipe vous accompagne dans votre <span class="text-primary">investissement </span></h3>
-              </div>
+  <div class="container-full">
+    <div class="row g-0">
+      <div class="col-6 col-lg-8 col-xl-6">
+        <div class="card h-100 bg-egg inverted">
+          <div class="card-wrap bg-secondary">
+            <div class="card-footer mb-auto text-egg">
+              <h3>Notre équipe vous accompagne dans votre <span class="text-primary">investissement </span></h3>
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <a href="https://github.com/Mariem2708" class="card card-hover-gradient inverted equal-1-1">
-            <div class="card-wrap">
-              <div class="card-footer text-shadow mt-auto">
-                <h5 class="mb-0">Mariem Vilayhong</h5>
-                <span class="text-muted">Développeur junior</span>
-              </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <a href="https://github.com/Mariem2708" class="card card-hover-gradient inverted equal-1-1">
+          <div class="card-wrap">
+            <div class="card-footer text-shadow mt-auto">
+              <h5 class="mb-0">Mariem Vilayhong</h5>
+              <span class="text-muted">Développeur junior</span>
             </div>
-            <figure class="background" style="background-image: url('/assets/mariem-1a4c7cef75db027ee5d2c4634b59d82f6f8308ece3fcaf958baab534b37045b3.jpg')">
-            </figure>
-          </a>        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <a href="https://github.com/MidNightRoad" class="card card-hover-gradient inverted equal-1-1">
-            <div class="card-wrap">
-              <div class="card-footer text-shadow mt-auto">
-                <h5 class="mb-0">Pierre Berger</h5>
-                <span class="text-muted">Développeur junior</span>
-              </div>
+          </div>
+          <figure class="background" style="background-image: url('/assets/mariem-1a4c7cef75db027ee5d2c4634b59d82f6f8308ece3fcaf958baab534b37045b3.jpg')">
+          </figure>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <a href="https://github.com/MidNightRoad" class="card card-hover-gradient inverted equal-1-1">
+          <div class="card-wrap">
+            <div class="card-footer text-shadow mt-auto">
+              <h5 class="mb-0">Pierre Berger</h5>
+              <span class="text-muted">Développeur junior</span>
             </div>
-            <figure class="background" style="background-image: url('/assets/pierre-b7b2ebee382b2b07c556c8cb1cb51316174a4f85c4b97bedc2f26a6132f8622c.jpg')">
-            </figure>
-          </a>        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <a href="https://github.com/istarengwa" class="card card-hover-gradient inverted equal-1-1">
-            <div class="card-wrap">
-              <div class="card-footer text-shadow mt-auto">
-                <h5 class="mb-0">Lilian Muller</h5>
-                <span class="text-muted">Développeur junior</span>
-              </div>
+          </div>
+          <figure class="background" style="background-image: url('/assets/pierre-b7b2ebee382b2b07c556c8cb1cb51316174a4f85c4b97bedc2f26a6132f8622c.jpg')">
+          </figure>
+        </a>        
+      </div>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <a href="https://github.com/istarengwa" class="card card-hover-gradient inverted equal-1-1">
+          <div class="card-wrap">
+            <div class="card-footer text-shadow mt-auto">
+              <h5 class="mb-0">Lilian Muller</h5>
+              <span class="text-muted">Développeur junior</span>
             </div>
-            <figure class="background" style="background-image: url('/assets/lilian-ec5d3cb4b45f1115b2d485379b116a7e5a87b0cdf728383487b9803407878dd7.jpg')">
-            </figure>
-          </a>        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <a href="https://github.com/ophelie-gaudin" class="card card-hover-gradient inverted equal-1-1">
-            <div class="card-wrap">
-              <div class="card-footer text-shadow mt-auto">
-                <h5 class="mb-0">Ophélie Gaudin</h5>
-                <span class="text-muted">Développeur junior</span>
-              </div>
+          </div>
+          <figure class="background" style="background-image: url('/assets/lilian-ec5d3cb4b45f1115b2d485379b116a7e5a87b0cdf728383487b9803407878dd7.jpg')">
+          </figure>
+        </a>        
+      </div>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <a href="https://github.com/ophelie-gaudin" class="card card-hover-gradient inverted equal-1-1">
+          <div class="card-wrap">
+            <div class="card-footer text-shadow mt-auto">
+              <h5 class="mb-0">Ophélie Gaudin</h5>
+              <span class="text-muted">Développeur junior</span>
             </div>
-            <figure class="background" style="background-image: url('/assets/ophelie-5b24e24f1af1b46bd2eba0affc19a44fe5e49a4c6454d8d2c769c0fe7dd01e1f.jpg') ">
-            </figure>
-          </a>        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <a href="https://github.com/Tariok" class="card card-hover-gradient inverted equal-1-1">
-            <div class="card-wrap">
-              <div class="card-footer text-shadow mt-auto">
-                <h5 class="mb-0">Evan Mingot</h5>
-                <span class="text-muted">Développeur junior</span>
-              </div>
+          </div>
+          <figure class="background" style="background-image: url('/assets/ophelie-5b24e24f1af1b46bd2eba0affc19a44fe5e49a4c6454d8d2c769c0fe7dd01e1f.jpg') ">
+          </figure>
+        </a>        
+      </div>
+      <div class="col-sm-6 col-lg-4 col-xl-3">
+        <a href="https://github.com/Tariok" class="card card-hover-gradient inverted equal-1-1">
+          <div class="card-wrap">
+            <div class="card-footer text-shadow mt-auto">
+              <h5 class="mb-0">Evan Mingot</h5>
+              <span class="text-muted">Développeur junior</span>
             </div>
-            <figure class="background" style="background-image: url('/assets/evan-26461a8c4355b8408ad8bcdb7c4903e2949c0cab12d7d902b3777129c583e388.jpg')">
-            </figure>
-          </a>
-        </div>
-        
-        <div class="d-xs-none d-sm-none d-md-none d-lg-block col-lg-8 col-xl-3">
+          </div>
+          <figure class="background" style="background-image: url('/assets/evan-26461a8c4355b8408ad8bcdb7c4903e2949c0cab12d7d902b3777129c583e388.jpg')">
+          </figure>
+        </a>
+      </div>      
+      <div class="d-xs-none d-sm-none d-md-none d-lg-block col-lg-8 col-xl-3">
         <%= link_to contact_path, class:'card bg-primary inverted h-100', target:"_blank" do %>
-            <div class="card-wrap">
-              <div class="card-footer text-shadow mt-auto">
-                <h5 class="mb-0">Et pourquoi pas vous ?</h5>
-                <span class="text-muted">Envoyez-nous un email avec comme objet "Recrutement"</span>
-              </div>
+          <div class="card-wrap">
+            <div class="card-footer text-shadow mt-auto">
+              <h5 class="mb-0">Et pourquoi pas vous ?</h5>
+              <span class="text-muted">Envoyez-nous un email avec comme objet "Recrutement"</span>
             </div>
-            <figure class="background" style="background-image:'./assets/images/users/user-7.jpg';">
-            </figure>
-          <%end%>        
-        </div>
+          </div>
+          <figure class="background" style="background-image:'./assets/images/users/user-7.jpg';">
+          </figure>
+        <%end%>        
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 

@@ -2,22 +2,24 @@
   <div class="py-15 py-xl-20 d-flex flex-column container level-3 min-vh-100">
     <div class="row align-items-center justify-content-center my-auto">
       <div class="col-md-10 col-lg-8 col-xl-5">
-        <div class="card">
-          <div class="card-header bg-white text-center pb-0">
-            <h5 class="fs-3">Mot de passe oublié?</h5>
+        <div class="card-shadow">
+          <div class="card-header bg-white text-center d-flex flex-column align-items-start">
+            <%= link_to "<< Retour", :back %>
+            <h5 class="fs-3 mt-5">Mot de passe oublié?</h5>
           </div>
           <div class="card-body bg-white">
-            <form class="new_user" id="new_user" action="<%= root_path %>" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ogZFmQeEaLHNrHsiv5rbNCF7MNq/rOLyFRoczmiWObP9Jbvlv7ZBtZIVBSrX2tZCRRM01kwjVDrrXhwP22i0Ag==">
-              <div class="form-floating mb-2">
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="form-floating">
                 <div class="field">
-                  <label for="user_email" class='mb-2'>Email</label><br>
-                  <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email"class="form-control pt-2">
+                  <%= f.label :email, class: "mb-2" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control pt-2" %>
                 </div>
               </div>
-              <div class="d-grid mb-2ns">
-                <input type="submit" name="commit" value="Envoyer mon email de recuperation" data-disable-with="Send me reset password instructions" class='btn btn-primary rounded'>  
+              <div class="actions d-grid mb-2ns mt-3">
+                <%= f.submit "Envoyer mon email de récuperation", class: "btn btn-primary rounded" %>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>
