@@ -1,49 +1,45 @@
 <section>
-    <div class="py-15 d-flex flex-column container level-3 min-vh-100">
-      <div class="row align-items-center justify-content-center my-auto">
-        <div class="col-md-10 col-lg-8 col-xl-5">
-          <div class=" card-shadow">
-            <div class="card-header bg-white pb-0">
+  <div class="py-15 d-flex flex-column container level-3 min-vh-100">
+    <div class="row align-items-center justify-content-center my-auto">
+      <div class="col-md-10 col-lg-8 col-xl-5">
+        <div class=" card-shadow">
+          <div class="card-header bg-white pb-0">
             <h4 class="fw-light mb-5">Créer un nouveau <span class="fw-bold mb-5">logement </span></h4>
-              <div>
-                <div class="card-body">
-                  <%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
+            <div>
+              <div class="card-body">
+                <%= form_with(model: @housing, url: project_housings_path, method: "post", local: true) do |f| %>
                   <form> 
                     <label for="property_category " class='mb-3'>Type de bien *:</label>
-                      <select name="housing[property_category]" id="housing_property_category"><option value="Studio">Studio</option>
-                        <option value="T1">T1</option>
-                        <option value="T1bis">T1bis</option>
-                        <option value="T2">T2</option>
-                        <option value="T2bis">T2bis</option>
-                        <option value="T3">T3</option>
-                        <option value="T4">T4</option>
-                        <option value="T5">T5</option>
-                        <option value="T6">T6</option>
-                        <option value="Immeuble">Immeuble</option>
-                        <option value="Autre">Autre</option>
-                      </select>
+                    <select name="housing[property_category]" id="housing_property_category"><option value="Studio">Studio</option>
+                      <option value="T1">T1</option>
+                      <option value="T1bis">T1bis</option>
+                      <option value="T2">T2</option>
+                      <option value="T2bis">T2bis</option>
+                      <option value="T3">T3</option>
+                      <option value="T4">T4</option>
+                      <option value="T5">T5</option>
+                      <option value="T6">T6</option>
+                      <option value="Immeuble">Immeuble</option>
+                      <option value="Autre">Autre</option>
+                    </select>
                     <div class="mb-3">
                       <label for="ad_price">Prix du logement * :</label>
-                      <input class="form-control" type="number" name="housing[ad_price]" id="housing_ad_price">
-                      
+                      <input class="form-control" type="number" name="housing[ad_price]" id="housing_ad_price">                      
                     </div>
                     <div class="mb-3">
                       <label for="localization">Localisation du bien *:</label>
                       <input class="form-control" type="text" name="housing[localization]" id="housing_localization">                     
-                     <div class='col text-lg-end'>
-                      <button type="submit" class="btn btn-primary rounded "  style="margin-top: 15px;">Créer</button>
-                    </form>
-
-                  <% end %>
-                
-                </div>
-              </div>
-            
+                      <div class='col text-lg-end'>
+                        <button type="submit" class="btn btn-primary rounded "  style="margin-top: 15px;">Créer</button>
+                      </div>
+                    </div>
+                  </form>
+                <% end %>               
+              </div>            
             </div>
           </div>
-                    </div>
-          </div>
-         
-          </div>
-          </div>
-      </section>
+        </div>
+      </div>         
+    </div>
+  </div>
+</section>
