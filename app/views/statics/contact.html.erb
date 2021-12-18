@@ -1,0 +1,22 @@
+<section>
+  <div class="py-15 d-flex flex-column container level-3 min-vh-100">
+    <div class="row align-items-center justify-content-center my-3">
+      <div class="col-md-10 col-lg-8 col-xl-5 card-header bg-white pb-0 card-shadow">
+        <h4 class="fw-light mb-5"><span class="fw-bold mb-5">Contactez </span>la team</h4>
+        <div class="col-10 m-auto">
+          <form action="/create" method='post' class="row g-3"> 
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Email"name='email'>
+            <br />
+            <br />
+            <label for="yourMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="yourMessage" rows="3" placeholder="Message" name='message'></textarea>            
+            <div class="col-md-12 text-md-end">
+              <input type="submit" name="commit" class='btn btn-block btn-primary rounded my-2'>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

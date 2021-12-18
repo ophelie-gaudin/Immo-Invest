@@ -1,0 +1,18 @@
+<head>
+  <meta http-equiv = "refresh" content = "7; url = /" />
+</head>
+<body>
+  <div class="d-flex justify-content-center bg-white">
+    <div class= "col-4 border bg-white" >
+      <div class="card-header bg-white text-center pb-0">
+        <h1>Succès</h1>
+      </div>
+      <div class="container text-center my-5 ">
+        <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %> (<%= @payment_intent.status %>).</p>
+        <p>Merci énormément pour le soutien .</p>
+        <p>Vous allez être redirigés d'ici quelques instant</p>
+      </div>
+      <%= image_tag "giphy_success.gif", class: 'card-img-top' %>
+    </div>
+  </div>  
+</body>

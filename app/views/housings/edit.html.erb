@@ -1,0 +1,237 @@
+
+<div class="form-body">
+  <%= form_with(model: @housing, url: project_housing_path, method: "put", local: true, class:'form-wrapper card-shadow') do |f| %>
+    <div class="form-title">
+      <h4>Formulaire</h4>
+      <div class="stepper">
+        <div class="step">
+          <div class="step-label">
+            Annonce
+          </div>
+          <div class="step-bullet">
+            1
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-label">
+            Logement
+          </div>
+          <div class="step-bullet">
+            2
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-label">
+            Charges
+          </div>
+          <div class="step-bullet">
+            3
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-label">
+            Invest
+          </div>
+        <div class="step-bullet">
+          4
+        </div>
+        </div>
+        <div class="step">
+          <div class="step-label">
+            Offre
+          </div>
+          <div class="step-bullet">
+            5
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-content">
+      <div class="slide active">
+        <h6>Références de l'annonce :</h6>
+
+        <div class="my-input">      
+          <%= label_tag(:ad_url, "Lien vers l'annonce :") %>
+          <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
+        </div>
+        
+        <div class="my-input">
+          <%= label_tag(:ad_price, "Prix de l'annonce :") %>
+          <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:property_category, "Type de bien :")  %>
+          <br />
+          <%= f.select :property_category, ['Studio', 'T1', 'T1bis', 'T2', 'T2bis', 'T3', 'T4', 'T5', 'T6', 'Immeuble', 'Autre' ], class: 'form-control', value: @housing.property_category %> 
+        </div>
+        
+        <div class="my-input">
+          <%= label_tag(:localization, "Localisation du bien :") %>
+          <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+
+          <div class="warning-area">
+              <p><span style="font-size:1.2rem">&#9432;</span> Nous vous conseillons de vérifier sur plusieurs annonces le prix des biens similaires afin de voir s'il n'y a pas d'incohérence avec le prix annoncé. <br /> N'hésitez pas à questionner le propriétaire ou l'agence lors de la visite. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h6>Caractéristiques du bien :</h6>
+
+        <div class="my-input">
+          <%= label_tag(:area, "Surface habitable :")%>
+          <%= f.number_field :area, class: 'form-control', value: @housing.area %>
+        </div>
+
+        <div class="warning-area">
+          <p><span style="font-size:1.2rem">&#9432;</span> Nous vous conseillons de vérifier le prix au mètre carré pour la localisation du bien. </p>
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:repairs_price, "Prix des travaux :") %>
+          <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
+        </div>
+
+        <div class="my-input">
+          <div class="d-flex align-items-center">
+          <%#= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
+          <%= check_box_tag(:new_property, class: 'form-control', value: @housing.new_property) %>
+          <%= label_tag(:new_property, "Neuf", class:"check-label") %>
+          </div>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> Lors de la visite, il faut impérativement poser des questions sur l'état du bien et plus particulièrement trois éléments qui peuvent très rapidement faire grimper le coût des travaux à prévoir:</p>
+            <ul> 
+            <li>la toiture (environ 250€/m² de toit), </li>
+            <li>la façade (environ 30€/m² de mur), </li>
+            <li>la chaudière (à condensation gaz : entre 3000 - 6000 €, classique: entre 500 - 2500€). </li>
+            </ul>
+          </div>          
+        </div>
+      </div>
+
+      <div class="slide">
+        <h6>Charges :</h6>
+              
+        <div class="my-input">
+          <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
+          <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:property_tax, "Taxe foncière :") %>
+          <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+        </div>
+
+        <div class="my-input">
+          <div class="d-flex align-items-center">
+            <%= check_box_tag(:pno_insurance, class: 'form-control', value: @housing.pno_insurance) %>
+            <%#= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
+            <%= label_tag(:pno_insurance, "Assurance PNO ", class:"check-label") %>
+          </div>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> L'assurance Propriétaire Non Occupant garantit au propriétaire bailleur une couverture équivalente à la multirisque habitation. <br />
+            Elle correspond généralement à environ 7% du loyer. </p>
+          </div>       
+        </div>
+
+        <div class="my-input">
+          <div class="d-flex align-items-center">
+            <%= check_box_tag(:rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance) %>
+            <%#= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
+            <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés", class:"check-label") %>
+          </div>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> L'assurance pour loyers impayés garantit le versement du loyer au propriétaire en cas de défault de paiement par le locataire. <br />
+            Elle correspond généralement à environ 7% du loyer. </p>
+          </div>       
+        </div>         
+      </div>
+
+      <div class="slide">
+        <h6>Investissement :</h6>
+
+        <div class="my-input">
+          <%= label_tag(:annual_rent, "Loyer annuel complet :") %>
+          <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
+        </div>
+
+        <div class="my-input">
+          <div class="d-flex align-items-center">
+            <%= check_box_tag(:rental_management, class: 'form-control', value: @housing.rental_management) %>
+            <%#= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
+            <%= label_tag(:rental_management, "Gestion locative", class:"check-label") %>
+          </div>
+
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> La gestion locative permet à un tiers (souvent une agence immobilière) de gérer la recherche d'un locataire, le suivi du paiement des loyers ainsi que les contrôles périodiques de l'état du logement.
+            <br />Il faut compter enviroon 7% du loyer ainsi qu'un mois de loyer par changement de locataire.  </p>
+          </div>
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
+          <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de vacance locative permet de prendre en compte dans nos calculs les périodes sans locataire (périodes entre le départ d'un locataire et l'arrivée d'un nouveau, etc.)<br />
+            Une semaine de vacance locative représente 2% de vacance locative. </p>
+          </div>
+        </div>
+
+        <div class="my-input">      
+          <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien :") %>
+          <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de réserve permet de mettre chaque mois une somme de côté pour prendre en compte l'entretien à faire sur un logement. <br />
+            Cette somme ne rentre pas en compte dans les bénéfices. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h6>Offre :</h6>
+
+        <div class="my-input">
+          <%= label_tag(:comment, "Vos remarques :") %>
+          <%= f.text_area :comment, class: 'form-control', value: @housing.comment %>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> N'hésitez pas à visiter le logement à différents moments de la journée et de la semaine pour vérifier les éventuelles nuisances (bar, travaux, circulation...) présentes dans le quartier. </p>
+          </div>       
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:comment, "Ajoutez les photos de ce logement :") %>
+          <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:offer_price, "Prix de votre offre :") %>
+          <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
+          <div class="warning-area">
+            <p><span style="font-size:1.2rem">&#9432;</span> Demandez les raisons de la vente du bien : si la vente est urgente, vous pourrez plus facilement négocier le prix.
+            <br />Renseignez-vous sur la durée durant laquelle le propriétaire a vécu dans le bien : si le propriétaire habite ici depuis longtemps, il a eu davantage le temps de rembourser son crédit et sera surement davantage ouvert à une offre. </p>
+          </div>
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:notary_fees, "Frais de notaire :") %>
+          <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
+        </div>
+
+        <div class="my-input">
+          <%= label_tag(:agency_fees, "Frais d'agence :") %>
+          <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
+        </div>
+      </div>
+  
+      <div class="form-footer">
+        <button id="prev-btn"  style="display:none;"><i class="fas fa-chevron-circle-left"></i> Précédent</button>
+        <button id="next-btn">Suivant <i class="fas fa-chevron-circle-right"></i></button>
+        <button id="end-btn" style="display:none;">Finir</button>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<%= javascript_include_tag 'form.js' %>

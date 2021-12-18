@@ -1,5 +1,28 @@
 Rails.application.routes.draw do
+
+  resources 'users',only:[:show], :path => "my-profile"
+  resources 'projects', only:[:index,:new,:create,:show,:edit,:destroy,:update ], :path => "dashboard"
+  resources :housings 
+  scope 'admin', module: 'admin', as: 'admin' do
+    resource 'pannel'
+  end
+
+  resources :projects do 
+  resources :housings 
+  end 
+
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  end
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "home#index"
+  root to: "statics#home"
+
+  scope controller: :statics do
+    get :contact
+    post :create
+  
+  end
 end
