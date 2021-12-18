@@ -62,9 +62,9 @@
         <br />
         <br />
           <% if isUser? %>
-          <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-fantom-primary rounded mt-10" %>
+          <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-fantom-primary rounded mt-10", style:"max-width:260px" %>
           <%else%>
-          <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-fantom-primary rounded mt-10" %>
+          <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-fantom-primary rounded mt-10", style:"max-width:260px" %>
           <%end%>
 
       </div>
