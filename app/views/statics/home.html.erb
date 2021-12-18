@@ -58,9 +58,9 @@
       <br />
       <br />
       <% if isUser? %>
-        <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
+        <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded mt-10", style:"max-width:260px" %>
       <%else%>
-        <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
+        <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded mt-10", style:"max-width:260px" %>
       <%end%>
     </div>
   </div>
@@ -181,9 +181,9 @@
       </div>
     </div>
     <% if isUser? %>
-      <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
+      <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-light rounded mt-2" %>
     <%else%>
-      <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
+      <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-light rounded mt-2" %>
     <%end%>
   </div> 
 </section>
