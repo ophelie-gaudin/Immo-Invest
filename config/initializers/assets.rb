@@ -29,6 +29,11 @@ Rails.application.config.assets.precompile += %w[
   500.jpg
 ]
 
+Rails.application.config.assets.precompile += %w[ 
+  bootstrap-icons.woff
+  bootstrap-icons.woff2
+]
+
 Rails.application.config.assets.precompile += %w[ index.bundle.css.map ]
 
 # Precompile additional assets.
