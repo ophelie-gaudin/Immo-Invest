@@ -10,8 +10,8 @@
             <p><span style="font-weight:700">Mes remarques:</span> <%=@project_comment%></p>         
         </div>
         <div class='col-sm text-lg-end'>
-          <a href="<%= edit_project_path %>" class="btn btn-light m-1 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
-          <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
+        <%= link_to edit_project_path, class:"btn btn-light m-1 rounded" do %>Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i> <%end%>
+        <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes-vous sûrs ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <%@housings.each do |housing|%>
             <li>
               <div id="<%=housing.id%>">
-              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border" style='color: rgb(173 81 81 / 98%)'>
+              <%= link_to project_housing_path(housing.project_id, housing.id), class:"card bg-white card-hover-border", style:'color: rgb(173 81 81 / 98%)' do %>
                 <div class="card-body  py-2">
                   <div class=" d-flex flex-lg-column">
                     <div class="d-flex-lg-column ">
@@ -59,10 +59,10 @@
                     </div>
                   </div>
                 </div>
-              </a>
+              <%end%>
               </div>
             </li>
-            <% end%>
+            <%end%>
             
           </ul>
         </div>
