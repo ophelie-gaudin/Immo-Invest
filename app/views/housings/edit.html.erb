@@ -201,11 +201,6 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:comment, "Ajoutez les photos de ce logement :") %>
-          <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
-        </div>
-
-        <div class="my-input">
           <%= label_tag(:offer_price, "Prix de votre offre :") %>
           <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
           <div class="warning-area">
