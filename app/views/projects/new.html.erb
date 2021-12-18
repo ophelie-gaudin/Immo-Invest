@@ -1,48 +1,29 @@
 <section>
-    <div class="py-15 d-flex flex-column container level-3 min-vh-100">
-      <div class="row align-items-center justify-content-center my-auto">
-        <div class="col-md-10 col-lg-8 col-xl-5">
-          <div  class=" card-shadow">
-            <div class="card-header bg-white pb-0">
-
+  <div class="py-15 d-flex flex-column container level-3 min-vh-100">
+    <div class="row align-items-center justify-content-center my-auto">
+      <div class="col-md-10 col-lg-8 col-xl-5">
+        <div  class=" card-shadow">
+          <div class="card-header bg-white pb-0">
             <h4 class="fw-light mb-5">Créer un nouveau  <span class="fw-bold mb-5">projet </span></h4>
-
-
-<div class="card-body">
-<%= form_with(model: @project, url: projects_path, method: "post", local: true) do |f| %>
-
-
-<%= label_tag :title, "Titre du projet *:", class:"form-label" %>
- <%= f.text_field :title, class: 'form-control', value: @project.title%> 
-
-<br />
-
-
- <%= label_tag :localization, "Localisation du bien :", class:"form-label" %>
- <%= f.text_field :localization, class: 'form-control', value: @project.localization %> 
-
-<br />
-
-
-
- <%= label_tag :comment, "Vos notes :", class:"form-label" %>
- <%= f.text_area :comment, class: 'form-control', value: @project.comment %>
-
-<br />
-
-  <div class='col text-lg-end' style="margin-top: 15px;">
-    <%= f.submit "Créer", class:'btn btn-primary rounded' %>
+            <div class="card-body">
+              <%= form_with(model: @project, url: projects_path, method: "post", local: true) do |f| %>
+                <%= label_tag :title, "Titre du projet *:", class:"form-label" %>
+                <%= f.text_field :title, class: 'form-control', value: @project.title%> 
+                <br />
+                <%= label_tag :localization, "Localisation du bien :", class:"form-label" %>
+                <%= f.text_field :localization, class: 'form-control', value: @project.localization %> 
+                <br />
+                <%= label_tag :comment, "Vos notes :", class:"form-label" %>
+                <%= f.text_area :comment, class: 'form-control', value: @project.comment %>
+                <br />
+                <div class='col text-lg-end' style="margin-top: 15px;">
+                  <%= f.submit "Créer", class:'btn btn-primary rounded' %>
+                </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
- <%end%>
-</div>
-
- 
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
