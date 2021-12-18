@@ -15,6 +15,7 @@ Rails.application.config.assets.precompile += %w[
   registration.js 
   session.js 
   form.js
+  show.js
 ]
 
 Rails.application.config.assets.precompile += %w[ 
