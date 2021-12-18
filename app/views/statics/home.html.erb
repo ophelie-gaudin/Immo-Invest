@@ -61,7 +61,11 @@
         </div>
         <br />
         <br />
-          <a href="/users/sign_up" class="btn btn-fantom-primary rounded mt-10" style="max-width:260px">Commencer maintenant</a>
+          <% if isUser? %>
+          <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
+          <%else%>
+          <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
+          <%end%>
 
       </div>
     </div>
@@ -200,7 +204,11 @@
     </div>
   </div>
 
-          <a href="/users/sign_up" class="btn btn-light rounded mt-2" style="max-width:260px">Commencer maintenant</a>
+    <% if isUser? %>
+    <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
+    <%else%>
+    <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
+    <%end%>
 
           
 </section>
@@ -275,16 +283,16 @@
         </div>
         
         <div class="d-xs-none d-sm-none d-md-none d-lg-block col-lg-8 col-xl-3">
-          <a href="mailto:thpicebreakers@gmail.com" target="_blank" class="card bg-primary inverted h-100">
+        <%= link_to contact_path, class:'card bg-primary inverted h-100', target:"_blank" do %>
             <div class="card-wrap">
               <div class="card-footer text-shadow mt-auto">
                 <h5 class="mb-0">Et pourquoi pas vous ?</h5>
-                <span class="text-muted">Recrutement</span>
+                <span class="text-muted">Envoyez-nous un email avec comme objet "Recrutement"</span>
               </div>
             </div>
             <figure class="background" style="background-image:'./assets/images/users/user-7.jpg';">
             </figure>
-          </a>        
+          <%end%>        
         </div>
       </div>
     </div>
