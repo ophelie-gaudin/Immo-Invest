@@ -17,7 +17,7 @@ class HousingsController < ApplicationController
   end
 
   def edit
-      @housing = Housing.find(params[:id])
+    @housing = Housing.find(params[:id])
   end
 
   def show
