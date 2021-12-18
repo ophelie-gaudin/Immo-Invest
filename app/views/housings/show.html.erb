@@ -17,12 +17,6 @@
           <p> Lien de l'annonce : <%=@housing.ad_url%></p>
           <p> Notes : <%=@housing.comment%></p>
         </div>
-        <div><br />
-          PHOTOS :
-          <% @housing.pictures.each do |other| %>
-            <%= image_tag other %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
