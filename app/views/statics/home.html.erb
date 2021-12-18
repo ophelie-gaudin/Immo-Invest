@@ -20,7 +20,11 @@
           <br />
           Nous avons la solution pour vous : </h6>
           <br />
-          <a href="/users/sign_up" class="btn btn-primary rounded">Commencer maintenant</a>
+          <% if isUser? %>
+          <%= link_to 'Commencez maintenant', projects_path(current_user.id),  class:"btn btn-primary rounded" %>
+          <%else%>
+          <%= link_to 'Commencez maintenant', new_user_registration_path,  class:"btn btn-primary rounded" %>
+          <%end%>
         </div>
       </div>
     </div>
@@ -46,8 +50,8 @@
               <p class="d-block text-muted fs-lg mt-1"> <span class="text-black">du patrimoine des français correspondent à des actifs immobiliers.</span> (sondages de l'INSEE, 2021)</p>
             </div>
             <div class="col-md-6 col-lg-4">
-              <span class="fs-2 lh-1 fw-bold">68 % </span>
-              <p class="d-block text-muted fs-lg mt-1"><span class="text-black">  loin devant les marchés financiers 7%</span> (enquête réalisée par le Crédit Foncier, 2018)</p>
+              <span class="fs-2 lh-1 fw-bold">68 % </span> 
+              <p class="d-block text-muted fs-lg mt-1"><span class="text-black">des français estiment que l'immobilier est le meilleur investissement, loin devant les marchés financiers 7%</span> (enquête réalisée par le Crédit Foncier, 2018)</p>
             </div>
             <div class="col-md-6 col-lg-4">
               <span class="fs-2 lh-1 fw-bold">1,29 %</span>
