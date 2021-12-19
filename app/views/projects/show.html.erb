@@ -59,9 +59,8 @@
                               <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%>
                                 <i class="fas fa-pencil-alt fa-lg   ms-1"></i>
                               <%end%>
-                              <%= button_to  housing_path(housing.id), method: :delete, remote: :true, class:'btn btn-primary  rounded ms-2' do %>
-                                <i class="fas fa-times ms-1"></i>
-                              <%end%>
+                             <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times ms-1"></i> 
+                             <%end%>
                             </div>
                           </div>
                         </div>
@@ -80,4 +79,3 @@
     </div>      
   </div>
 </div>
-
