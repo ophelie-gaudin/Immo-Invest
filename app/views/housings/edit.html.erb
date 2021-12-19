@@ -100,7 +100,7 @@
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-          <%= check_box_tag(:new_property, class: 'form-control', value: @housing.new_property) %>
+          <%= f.check_box :new_property %>
           <%= label_tag(:new_property, "Neuf", class:"check-label") %>
           </div>
           <div class="warning-area">
@@ -129,7 +129,7 @@
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-            <%= check_box_tag(:pno_insurance, class: 'form-control', value: @housing.pno_insurance) %>
+            <%= f.check_box :pno_insurance %>
             <%= label_tag(:pno_insurance, "Assurance PNO ", class:"check-label") %>
           </div>
           <div class="warning-area">
@@ -140,7 +140,7 @@
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-            <%= check_box_tag(:rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance) %>
+            <%= f.check_box :rental_unpayment_insurance %>
             <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés", class:"check-label") %>
           </div>
           <div class="warning-area">
@@ -160,13 +160,13 @@
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-            <%= check_box_tag(:rental_management, class: 'form-control', value: @housing.rental_management) %>
+            <%= f.check_box :rental_management %>
             <%= label_tag(:rental_management, "Gestion locative", class:"check-label") %>
           </div>
 
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> La gestion locative permet à un tiers (souvent une agence immobilière) de gérer la recherche d'un locataire, le suivi du paiement des loyers ainsi que les contrôles périodiques de l'état du logement.
-            <br />Il faut compter enviroon 7% du loyer ainsi qu'un mois de loyer par changement de locataire.  </p>
+            <br />Il faut compter environ 7% du loyer ainsi qu'un mois de loyer par changement de locataire.  </p>
           </div>
         </div>
 
