@@ -46,12 +46,12 @@ class HousingsController < ApplicationController
       rental_management: 0,
       rental_unpayment_insurance: 0,
       building_co_tax: 0,
-      maintenance_percentage: 0.02,
-      rental_vacancy: 0.055,
+      maintenance_percentage: 2,
+      rental_vacancy: 6,
       project_id: params[:project_id]
     )
     
-    flash[:notice] = "Création de logement réussi 👌"
+    flash[:notice] = "Création de logement réussie 👌"
     redirect_to project_path(@housing.project_id)
   end
 
