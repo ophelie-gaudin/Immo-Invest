@@ -95,7 +95,6 @@ Ce projet peut intéresser toute personne qui souhaite investir dans l'immobilie
 
 #### Lien Heroku :
 
-* Developpement : https://immo-invest-dev.herokuapp.com/
-* Production : https://immo-invest-prod.herokuapp.com/
+* Production : https://immotep.herokuapp.com/
 
 #### API Mailjet : Désactivation de l'action Mailer avec Mailjet lors de la création de compte, pour éviter le blocage de l'application sur les créations de comptes.
