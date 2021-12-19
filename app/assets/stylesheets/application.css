@@ -24328,6 +24328,10 @@ div.form-content {
     color: rgba(0, 0, 0, 0.6);
 }
 
+.my-input input:invalid {
+    border: 2px solid red;
+}
+
 .my-input input[type="checkbox"] {
     width: 20px;
     margin-right: 30px;
