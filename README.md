@@ -91,7 +91,6 @@ Ce projet peut intéresser toute personne qui souhaite investir dans l'immobilie
 
 #### User Flow : https://wireframe.cc/pro/pp/ff8429f79502622
 
-#### Wirefrimes : https://www.camscanner.com/share/show?encrypt_id=MHg1MDYyMmE2MA%3D%3D&sid=C8C2BD39B35E43D8r68FC72hUS&pid=dsa&style=1&share_link_style=0
 
 #### Lien Heroku :
 
