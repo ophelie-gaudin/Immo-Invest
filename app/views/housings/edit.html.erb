@@ -175,7 +175,7 @@
           <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy, min:"0", max:"100", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de vacance locative permet de prendre en compte dans nos calculs les périodes sans locataire (périodes entre le départ d'un locataire et l'arrivée d'un nouveau, etc.)<br />
-            Une semaine de vacance locative représente 2% de vacance locative sur un an. </p>
+            Une semaine de vacance locative représente 2% de vacance locative sur un an. <br /> <small>Pourcentage minimal conseillé: 6%</small> </p>
           </div>
         </div>
 
@@ -184,7 +184,7 @@
           <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage, min:"0", max:"100", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de réserve permet de mettre chaque mois une somme de côté pour prendre en compte l'entretien à faire sur un logement. <br />
-            Cette somme ne rentre pas en compte dans les bénéfices. </p>
+            Cette somme ne rentre pas en compte dans les bénéfices. <br /> <small>Pourcentage minimal conseillé: 2%</small> </p>
           </div>
         </div>
       </div>
