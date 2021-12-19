@@ -1,76 +1,81 @@
-<div class="main-div">
-<div class="pt-5 px-0">
+<div class="main-div card-shadow">
+  <div class="pt-5 px-0">
     <div class="container">
       <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
         <div class="col-lg-14">
+            <%= link_to projects_path, class:'w-100 d-flex justify-content-start text-white' do %>
+              <i class="fas fa-arrow-left m-1">
+              </i>  Retour
+            <%end%>
           <h2 class="fw-light mb-4">Mon <span class="fw-bold mb-5">Projet: </span> <%=@project.title%></h2>
-            <p>Ici , vous avez acces a vos logement inclus dans votre projets, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.</p>
-            <br />
-            <p>Localisation: <%=@project.localization%></p>    
-            <p>Mes remarques: <%=@project_comment%></p>         
+          <p>Ici, vous avez accès aux logements que vous avez ajouté à votre projet, vous pouvez les modifier, <br /> remplir le formulaire de rentabilité et supprimer un logement.</p>
+          <br />
+          <p><span style="font-weight:700">Localisation:</span> <%=@project.localization%></p>    
+          <p><span style="font-weight:700">Mes remarques:</span> <%=@project_comment%></p>   
+          <div class="warning-area"><p class="small"><span style="font-size: 2rem; margin-right: 10px"> &#9432;</span>Notre outil présente les biens en fonction de leur rentabilité nette : il s'agit d'une unité permettant de mesurer les potentiels gains d'un bien immobilier et de les comparer à d'autres biens en fonction de vos réponses à notre formulaire . Ainsi, plus la rentabilité d'un bien est élevée, plus les bénéfices peuvent être importants. <br />
+            Veillez donc à saisir des information réalistes. Nous estimons qu'un bien est intéressant à partir de 4% de rentabilité. <br /><br />
+            <span style=" font-size: 1rem; margin-right: 10px">&#9888;</span>La rentabilité nette ne prend pas en compte votre fiscalité, qui dépend de vos informations personnelles. N'hésitez pas à vous renseigner pour bénéficier des meilleurs avantages. </p>
+          </div>      
+        </div>
+        <div class='col-sm text-lg-end'>
+        <%= link_to edit_project_path, class:"btn btn-light m-1 rounded" do %>Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i> <%end%>
+        <%=link_to project_path, {class:'btn btn-light m-1 rounded',  'data-confirm' => 'Etes-vous sûrs', 'data-method' => 'DELETE'} do %>
+        Supprimer votre projet <i class="fas fa-times fa-lg ms-1"></i> 
+        <% end %>
+        </div>
       </div>
-
-       <div class='col-sm text-lg-end'>
-              <a href="<%= edit_project_path %>" class="btn btn-light m-1 rounded">Editer votre projet<i class="fas fa-pencil-alt  ms-1"></i></a>
-              <a href="<%= project_path %>" class="btn btn-light m-1 rounded" data-confirm="Etes vous sur ?" data-method="DELETE">Supprimer votre projet<i class="fas fa-times fa-lg ms-1"></i></a>
-      </div>
-
     </div>
   </div>
-<div class="py-0 py-xl-5 bg-white">
+  <div class="py-0 py-xl-5 bg-white">
     <div class="container">
-
-
-
-        <div class="col pt-5 mt-5">
-          <ul class="list-unstyled">
-            <%@housings.each do |housing|%>
+      <div class="col pt-5 mt-5">
+        <ul class="list-unstyled">
+          <%@housings.each do |housing|%>
             <li>
-              <a href="<%=project_housing_path(housing.project_id, housing.id)%>" class="card bg-white card-hover-border" style='color: rgb(173 81 81 / 98%)'>
-                <div class="card-body  py-2">
-                  <div class=" d-flex flex-lg-column">
-                    <div class="d-flex-lg-column ">
-                      <div class='d-flex justify-content-between'>
-                        <div class='order-1'>
-                          <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  //  <%=housing.ad_price%>€  //  <%=  truncate(housing.localization, length:10 )%> // </p>
-                          <ul class="list-inline list-inline-separated text-muted">
-                          <li class="list-inline-item"><%= housing.comment %></li>
-                          </ul>
-                        </div>
-                      <div class='order-2 text-center p-0 '>
-                          <% if housing.offer_profitability.nil? %>
-                          <%else%>
-                          <% if housing.offer_profitability >= 0 %>
-                          <p class='pt-2'>Rentabilité estimé : <span style=' color: green'> <%=housing.offer_profitability.round(2)%> % </span></p>
-                          <% else %>
-                          <p class='pt-2'>Rentabilité estimé : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
-                          <%end%>
-                          <%end%>
-                       </div>
-                        <div class=" order-3 text-md-end p-0">
-                          <div class="col d-flex">
-                            <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%><i class="fas fa-pencil-alt  ms-1"></i>
-                            <%end%>
-
-                            <%= link_to housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times ms-1"></i>
+              <div id="<%=housing.id%>">
+                <%= link_to project_housing_path(housing.project_id, housing.id), class:"card bg-white card-hover-border", style:'color: rgb(173 81 81 / 98%)' do %>
+                  <div class="card-body  py-2">
+                    <div class=" d-flex flex-lg-column">
+                      <div class="d-flex-lg-column ">
+                        <div class='d-flex justify-content-between'>
+                          <div class='order-1'>
+                            <p class="fs-lg fw-light mb-0"><%= housing.property_category%>  <i class="fas fa-circle" style="font-size: 0.3rem"></i>   <%=housing.ad_price%>€  <i class="fas fa-circle" style="font-size: 0.3rem"></i>  <%=  truncate(housing.localization, length:10 )%>  </p>
+                            <ul class="list-inline list-inline-separated text-muted">
+                              <li class="list-inline-item"><%= housing.comment %></li>
+                            </ul>
+                          </div>
+                          <div class='order-2 text-center p-0 '>
+                            <% if housing.offer_profitability.nil? %>
+                            <%else%>
+                              <% if housing.offer_profitability >= 0 %>
+                                <p class='pt-2'>Rentabilité estimée : <span style=' color: green'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                              <% else %>
+                                <p class='pt-2'>Rentabilité estimée : <span style=' color: red'> <%=housing.offer_profitability.round(2)%> % </span></p>
+                              <%end%>
                             <%end%>
                           </div>
-                         </div>
+                          <div class=" order-3 text-md-end p-0">
+                            <div class="col d-flex">
+                              <%= button_to  edit_project_housing_path(housing.project_id, housing.id), method: :get, class:' btn btn-outline-primary rounded ' do%>
+                                <i class="fas fa-pencil-alt fa-lg   ms-1"></i>
+                              <%end%>
+                             <%= button_to  housing_path(housing.id), method: :delete, class:'btn btn-primary  rounded ms-2' do %><i class="fas fa-times ms-1"></i> 
+                             <%end%>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                <%end%>
+              </div>
             </li>
-            <% end%>
-            
-          </ul>
-        </div>
-      <div class='col d-flex justify-content-end bg-white'>
-        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-2' do%> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
+          <%end%>      
+        </ul>
       </div>
-
-      
+      <div class='col d-flex justify-content-end bg-white'>
+        <%=link_to new_project_housing_path(@project), class: 'btn btn-primary rounded m-5' do %> <i class="fas fa-plus"></i>  Ajouter un logement <%end%>
+      </div>
+    </div>      
   </div>
-
+</div>
