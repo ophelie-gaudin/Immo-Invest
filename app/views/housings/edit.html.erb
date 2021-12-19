@@ -60,9 +60,9 @@
           <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
         </div>
         
-        <div class="my-input">
-          <%= label_tag(:ad_price, "Prix de l'annonce (en €) :") %>
-          <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
+        <div class="my-input">          
+          <%= label_tag(:ad_price, "Prix de l'annonce (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price, min:"0", required: true %> 
         </div>
 
         <div class="my-input">
@@ -73,7 +73,7 @@
         
         <div class="my-input">
           <%= label_tag(:localization, "Localisation du bien :") %>
-          <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+          <%= f.text_field :localization, class: 'form-control', value: @housing.localization, required: true  %> 
 
           <div class="warning-area">
               <p><span style="font-size:1.2rem">&#9432;</span> Nous vous conseillons de vérifier sur plusieurs annonces le prix des biens similaires afin de voir s'il n'y a pas d'incohérence avec le prix annoncé. <br /> N'hésitez pas à questionner le propriétaire ou l'agence lors de la visite. </p>
@@ -85,8 +85,8 @@
         <h6>Caractéristiques du bien :</h6>
 
         <div class="my-input">
-          <%= label_tag(:area, "Surface habitable (en m²) :")%>
-          <%= f.number_field :area, class: 'form-control', value: @housing.area %>
+          <%= label_tag(:area, "Surface habitable (en m²) :")%>  <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :area, class: 'form-control', value: @housing.area, min:"0", required: true  %>
         </div>
 
         <div class="warning-area">
@@ -94,8 +94,8 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:repairs_price, "Prix des travaux (en €) :") %>
-          <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
+          <%= label_tag(:repairs_price, "Prix des travaux (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
@@ -118,13 +118,13 @@
         <h6>Charges :</h6>
               
         <div class="my-input">
-          <%= label_tag(:building_co_tax, "Charges de copropriété (en €) :") %>
-          <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+          <%= label_tag(:building_co_tax, "Charges de copropriété (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
-          <%= label_tag(:property_tax, "Taxe foncière (en €) :") %>
-          <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+          <%= label_tag(:property_tax, "Taxe foncière (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
@@ -154,8 +154,8 @@
         <h6>Investissement :</h6>
 
         <div class="my-input">
-          <%= label_tag(:annual_rent, "Loyer annuel complet (en €) :") %>
-          <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
+          <%= label_tag(:annual_rent, "Loyer annuel complet (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
@@ -171,8 +171,8 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative (en %) :") %>
-          <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
+          <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative (en %) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy, min:"0", max:"100", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de vacance locative permet de prendre en compte dans nos calculs les périodes sans locataire (périodes entre le départ d'un locataire et l'arrivée d'un nouveau, etc.)<br />
             Une semaine de vacance locative représente 2% de vacance locative sur un an. </p>
@@ -180,8 +180,8 @@
         </div>
 
         <div class="my-input">      
-          <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien (en %) :") %>
-          <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
+          <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien (en %) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage, min:"0", max:"100", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de réserve permet de mettre chaque mois une somme de côté pour prendre en compte l'entretien à faire sur un logement. <br />
             Cette somme ne rentre pas en compte dans les bénéfices. </p>
@@ -201,8 +201,8 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:offer_price, "Prix de votre offre (en €) :") %>
-          <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
+          <%= label_tag(:offer_price, "Prix de votre offre (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price, min:"0", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Demandez les raisons de la vente du bien : si la vente est urgente, vous pourrez plus facilement négocier le prix.
             <br />Renseignez-vous sur la durée durant laquelle le propriétaire a vécu dans le bien : si le propriétaire habite ici depuis longtemps, il a eu davantage le temps de rembourser son crédit et sera surement davantage ouvert à une offre. </p>
@@ -210,13 +210,13 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:notary_fees, "Frais de notaire (en €) :") %>
-          <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
+          <%= label_tag(:notary_fees, "Frais de notaire (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
-          <%= label_tag(:agency_fees, "Frais d'agence (en €) :") %>
-          <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
+          <%= label_tag(:agency_fees, "Frais d'agence (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees, min:"0", required: true  %>
         </div>
       </div>
   

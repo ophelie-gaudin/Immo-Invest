@@ -109,6 +109,8 @@ class HousingsController < ApplicationController
       new_property: params[:housing][:new_property]
     )
 
+    
+
     @housing.update(
       ad_profitability: calculate_profitability(Housing.find(params[:id]).ad_price),
       offer_profitability: calculate_profitability(Housing.find(params[:id]).offer_price)
