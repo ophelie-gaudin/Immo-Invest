@@ -8,7 +8,8 @@ class HousingsController < ApplicationController
     @housing = Housing.find(params[:id])
     @project = Project.find(@housing.project_id)
     @housing.destroy
-        
+    redirect_to projects_path
+
     flash[:notice] = "Suppression de logement réussie !"  
   end
 
