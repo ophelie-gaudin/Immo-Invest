@@ -2,6 +2,10 @@
   <div class="py-15 d-flex flex-column container level-3 min-vh-100">
     <div class="row align-items-center justify-content-center my-3">
       <div class="col-md-10 col-lg-8 col-xl-5 card-header bg-white pb-0 card-shadow">
+            <%= link_to root_path, class:'w-100 d-flex justify-content-start' do %>
+              <i class="fas fa-arrow-left m-1">
+              </i>  Accueil
+            <%end%>
         <h4 class="fw-light mb-5"><span class="fw-bold mb-5">Contactez </span>la team</h4>
         <div class="col-10 m-auto">
           <form action="/create" method='post' class="row g-3"> 

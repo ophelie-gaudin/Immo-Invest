@@ -4,6 +4,10 @@
       <div class="col-md-10 col-lg-8 col-xl-5">
         <div class=" card-shadow">
           <div class="card-header bg-white pb-0">
+            <%= link_to project_path(@project), class:'w-100 d-flex justify-content-start' do %>
+              <i class="fas fa-arrow-left m-1">
+              </i>  Retour
+            <%end%>
             <h4 class="fw-light mb-5">Créer un nouveau <span class="fw-bold mb-5">logement </span></h4>
             <div>
               <div class="card-body">

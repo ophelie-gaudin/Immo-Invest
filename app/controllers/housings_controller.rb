@@ -9,10 +9,11 @@ class HousingsController < ApplicationController
     @project = Project.find(@housing.project_id)
     @housing.destroy
         
-    flash[:notice] = "Suppression de logement réussi !"  
+    flash[:notice] = "Suppression de logement réussie !"  
   end
 
   def new
+    @project= Project.find(params[:project_id])
     @housing = Housing.new 
   end
 
@@ -81,8 +82,8 @@ class HousingsController < ApplicationController
         notary_fees = 0.03
       end
 
-      fees = housing.property_tax + (price * housing.maintenance_percentage) + housing.building_co_tax + (housing.annual_rent * management) + (housing.annual_rent * pno) + (housing.annual_rent * unpayment)
-      profitability = ((housing.annual_rent*(1-housing.rental_vacancy)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
+      fees = housing.property_tax + (price * (housing.maintenance_percentage/100)) + housing.building_co_tax + (housing.annual_rent * management) + (housing.annual_rent * pno) + (housing.annual_rent * unpayment)
+      profitability = (housing.annual_rent*(1-(housing.rental_vacancy/100)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
     end
     
     @housing.update(           

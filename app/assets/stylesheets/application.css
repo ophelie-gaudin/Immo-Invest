@@ -24242,15 +24242,18 @@ div.form-content {
     opacity: 0;
 }
 
+.form-content div.slide {
+    opacity: 0;
+    transition: transform 2s ease-in;
+}
+
+
 .form-content div.slide.active {
     display: flex;
     flex-direction: column;
     opacity: 1;
 }
 
-/* .form-content div.slide > * {
-  margin: 8px 0px;
-} */
 
 .form-title > * {
     margin-bottom: 30px;
