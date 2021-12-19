@@ -57,9 +57,11 @@ class ProjectsController < ApplicationController
   def set_user_project
     @project_user = Project.find(params[:id].to_i).user_id
 
-    if @project_user.to_i == current_user.id
-    else
+    if current_user.present? == false
       redirect_to root_path
+    elsif @project_user.to_i == current_user.id
+    else
+      redirect_to projects_path
     end
   end
         
