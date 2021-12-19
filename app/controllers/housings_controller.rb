@@ -8,11 +8,13 @@ class HousingsController < ApplicationController
     @housing = Housing.find(params[:id])
     @project = Project.find(@housing.project_id)
     @housing.destroy
-        
-    flash[:notice] = "Suppression de logement réussi !"  
+    redirect_to projects_path
+
+    flash[:notice] = "Suppression de logement réussie !"  
   end
 
   def new
+    @project= Project.find(params[:project_id])
     @housing = Housing.new 
   end
 
@@ -26,7 +28,6 @@ class HousingsController < ApplicationController
     @housing_price = @housing.offer_price
     @housing_localization = @housing.localization
     @housing_profitability = @housing.offer_profitability
-    @housing_pictures = @housing.pictures
   end
 
   def create
@@ -82,8 +83,8 @@ class HousingsController < ApplicationController
         notary_fees = 0.03
       end
 
-      fees = housing.property_tax + (price * housing.maintenance_percentage) + housing.building_co_tax + (housing.annual_rent * management) + (housing.annual_rent * pno) + (housing.annual_rent * unpayment)
-      profitability = ((housing.annual_rent*(1-housing.rental_vacancy)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
+      fees = housing.property_tax + (price * (housing.maintenance_percentage/100)) + housing.building_co_tax + (housing.annual_rent * management) + (housing.annual_rent * pno) + (housing.annual_rent * unpayment)
+      profitability = (housing.annual_rent*(1-(housing.rental_vacancy/100)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
     end
     
     @housing.update(           
@@ -108,13 +109,14 @@ class HousingsController < ApplicationController
       new_property: params[:housing][:new_property]
     )
 
+    
+
     @housing.update(
       ad_profitability: calculate_profitability(Housing.find(params[:id]).ad_price),
       offer_profitability: calculate_profitability(Housing.find(params[:id]).offer_price)
     )
         
     if 
-      #@housing.pictures.attach(params[:housing][:pictures])
       flash[:notice] = "Édition du logement réussi 👌"
       redirect_to project_housing_path
     elsif 

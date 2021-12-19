@@ -1,7 +1,11 @@
 
 <div class="form-body">
   <%= form_with(model: @housing, url: project_housing_path, method: "put", local: true, class:'form-wrapper card-shadow') do |f| %>
-    <div class="form-title">
+    <div class="form-title">    
+  <%= link_to project_housing_path(@housing.project_id, @housing.id), class:'w-100 d-flex justify-content-start' do %>
+    <i class="fas fa-arrow-left m-1">
+    </i>  Retour
+  <%end%>
       <h4>Formulaire</h4>
       <div class="stepper">
         <div class="step">
@@ -56,9 +60,9 @@
           <%= f.url_field :ad_url, class: 'form-control', value: @housing.ad_url %>
         </div>
         
-        <div class="my-input">
-          <%= label_tag(:ad_price, "Prix de l'annonce :") %>
-          <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price %> 
+        <div class="my-input">          
+          <%= label_tag(:ad_price, "Prix de l'annonce (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field  :ad_price, class: 'form-control', value: @housing.ad_price, min:"0", required: true %> 
         </div>
 
         <div class="my-input">
@@ -69,7 +73,7 @@
         
         <div class="my-input">
           <%= label_tag(:localization, "Localisation du bien :") %>
-          <%= f.text_field :localization, class: 'form-control', value: @housing.localization %> 
+          <%= f.text_field :localization, class: 'form-control', value: @housing.localization, required: true  %> 
 
           <div class="warning-area">
               <p><span style="font-size:1.2rem">&#9432;</span> Nous vous conseillons de vérifier sur plusieurs annonces le prix des biens similaires afin de voir s'il n'y a pas d'incohérence avec le prix annoncé. <br /> N'hésitez pas à questionner le propriétaire ou l'agence lors de la visite. </p>
@@ -81,8 +85,8 @@
         <h6>Caractéristiques du bien :</h6>
 
         <div class="my-input">
-          <%= label_tag(:area, "Surface habitable :")%>
-          <%= f.number_field :area, class: 'form-control', value: @housing.area %>
+          <%= label_tag(:area, "Surface habitable (en m²) :")%>  <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :area, class: 'form-control', value: @housing.area, min:"0", required: true  %>
         </div>
 
         <div class="warning-area">
@@ -90,14 +94,13 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:repairs_price, "Prix des travaux :") %>
-          <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price %>
+          <%= label_tag(:repairs_price, "Prix des travaux (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :repairs_price, class: 'form-control', value: @housing.repairs_price, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-          <%#= f.check_box :new_property, class: 'form-control', value: @housing.new_property %>
-          <%= check_box_tag(:new_property, class: 'form-control', value: @housing.new_property) %>
+          <%= f.check_box :new_property %>
           <%= label_tag(:new_property, "Neuf", class:"check-label") %>
           </div>
           <div class="warning-area">
@@ -115,19 +118,18 @@
         <h6>Charges :</h6>
               
         <div class="my-input">
-          <%= label_tag(:building_co_tax, "Charges de copropriété :") %>
-          <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax %>
+          <%= label_tag(:building_co_tax, "Charges de copropriété (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :building_co_tax, class: 'form-control', value: @housing.building_co_tax, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
-          <%= label_tag(:property_tax, "Taxe foncière :") %>
-          <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax %>
+          <%= label_tag(:property_tax, "Taxe foncière (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :property_tax, class: 'form-control', value: @housing.property_tax, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-            <%= check_box_tag(:pno_insurance, class: 'form-control', value: @housing.pno_insurance) %>
-            <%#= f.check_box :pno_insurance, class: 'form-control', value: @housing.pno_insurance %>
+            <%= f.check_box :pno_insurance %>
             <%= label_tag(:pno_insurance, "Assurance PNO ", class:"check-label") %>
           </div>
           <div class="warning-area">
@@ -138,8 +140,7 @@
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-            <%= check_box_tag(:rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance) %>
-            <%#= f.check_box :rental_unpayment_insurance, class: 'form-control', value: @housing.rental_unpayment_insurance %>
+            <%= f.check_box :rental_unpayment_insurance %>
             <%= label_tag(:rental_unpayment_insurance, "Assurance pour loyers impayés", class:"check-label") %>
           </div>
           <div class="warning-area">
@@ -153,35 +154,34 @@
         <h6>Investissement :</h6>
 
         <div class="my-input">
-          <%= label_tag(:annual_rent, "Loyer annuel complet :") %>
-          <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent %>
+          <%= label_tag(:annual_rent, "Loyer annuel complet (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :annual_rent, class: 'form-control', value: @housing.annual_rent, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
           <div class="d-flex align-items-center">
-            <%= check_box_tag(:rental_management, class: 'form-control', value: @housing.rental_management) %>
-            <%#= f.check_box :rental_management, class: 'form-control', value: @housing.rental_management %>
+            <%= f.check_box :rental_management %>
             <%= label_tag(:rental_management, "Gestion locative", class:"check-label") %>
           </div>
 
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> La gestion locative permet à un tiers (souvent une agence immobilière) de gérer la recherche d'un locataire, le suivi du paiement des loyers ainsi que les contrôles périodiques de l'état du logement.
-            <br />Il faut compter enviroon 7% du loyer ainsi qu'un mois de loyer par changement de locataire.  </p>
+            <br />Il faut compter environ 7% du loyer ainsi qu'un mois de loyer par changement de locataire.  </p>
           </div>
         </div>
 
         <div class="my-input">
-          <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative :") %>
-          <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy %>
+          <%= label_tag(:rental_vacancy, "Pourcentage de vacance locative (en %) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :rental_vacancy, class: 'form-control', value: @housing.rental_vacancy, min:"0", max:"100", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de vacance locative permet de prendre en compte dans nos calculs les périodes sans locataire (périodes entre le départ d'un locataire et l'arrivée d'un nouveau, etc.)<br />
-            Une semaine de vacance locative représente 2% de vacance locative. </p>
+            Une semaine de vacance locative représente 2% de vacance locative sur un an. </p>
           </div>
         </div>
 
         <div class="my-input">      
-          <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien :") %>
-          <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage %>
+          <%= label_tag(:maintenance_percentage, "Pourcentage de réserve pour entretien (en %) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :maintenance_percentage, class: 'form-control', value: @housing.maintenance_percentage, min:"0", max:"100", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Le pourcentage de réserve permet de mettre chaque mois une somme de côté pour prendre en compte l'entretien à faire sur un logement. <br />
             Cette somme ne rentre pas en compte dans les bénéfices. </p>
@@ -201,13 +201,8 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:comment, "Ajoutez les photos de ce logement :") %>
-          <%= f.file_field :pictures, :multiple => true, :class => "form-control" %>
-        </div>
-
-        <div class="my-input">
-          <%= label_tag(:offer_price, "Prix de votre offre :") %>
-          <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price %>
+          <%= label_tag(:offer_price, "Prix de votre offre (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :offer_price, class: 'form-control', value: @housing.offer_price, min:"0", required: true  %>
           <div class="warning-area">
             <p><span style="font-size:1.2rem">&#9432;</span> Demandez les raisons de la vente du bien : si la vente est urgente, vous pourrez plus facilement négocier le prix.
             <br />Renseignez-vous sur la durée durant laquelle le propriétaire a vécu dans le bien : si le propriétaire habite ici depuis longtemps, il a eu davantage le temps de rembourser son crédit et sera surement davantage ouvert à une offre. </p>
@@ -215,13 +210,13 @@
         </div>
 
         <div class="my-input">
-          <%= label_tag(:notary_fees, "Frais de notaire :") %>
-          <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees %>
+          <%= label_tag(:notary_fees, "Frais de notaire (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :notary_fees, class: 'form-control', value: @housing.notary_fees, min:"0", required: true  %>
         </div>
 
         <div class="my-input">
-          <%= label_tag(:agency_fees, "Frais d'agence :") %>
-          <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees %>
+          <%= label_tag(:agency_fees, "Frais d'agence (en €) :") %> <small class="text-secondary">minimum = 0 </small>
+          <%= f.number_field :agency_fees, class: 'form-control', value: @housing.agency_fees, min:"0", required: true  %>
         </div>
       </div>
   
