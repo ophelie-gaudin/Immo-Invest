@@ -36,24 +36,26 @@ class HousingsController < ApplicationController
   end
 
   def edit
-    @project_user = Project.find(params[:project_id].to_i).user_id
+    @housing = Housing.find(params[:id])
+
+    @project_user = Project.find(@housing.project_id.to_i).user_id
     
     if current_user.present? == false
       redirect_to root_path
     elsif @project_user.to_i == current_user.id
-    @housing = Housing.find(params[:id])
     else
       redirect_to projects_path
     end
   end
 
   def show
-    @project_user = Project.find(params[:project_id].to_i).user_id
+    @housing = Housing.find(params[:id])
+
+    @project_user = Project.find(@housing.project_id.to_i).user_id
 
     if current_user.present? == false
       redirect_to root_path
     elsif @project_user.to_i == current_user.id
-      @housing = Housing.find(params[:id])
       @housing_title =@housing.property_category
       @housing_price = @housing.offer_price
       @housing_localization = @housing.localization
