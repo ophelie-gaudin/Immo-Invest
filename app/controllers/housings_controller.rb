@@ -1,33 +1,70 @@
 class HousingsController < ApplicationController
-  # before_action :set_user_housing
 
   def index
   end
 
-  def destroy    
+  def destroy   
     @housing = Housing.find(params[:id])
-    @project = Project.find(@housing.project_id)
-    @housing.destroy
-    redirect_to projects_path
 
-    flash[:notice] = "Suppression de logement réussie !"  
+    @project_user = Project.find(Housing.find(params[:id]).project_id.to_i).user_id
+
+    if current_user.present? == false
+      redirect_to root_path
+    elsif @project_user.to_i == current_user.id
+      @project = Project.find(@housing.project_id)
+      @housing.destroy
+  
+      flash[:notice] = "Suppression de logement réussie !"  
+    else
+      redirect_to projects_path
+    end
+
+
   end
 
   def new
-    @project= Project.find(params[:project_id])
-    @housing = Housing.new 
+    @project_user = Project.find(params[:project_id].to_i).user_id
+
+    if current_user.present? == false
+      redirect_to root_path
+    elsif @project_user.to_i == current_user.id
+      @project= Project.find(params[:project_id])
+      @housing = Housing.new 
+    else
+      redirect_to projects_path
+    end
   end
 
   def edit
     @housing = Housing.find(params[:id])
+
+    @project_user = Project.find(@housing.project_id.to_i).user_id
+    
+    if current_user.present? == false
+      redirect_to root_path
+    elsif @project_user.to_i == current_user.id
+    else
+      redirect_to projects_path
+    end
   end
 
   def show
     @housing = Housing.find(params[:id])
-    @housing_title =@housing.property_category
-    @housing_price = @housing.offer_price
-    @housing_localization = @housing.localization
-    @housing_profitability = @housing.offer_profitability
+
+    @project_user = Project.find(@housing.project_id.to_i).user_id
+
+    if current_user.present? == false
+      redirect_to root_path
+    elsif @project_user.to_i == current_user.id
+      @housing_title =@housing.property_category
+      @housing_price = @housing.offer_price
+      @housing_localization = @housing.localization
+      @housing_profitability = @housing.offer_profitability
+    else
+      redirect_to projects_path
+    end
+
+
   end
 
   def create
@@ -46,12 +83,12 @@ class HousingsController < ApplicationController
       rental_management: 0,
       rental_unpayment_insurance: 0,
       building_co_tax: 0,
-      maintenance_percentage: 0.02,
-      rental_vacancy: 0.055,
+      maintenance_percentage: 2,
+      rental_vacancy: 6,
       project_id: params[:project_id]
     )
     
-    flash[:notice] = "Création de logement réussi 👌"
+    flash[:notice] = "Création de logement réussie 👌"
     redirect_to project_path(@housing.project_id)
   end
 
@@ -80,11 +117,11 @@ class HousingsController < ApplicationController
       end
 
       if(housing.new_property == true)
-        notary_fees = 0.03
+        notary_fees = housing.offer_price*0.03
       end
 
       fees = housing.property_tax + (price * (housing.maintenance_percentage/100)) + housing.building_co_tax + (housing.annual_rent * management) + (housing.annual_rent * pno) + (housing.annual_rent * unpayment)
-      profitability = (housing.annual_rent*(1-(housing.rental_vacancy/100)) - fees) * 100 / (price  + housing.repairs_price + (price*housing.notary_fees) + (price*housing.agency_fees))
+      profitability = (housing.annual_rent*(1-(housing.rental_vacancy/100)) - fees) * 100 / (price  + housing.repairs_price + housing.notary_fees + housing.agency_fees)
     end
     
     @housing.update(           
@@ -125,5 +162,7 @@ class HousingsController < ApplicationController
   end
 
   private
+
+
 end
 

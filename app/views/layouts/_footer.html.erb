@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row g-4 g-lg-5 mb-10">
       <div class="col-md-3 text-center text-md-start">
-        <%=link_to root_path, class:'navbar-brand d-flex flex-column align-items-center'%>
+        <%=link_to root_path, class:'navbar-brand d-flex flex-column align-items-center' do%>
           <%= image_tag "logo1.svg", style: "max-height:100px" %>
           <span style="font-family: 'Bakbak One', cursive; font-size: 3rem; color:black;">Immotep </span>    
-        </a>
+        <%end%>
       </div>
       <div class="col">
         <ul class="list-unstyled">

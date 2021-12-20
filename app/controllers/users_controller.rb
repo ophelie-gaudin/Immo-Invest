@@ -11,9 +11,11 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
     
-    if @user == current_user
-    else
+    if current_user.present? == false
       redirect_to root_path
+    elsif @user == current_user
+    else
+      redirect_to user_path(current_user)
     end   
   end  
 end

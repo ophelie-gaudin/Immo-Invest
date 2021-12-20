@@ -1,19 +1,23 @@
+
+<div class="bg-white mt-10">
 <div class="d-flex justify-content-center">
   <h1 >Pannel Administration</h1>
 </div><br />
 <div class="m-5">
   <div class="mb-5">
-    <h3>Graphisme d'incription : </h3>
-    <%= line_chart User.group_by_day(:created_at).count %>
+    <h6>Nombre d'inscrits : </h6>
+    <%= User.all.count%>
   </div>
 
   <div class="mb-5">
-    <h3>Graphisme de création de projet : </h3>
-    <%= column_chart Project.group_by_day_of_week(:created_at, format: "%a").count %>
+    <h6>Nombre de projets total : </h6>
+    <%= Project.all.count %>
   </div>
 
   <div class="mb-5">
-    <h3>Graphisme de création de logement : </h3>
-    <%= area_chart Housing.group_by_day_of_week(:created_at, format: "%a").count %>
+    <h6>Nombre total de logements : </h6>
+    <%= Housing.all.count %>
   </div>
+
+</div>
 </div>
