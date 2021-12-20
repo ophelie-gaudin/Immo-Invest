@@ -1,5 +1,4 @@
 class HousingsController < ApplicationController
-  
 
   def index
   end
