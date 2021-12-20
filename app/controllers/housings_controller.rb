@@ -1,5 +1,5 @@
 class HousingsController < ApplicationController
-  before_action :set_user_housing
+  #before_action :set_user_housing
 
   def index
   end
